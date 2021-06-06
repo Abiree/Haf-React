@@ -1,1 +1,29 @@
-.Filltrage {}
+@import '../../../fontcolors.scss';
+#search{
+    display: flex;
+    justify-content: space-between;
+}
+.intro{  
+    display: flex;
+    
+    margin: 30px 70px 30px 70px; 
+    /*height: 80vh;*/
+}
+#search{
+    display: flex;
+    justify-content: space-between;
+}
+.div2{
+    display: flex;
+}
+
+#dropdowntoggle{
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+.spacetop{
+    margin-top:20px;
+}
+.maxwidth{
+    max-height:"40px";
+}
