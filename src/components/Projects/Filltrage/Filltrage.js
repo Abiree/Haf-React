@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Filltrage.scss';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem , Button} from 'reactstrap';
 
 const Filltrage = (props) =>{
   const [data, setData] = useState([{"img":"./assets/project.png","title":"A big title","para":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur vel tortor purus. Donec in tincidunt dui. Sed congue ut purus vel molestie","donator":500,"dons":300},
@@ -23,8 +23,8 @@ const Filltrage = (props) =>{
   const toggle4 = () => setOpen4(!dropdownOpen4);
   return(
     <> 
-      <div class="intro" id="search">
-        <div>
+      <div className="intro" id="search">
+        <div className="div1">
           <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
             <DropdownToggle caret id="dropdowntoggle">
               Category
@@ -63,10 +63,10 @@ const Filltrage = (props) =>{
             </DropdownMenu>
           </ButtonDropdown>
         </div> 
-        <div class="div2">
+        <div className="div2">
           <input type="hidden" name="search_param" value="all" id="search_param"/>
-          <input class="form-control resize" type="text" name="x" placeholder="Search"/>
-          <button class="btn btn-default resize" type="button"><span class="fa fa-search " aria-hidden="true" class="maxwidth"></span></button>
+          <input className="form-control resize" type="text" name="x" placeholder="Search"/>
+          <Button><i className="fa fa-search"></i></Button>
         </div>
       </div>
        

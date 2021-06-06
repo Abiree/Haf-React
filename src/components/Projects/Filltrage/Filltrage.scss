@@ -1,30 +1,26 @@
 @import '../../../fontcolors.scss';
-#search{
-    display: flex;
-    justify-content: space-between;
-}
-.intro{  
-    display: flex;
-    
-    margin: 30px 70px 30px 70px; 
-    /*height: 80vh;*/
-}
-#search{
-    display: flex;
-    justify-content: space-between;
-}
-.div2{
-    display: flex;
-}
 
-
-#dropdowntoggle{
-    background-color: $primary-color;
-    border-color: $primary-color;
-}
-.spacetop{
-    margin-top:20px;
-}
-.maxwidth{
-    max-height:"40px";
+.intro{
+   padding-top:15vh;
+   padding-left: 30px;
+   padding-right: 30px;
+   display: flex;
+   justify-content: space-between;
+   @media screen and (max-width:500px){
+       padding-top: 11vh;
+       display: block;;
+   }
+   .div1{
+    @media screen and (max-width:500px){
+        width: 100%;
+    }
+   }
+   .div2{
+       display: flex;
+        max-height: 40px;
+        margin: 5px;
+   }
+   .btn-group{
+       margin: 5px;
+   }
 }
