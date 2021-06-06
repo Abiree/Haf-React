@@ -1,0 +1,42 @@
+@import 'fontcolors';
+
+a,h1,h2,p{
+    font-family: $font-stack;
+}
+.btn{
+    background-color: $primary-color;
+    color: white;
+    border-color: $primary-color;
+}
+.btn:hover{
+    background-color: $secondary-color;
+    color:white;
+    border-color: $secondary-color;
+}
+.navbar-dark .navbar-brand {
+    color: $primary-color;
+}
+a{
+    font-weight: 700;
+    font-style: italic;
+}
+p{
+    font-size: 15px;
+}
+#navigation{
+    justify-content: space-between;
+    padding: 20 100 20 100;
+}
+.navbar{
+    background-color:$ciel;
+}
+.navbar-dark .navbar-nav .nav-link.active{
+    color:$blackColor;
+    font-size: 20px;
+}
+.navbar-dark .nav-link:hover{
+    color:$blackColor;
+    font-size: 20px;
+    text-decoration: underline;
+    transition: 0.1s;
+}
