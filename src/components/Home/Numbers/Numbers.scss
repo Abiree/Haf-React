@@ -1,29 +1,26 @@
  @import '../../../fontcolors.scss';
 .cards {
+    width: 100%;
+    overflow: hidden;
+    padding-top: 30px;
+    padding-bottom: 30px;
     h2{
         text-align: center;
-        margin: 30px 0px 30px 0px;
+        margin: 0px 0px 30px 0px;
         color: $secondary-color;
     }
-    .row{
-        padding: 0px 100px 0px 100px;
-        @media screen and (max-width:340px) {
-            padding:0px 50px 0px 50px;
-        }
-    }
     .col{
-        display:flex;
-        justify-content:center;
-        align-items:center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
     }
+    
     .card{
         width:10rem;
         border-color:black; 
         border-width: 3px;
         border-radius: 7px; 
-        @media screen and (max-width:912px){
-            margin-bottom: 40px;
-        }
     }
     .cardTitle,.cardText{
         font-size: 20px;

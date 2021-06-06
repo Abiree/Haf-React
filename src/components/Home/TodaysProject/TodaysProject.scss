@@ -1,0 +1,82 @@
+@import '../../../fontcolors.scss';
+.TodaysProject {
+    background-color: $primary-color;
+    padding: 30px 0px 30px 0px;
+    h2{
+        color:$secondary-color;
+        margin:0px 0px 20px 0px;
+        text-align: center;
+    }
+    .todayProject{
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0 30px 0;
+        @media screen and (max-width: 991px) {
+            display: block;
+            margin: 30px 0px 30px 0px;
+        }
+    }
+    .projectImage{
+        margin: 0 20px 0 20px;
+        min-width: 40%;
+        display: flex;
+        justify-content: center;  
+        align-items: center; 
+        @media screen and (max-width: 991px) {
+            display: flex;
+            justify-content: center;
+            width: auto;
+        }
+    }
+    .textIntro2{ 
+        color: $whiteColor;
+        display: flex;
+        justify-content: center;
+        @media screen and (max-width: 991px) {
+            width: 100%;
+        }
+        .projectText{
+            padding:30px;
+            text-align: center;
+            p {
+                text-align: left;
+            }
+        }
+        .slider{
+            display: flex;
+            justify-content: space-between; 
+            .donator,.don{
+                font-size: 15px;
+            }
+        }
+        .DonateIntro{
+            margin: 20px 0px 20px 0px;
+            display : flex;
+            justify-content: center;
+            align-items: center;
+            a{
+                margin: 0px 30px 0px 30px;
+                text-decoration: none;
+                color: $whiteColor;
+                font-style: italic;
+            }
+            a:hover{
+                color: $secondary-color;
+                transition: 0.1s;  
+            }
+            .btn{
+                background-color: $button;
+                border-color: $button;
+                margin: 0px 30px 0px 30px;
+                padding: 5px 30px 5px 30px;
+                color: $blackColor;
+            }
+            .btn:hover{
+                background-color: $secondary-color;
+                border-color: $secondary-color;
+                color: $blackColor;
+                color: $whiteColor;
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import UpBar from './UpBar/UpBar';
 import Intro from './Intro/Intro';
 import Numbers from './Numbers/Numbers';
+import TodaysProject from './TodaysProject/TodaysProject';
 import './Home.scss';
 
 const Home = () => (
@@ -10,6 +11,7 @@ const Home = () => (
     <UpBar/>
     <Intro/>
     <Numbers/>
+    <TodaysProject/>
   </div>
 );
 

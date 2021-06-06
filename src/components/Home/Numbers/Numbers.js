@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Numbers.scss';
-import {Card , CardBody, CardText , CardTitle} from 'reactstrap';
+import {Card , CardBody, CardText , CardTitle, Col ,Row} from 'reactstrap';
 
 const Numbers = (props) => {
   const [data, setData] = useState([
@@ -25,7 +25,7 @@ const Numbers = (props) => {
 
   const card = data.map((element)=>{
       return(
-        <div className="col">
+        <Col>
           <Card className="card">
             <CardBody>
               <CardTitle className="cardTitle">
@@ -36,16 +36,16 @@ const Numbers = (props) => {
               </CardText>
             </CardBody>
           </Card>
-        </div>
+        </Col>
       );
   })
   
   return(
   <div className="cards" data-testid="Numbers">
     <h2>Numbers</h2>
-    <div className = "row">
+    <Row>
       {card}
-    </div>
+    </Row>
   </div>
   )
 };
