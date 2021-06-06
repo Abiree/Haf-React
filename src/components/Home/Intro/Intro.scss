@@ -1,0 +1,57 @@
+@import '../../../fontcolors.scss';
+.Intro {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+}
+.IntroText{
+    width: 70%;
+    background-color:rgba(0, 0, 0, 0.7);
+    border-radius: 7px;
+    color:white;
+    padding : 0px 30px 0px 30px;
+    text-align: center;
+    margin-left: 5%;
+    h1{
+        margin: 20px 0px 20px 0px;
+        color: $secondary-color;
+    }
+    p{
+        margin: 20px 0px 20px 0px;
+    }
+    .IntroButtons{
+        margin: 20px 0px 20px 0px;
+        display : flex;
+        justify-content: center;
+        align-items: center;
+        .btn{
+            margin: 0px 20px 0px 20px;
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
+        .btn:hover{
+            margin: 0px 20px 0px 20px;
+            background-color: $secondary-color;
+            border-color: $secondary-color;
+        }
+        a{
+            margin: 0px 20px 0px 20px;
+            font-style: italic;
+            text-decoration: none;
+            color: $whiteColor;
+        }
+        a:hover{
+            color:$secondary-color;
+        }
+    }
+    @media screen and (max-width:400px) {
+       width: 100%;
+       padding : 0px;
+       margin-left: 0%;
+       height: 100%;
+       display: flex;
+       align-items: center;
+    }
+}
+
+

@@ -1,29 +1,53 @@
-import React from 'react';
+import React,{useState} from 'react';
 import PropTypes from 'prop-types';
 import './UpBar.scss';
+import {  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText, 
+  Button} from 'reactstrap';
 
-const UpBar = () => (
-  <header>
-      <nav class="navbar navbar-expand-lg navbar-light" id="navigation">
-        <div class="brand"><a class="navbar-brand">HAF</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        </div>
-        <div class="nav"> 
-          <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item"> <a class="nav-link active" aria-current="page" href="./index.html">Home </a></li>
-              <li class="nav-item"> <a class="nav-link" href="project.html">Projects</a></li>
-              <li class="nav-item"> <a class="nav-link" href="market.html">Market</a></li>
-              <li class="nav-item"> <a class="nav-link" href="contact.html">ContactUs</a></li>
-              <li class="nav-item">
-                <button class="btn" type="button">Login</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-  </header>
-);
+const UpBar = (props) => {
+
+  const [isOpen , setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+
+  return(
+    <div>
+    <Navbar id="nav" light expand="md">
+      <NavbarBrand id="brand" href="/">HAF</NavbarBrand>
+      <NavbarToggler id="toggler" onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <Nav id="navigation" className="justify-content-end" navbar>
+          <NavItem>
+            <NavLink href="/" active>Home</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/">Projects</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/">Market</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/">ContactUs</NavLink>
+          </NavItem>
+          <NavItem>
+            <Button id="btn">Login</Button>
+          </NavItem>
+        </Nav>
+      </Collapse>
+    </Navbar>
+  </div>  
+  );
+}
 
 UpBar.propTypes = {};
 
