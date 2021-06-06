@@ -1,5 +1,6 @@
 @import '../../../fontcolors.scss';
 .TodaysProject {
+    overflow: hidden;
     background-color: $primary-color;
     padding: 30px 0px 30px 0px;
     h2{
@@ -49,6 +50,11 @@
                 font-size: 15px;
             }
         }
+        .range{
+            .progress-bar{
+                background-color: $secondary-color;
+            } 
+        }
         .DonateIntro{
             margin: 20px 0px 20px 0px;
             display : flex;
@@ -59,6 +65,9 @@
                 text-decoration: none;
                 color: $whiteColor;
                 font-style: italic;
+                @media screen and (max-width:440px) {
+                    margin: 10px;
+                }
             }
             a:hover{
                 color: $secondary-color;
@@ -70,6 +79,10 @@
                 margin: 0px 30px 0px 30px;
                 padding: 5px 30px 5px 30px;
                 color: $blackColor;
+                @media screen and (max-width:440px) {
+                    margin: 10px;
+                    padding : 5px 5px 5px 5px;
+                }
             }
             .btn:hover{
                 background-color: $secondary-color;
