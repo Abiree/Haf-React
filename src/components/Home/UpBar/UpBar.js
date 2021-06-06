@@ -26,7 +26,7 @@ const UpBar = (props) => {
             <NavLink id="link" href="/" active>Home</NavLink>
           </NavItem>
           <NavItem id="navitem">
-            <NavLink id="link" href="/">Projects</NavLink>
+            <NavLink id="link" href="/project">Projects</NavLink>
           </NavItem>
           <NavItem id="navitem">
             <NavLink id="link" href="/">Market</NavLink>
