@@ -3,18 +3,26 @@ $padding : 0px 30px 0px 30px;
 #navigation{
     width: 100%;
     padding: $padding;
+    background-color:$ciel;
     #btn{
         background-color: $primary-color;
         border-color: $primary-color;
+        @media screen and (max-width:767px) {
+            margin-bottom: 20px;
+            text-align: center;
+        }
     }
     #btn:hover{
         background-color: $secondary-color;
         border-color: $secondary-color;
+    } 
+    #navitem{
+        @media screen and (max-width:767px) {
+            display: flex;
+            justify-content: center;
+        }
     }
-    @media screen and (max-width:400px) {
-        background-color:$ciel;
-        padding-bottom: 30px;
-    }
+   
 }
 #nav{
     background-color: $ciel;
