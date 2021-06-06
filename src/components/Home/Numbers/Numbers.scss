@@ -1,0 +1,35 @@
+ @import '../../../fontcolors.scss';
+.cards {
+    h2{
+        text-align: center;
+        margin: 30px 0px 30px 0px;
+        color: $secondary-color;
+    }
+    .row{
+        padding: 0px 100px 0px 100px;
+        @media screen and (max-width:340px) {
+            padding:0px 50px 0px 50px;
+        }
+    }
+    .col{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    .card{
+        width:10rem;
+        border-color:black; 
+        border-width: 3px;
+        border-radius: 7px; 
+        @media screen and (max-width:912px){
+            margin-bottom: 40px;
+        }
+    }
+    .cardTitle,.cardText{
+        font-size: 20px;
+        text-align: center;
+    }
+    .cardTitle{
+        color:$primary-color;
+    }
+}

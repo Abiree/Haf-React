@@ -8,11 +8,6 @@ import {  Collapse,
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText, 
   Button} from 'reactstrap';
 
 const UpBar = (props) => {
@@ -27,19 +22,19 @@ const UpBar = (props) => {
       <NavbarToggler id="toggler" onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav id="navigation" className="justify-content-end" navbar>
-          <NavItem>
-            <NavLink href="/" active>Home</NavLink>
+          <NavItem id="navitem">
+            <NavLink id="link" href="/" active>Home</NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink href="/">Projects</NavLink>
+          <NavItem id="navitem">
+            <NavLink id="link" href="/">Projects</NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink href="/">Market</NavLink>
+          <NavItem id="navitem">
+            <NavLink id="link" href="/">Market</NavLink>
+          </NavItem >
+          <NavItem id="navitem">
+            <NavLink id="link" href="/">ContactUs</NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink href="/">ContactUs</NavLink>
-          </NavItem>
-          <NavItem>
+          <NavItem id="navitem">
             <Button id="btn">Login</Button>
           </NavItem>
         </Nav>
