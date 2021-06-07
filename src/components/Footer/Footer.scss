@@ -1,0 +1,75 @@
+@import '../../fontcolors.scss';
+.Footer {
+    padding: 10px 30px 10px 30px;
+    background-color: $ciel ;
+    .Header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width:767px) {
+            display: block;
+        }
+        h5{
+            @media screen and (max-width:767px) {
+                text-align: center;
+            }
+        }
+        .SocialMedia{
+            @media screen and (max-width:767px) {
+                text-align: center;
+            }
+            a{
+                margin: 0px 10px 0px 10px;
+            }
+            a:hover{
+                cursor:pointer;
+                i{
+                    color:$primary-color;
+                }
+            }
+        }
+    }
+    .content{
+        h5{
+            margin-bottom: 30px;
+            @media screen and (max-width:767px) {
+                margin-top: 30px;
+            }
+        }
+        
+    }
+    .col{
+        display:flex;
+        justify-content: center;
+        text-align: center;
+        @media screen and (max-width:767px) {
+            border-bottom: 2px solid black;
+        }
+        
+        
+    }
+    .nav{
+        display:block;
+        .nav-link{
+            color: grey;
+        }
+        .active{
+            color:black;
+        }
+    }
+    .row{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .fa{
+        margin-right: 5px;
+        color: black;
+    }
+    .copyright{
+        text-align: center;
+        color: grey;
+        margin-top: 20px;
+    }
+    
+
+}
