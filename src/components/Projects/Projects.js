@@ -6,7 +6,7 @@ import Filltrage from './Filltrage/Filltrage';
 
 const Projects = () => (
   <div className="Projects" data-testid="Projects">
-    <UpBar/>
+    
     <Filltrage/>
   </div>
 );

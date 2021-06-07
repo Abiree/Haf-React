@@ -36,6 +36,15 @@ $padding : 0px 30px 0px 30px;
     @media screen and (max-height:300px){
         height: 20vh;
     }
+    .nav-link{
+        color: grey;
+    }
+    .active{
+        color: black;
+    }
+    .nav-link:hover{
+        color: black;
+    }
 }
 #brand{
     padding: $padding;

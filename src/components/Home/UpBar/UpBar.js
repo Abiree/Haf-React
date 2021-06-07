@@ -5,15 +5,19 @@ import {  Collapse,
   Navbar,
   NavbarToggler,
   NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
   Button} from 'reactstrap';
+import {
+  Nav
+} from 'react-bootstrap';
+import { withRouter } from "react-router-dom";
+
+
 
 const UpBar = (props) => {
-
+  const {location} = props;
   const [isOpen , setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  console.log(location);
 
   return(
     <div>
@@ -21,22 +25,22 @@ const UpBar = (props) => {
       <NavbarBrand id="brand" href="/">HAF</NavbarBrand>
       <NavbarToggler id="toggler" onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
-        <Nav id="navigation" className="justify-content-end" navbar>
-          <NavItem id="navitem">
-            <NavLink id="link" href="/" active>Home</NavLink>
-          </NavItem>
-          <NavItem id="navitem">
-            <NavLink id="link" href="/project">Projects</NavLink>
-          </NavItem>
-          <NavItem id="navitem">
-            <NavLink id="link" href="/">Market</NavLink>
-          </NavItem >
-          <NavItem id="navitem">
-            <NavLink id="link" href="/">ContactUs</NavLink>
-          </NavItem>
-          <NavItem id="navitem">
+        <Nav id="navigation" className="justify-content-end" activeKey={location.pathname} defaultActiveKey="/" navbar>
+          <Nav.Item id="navitem">
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item id="navitem">
+            <Nav.Link href="/project">Projects</Nav.Link>
+          </Nav.Item>
+          <Nav.Item id="navitem">
+            <Nav.Link href="/Market">Market</Nav.Link>
+          </Nav.Item >
+          <Nav.Item id="navitem">
+            <Nav.Link href="/ContactUs">ContactUs</Nav.Link>
+          </Nav.Item>
+          <Nav.Item id="navitem">
             <Button id="btn">Login</Button>
-          </NavItem>
+          </Nav.Item>
         </Nav>
       </Collapse>
     </Navbar>
@@ -48,4 +52,6 @@ UpBar.propTypes = {};
 
 UpBar.defaultProps = {};
 
-export default UpBar;
+const HeaderWithRouter = withRouter(UpBar);
+
+export default HeaderWithRouter;
