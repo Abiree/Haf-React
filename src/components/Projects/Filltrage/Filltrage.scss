@@ -25,6 +25,11 @@
        display: flex;
         max-height: 40px;
         margin: 5px;
+        .btn:focus{
+            background-color: $secondary-color;
+            border-color: $secondary-color;
+        }
+       
    }
    .btn-group{
        margin: 5px;
@@ -33,4 +38,11 @@
        background-color: $primary-color;
        border-color: $primary-color;
    }
+   .btn{
+    background-color: $primary-color;
+    border-color: $primary-color;
+   }
+  
+   
+   
 }

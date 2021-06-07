@@ -66,7 +66,7 @@ const Filltrage = (props) =>{
         <div className="div2">
           <input type="hidden" name="search_param" value="all" id="search_param"/>
           <input className="form-control resize" type="text" name="x" placeholder="Search"/>
-          <Button><i className="fa fa-search"></i></Button>
+          <Button className="btn"><i className="fa fa-search"></i></Button>
         </div>
       </div>
        

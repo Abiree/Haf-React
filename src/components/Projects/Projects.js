@@ -7,7 +7,7 @@ import ProjectList from './ProjectsList/ProjectsList';
 const Projects = () => (
   <div className="Projects" data-testid="Projects">
     <Filltrage/>
-    <h2>Market</h2>
+    <h2>Other Projects</h2>
     <ProjectList/>
   </div>
 );
