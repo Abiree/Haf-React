@@ -6,6 +6,8 @@ import TodaysProject from './TodaysProject/TodaysProject';
 import './Home.scss';
 import OtherProjects from './OtherProjects/OtherProjects';
 import Achievements from './Achievements/Achievements';
+import Carbon from './Carbon/Carbon';
+import Tree from './Tree/Tree';
 
 const Home = () => (
   <div className="Home" data-testid="Home">
@@ -14,6 +16,8 @@ const Home = () => (
     <TodaysProject/>
     <OtherProjects/>
     <Achievements/>
+    <Carbon/>
+    <Tree/>
   </div>
 );
 

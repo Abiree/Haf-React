@@ -1,6 +1,6 @@
 @import '../../../fontcolors.scss';
 .Intro {
-    height: 90vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     @media screen and (max-height:500px){
@@ -19,9 +19,15 @@
     h1{
         margin: 20px 0px 20px 0px;
         color: $secondary-color;
+        @media screen and (max-width:264px){
+            width: 100%;
+        }
     }
     p{
         margin: 20px 0px 20px 0px;
+        @media screen and (max-width:264px){
+            width: 100%;
+        }
     }
     .IntroButtons{
         margin: 20px 0px 20px 0px;
