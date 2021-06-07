@@ -1,1 +1,7 @@
-.Projects {}
+@import '../../fontcolors.scss';
+.Projects {
+    h2{
+        text-align: center;
+        color : $secondary-color;
+    }
+}

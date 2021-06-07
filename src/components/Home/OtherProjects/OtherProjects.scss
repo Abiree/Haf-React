@@ -1,0 +1,74 @@
+@import '../../../fontcolors.scss';
+.OtherProjects {
+    h2{
+        text-align: center;
+        color: $secondary-color;
+    }
+    overflow: hidden;
+    padding: 30px;
+    .col{
+        display: flex;
+        justify-content: center;
+    }
+    .card{
+        border-color: black;
+        border-width: 2px;
+        margin-top: 30px;
+        width: 80%;
+    }
+    .card-body{
+        padding: 0%;
+    }
+    .donators{
+        display:flex;
+        justify-content: space-between;
+    }
+    .parag{
+        font-size: 12px;
+        height: 50px;
+        overflow: scroll;
+    }
+    p,a{
+        font-size: 12px;
+    }
+    .donator,.don{
+        margin: 0px 5px 0px 5px;
+    }
+    .parag{
+        width: 90%;
+    }
+    .parag::-webkit-scrollbar{
+        display: none;
+    }
+    .btn{
+        background-color: $primary-color  ;
+        border-color: $primary-color;
+        margin-bottom: 5px;
+    }
+    .btn:hover{
+        background-color: $secondary-color;
+        border-color: $secondary-color;
+    }
+    .row{
+        display: flex;
+        justify-content: center;
+    }
+    .projects{
+        padding: 20px 0px 20px 0px;
+        display: flex;
+        justify-content: center;
+        a{
+            text-decoration: none;
+            font-style: italic;
+            color: black;
+            text-align: center;
+            font-size: 18px;
+            
+        }
+        a:hover{
+            color: $secondary-color;
+            transition: 0.1s;
+        }
+        
+    }
+}

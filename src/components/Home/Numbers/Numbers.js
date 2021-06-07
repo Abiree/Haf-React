@@ -43,9 +43,11 @@ const Numbers = (props) => {
   return(
   <div className="cards" data-testid="Numbers">
     <h2>Numbers</h2>
-    <Row>
-      {card}
-    </Row>
+    <div className="content">
+      <Row className="row">
+        {card}
+      </Row>
+    </div>
   </div>
   )
 };
