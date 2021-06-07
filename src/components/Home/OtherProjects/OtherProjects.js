@@ -25,10 +25,10 @@ const OtherProjects = () => {
           <CardBody className="text-center">
             <CardTitle tag="h5" className="text-align-center">{element.title}</CardTitle>
             <CardText className="parag">{element.paragraph}</CardText>
-            <a>view more</a>
+            <a className="blue">view more</a>
             <div className="donators">
-              <p className="donator">{element.donators} Donor</p>
-              <p className="don">{element.dons} Don</p>
+              <p className="donator">{element.donators}  <br/> Donors</p>
+              <p className="don">{element.dons} <br/> Donations</p>
             </div>
             <Button className="btn">Donate</Button>
           </CardBody>

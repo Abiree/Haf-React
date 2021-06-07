@@ -1,4 +1,7 @@
 @import '../../../fontcolors.scss';
+.blue{
+    color:$primary-color;
+}
 .ProjectsList {
     background-color: $primary-color;
     overflow: hidden;
@@ -24,10 +27,12 @@
         font-size: 12px;
         height: 50px;
         overflow: scroll;
+        padding-left:25px
     }
     p,a{
         font-size: 12px;
     }
+    
     .donator,.don{
         margin: 0px 5px 0px 5px;
     }
