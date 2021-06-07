@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import './Filltrage.scss';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem , Button} from 'reactstrap';
 
-const Filltrage = (props) =>{
- 
+const Filltrage = (props) => {
   const [dropdownOpen, setOpen] = useState(false);
   const toggle = () => setOpen(!dropdownOpen);
 
@@ -81,3 +80,4 @@ Filltrage.propTypes = {};
 Filltrage.defaultProps = {};
 
 export default Filltrage;
+
