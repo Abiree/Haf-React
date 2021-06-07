@@ -5,6 +5,7 @@ import Numbers from './Numbers/Numbers';
 import TodaysProject from './TodaysProject/TodaysProject';
 import './Home.scss';
 import OtherProjects from './OtherProjects/OtherProjects';
+import Achievements from './Achievements/Achievements';
 
 const Home = () => (
   <div className="Home" data-testid="Home">
@@ -12,6 +13,7 @@ const Home = () => (
     <Numbers/>
     <TodaysProject/>
     <OtherProjects/>
+    <Achievements/>
   </div>
 );
 

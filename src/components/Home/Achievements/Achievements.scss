@@ -1,0 +1,20 @@
+@import '../../../fontcolors.scss';
+.Achievements {
+    overflow: hidden;
+    background-color: #DCDCDC;
+    h2{
+        text-align: center;
+        margin: 30px;
+        color:$primary-color;
+    }
+    .content{
+        padding-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        .column{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
