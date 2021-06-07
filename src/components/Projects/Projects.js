@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Projects.scss';
-import UpBar from '../Home/UpBar/UpBar';
 import Filltrage from './Filltrage/Filltrage';
 import ProjectList from './ProjectsList/ProjectsList';
 const Projects = () => (
