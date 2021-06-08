@@ -1,23 +1,20 @@
 import React,{useState} from 'react';
 import PropTypes from 'prop-types';
 import './Bar.scss';
-import {  Collapse,
+import {
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Button} from 'reactstrap';
+} from 'reactstrap';
 import {
   Nav
 } from 'react-bootstrap';
 import { withRouter } from "react-router-dom";
-
 const Bar = (props) => {
   const {location} = props;
   console.log(location);
   return(
     <div className="Bar" data-testid="Bar">
-      <Navbar className="nav" activeKey="{location.pathname}">
-        <Nav id="navigation" defaultActiveKey="/ContactUs" navbar>
+      <Navbar className="nav" >
+        <Nav id="navigation" defaultActiveKey="/ContactUs" activeKey={location.pathname} navbar>
           <Nav.Item>
               <Nav.Link href="/QA">Q&A</Nav.Link>
           </Nav.Item>
@@ -25,8 +22,6 @@ const Bar = (props) => {
             <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
           </Nav.Item>
         </Nav>
-       
-
       </Navbar>
     </div>
   );
@@ -35,5 +30,5 @@ const Bar = (props) => {
 Bar.propTypes = {};
 
 Bar.defaultProps = {};
-
-export default Bar;
+const BarWithRouter = withRouter(Bar)
+export default BarWithRouter;
