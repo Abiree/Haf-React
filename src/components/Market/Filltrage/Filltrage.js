@@ -10,11 +10,6 @@ const Filltrage = (props) => {
   const [dropdownOpen2, setOpen2] = useState(false);
   const toggle2 = () => setOpen2(!dropdownOpen2);
 
-  const [dropdownOpen3, setOpen3] = useState(false);
-  const toggle3 = () => setOpen3(!dropdownOpen3);
-
-  const [dropdownOpen4, setOpen4] = useState(false);
-  const toggle4 = () => setOpen4(!dropdownOpen4);
   return(
     <> 
       <div className="intro" id="search">
@@ -31,31 +26,14 @@ const Filltrage = (props) => {
           </ButtonDropdown>
           <ButtonDropdown isOpen={dropdownOpen2} toggle={toggle2}>
             <DropdownToggle caret id="dropdowntoggle">
-            Date
+            Name
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem >Desc </DropdownItem>
               <DropdownItem >Asc</DropdownItem>
             </DropdownMenu>
           </ButtonDropdown>
-          <ButtonDropdown isOpen={dropdownOpen3} toggle={toggle3}>
-            <DropdownToggle caret id="dropdowntoggle">
-            Donors
-            </DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem>Desc </DropdownItem>
-              <DropdownItem >Asc</DropdownItem>
-            </DropdownMenu>
-          </ButtonDropdown>
-          <ButtonDropdown isOpen={dropdownOpen4} toggle={toggle4}>
-            <DropdownToggle caret id="dropdowntoggle">
-            Donations
-            </DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem >Desc </DropdownItem>
-              <DropdownItem >Asc</DropdownItem>
-            </DropdownMenu>
-          </ButtonDropdown>
+         
         </div> 
         <div className="div2">
           <input type="hidden" name="search_param" value="all" id="search_param"/>

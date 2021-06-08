@@ -1,1 +1,68 @@
-.MarketList {}
+
+@import '../../../fontcolors.scss';
+.blue{
+    color:$primary-color;
+}
+.blue:hover{
+    cursor: pointer;
+}
+.MarketList {
+    background-color: $primary-color;
+    overflow: hidden;
+    padding: 30px;
+    .col{
+        display: flex;
+        justify-content: center;
+    }
+    .card{
+        border-color: black;
+        border-width: 2px;
+        margin-top: 30px;
+        width: 80%;
+    }
+    .card-body{
+        padding: 0%;
+    }
+    .donators{
+        display:flex;
+        justify-content: space-between;
+    }
+    .category{
+        font-size: 12px;
+      
+        
+    }
+    .price{
+        font-size: 12px;
+      
+        
+    }
+    p,a{
+        font-size: 12px;
+    }
+    
+    .donator,.don{
+        margin: 0px 5px 0px 5px;
+    }
+    .parag{
+        width: 90%;
+    }
+    .parag::-webkit-scrollbar{
+        display: none;
+    }
+    .btn{
+        background-color: $primary-color  ;
+        border-color: $primary-color;
+        margin-bottom: 5px;
+    }
+    .btn:hover{
+        background-color: $secondary-color  ;
+        border-color: $secondary-color;
+    }
+    .pagination{
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+    }
+
+}

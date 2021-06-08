@@ -2,6 +2,9 @@
 .blue{
     color:$primary-color;
 }
+.blue:hover{
+    cursor: pointer;
+}
 .ProjectsList {
     background-color: $primary-color;
     overflow: hidden;
