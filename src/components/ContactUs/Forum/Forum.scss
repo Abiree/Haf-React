@@ -1,0 +1,9 @@
+@import '../../../fontcolors.scss';
+
+.Forum {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    @media screen and (max-height:500px){
+        height: 150vh;
+    }}

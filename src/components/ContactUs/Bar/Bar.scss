@@ -1,0 +1,19 @@
+.Bar {
+    .navigation{
+        padding: 0 30 0 30;
+    }
+    .navbar{
+        padding: 0 0 0 0;
+        color :rgba(175, 220, 255, 0.01);
+    }
+    .nav{
+        display:flex;
+        .nav-link{
+            color: grey;
+        }
+        .active{
+            color:black;
+        }
+    }
+    
+}

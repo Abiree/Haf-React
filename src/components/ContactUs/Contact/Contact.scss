@@ -1,0 +1,41 @@
+@import '../../../fontcolors.scss';
+.Contact {
+    .form{
+        padding: 10px 200px 10px 200px;
+        label{
+            padding: 10px 0px 10px 0px;
+            font-weight: bold;
+        }
+        input{
+            margin: 10px 0px 10px 0px;
+        }
+        .button{
+            display: flex;
+            justify-content: center;
+        }
+        
+    }
+   
+    .btn{
+        background-color: $primary-color  ;
+        border-color: $primary-color;
+        margin-bottom: 5px;
+    }
+    .btn:hover{
+        background-color: $secondary-color;
+        border-color: $secondary-color;
+    }
+    .button{
+        margin-top: 20px;
+    }
+    @media screen and (max-width: 991px) {
+        .form{
+            padding: 10px 100px 10px 100px;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        .form{
+            padding: 10px 50px 10px 50px;
+        }
+    }
+}
