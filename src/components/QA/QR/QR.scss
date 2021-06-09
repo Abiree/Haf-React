@@ -1,0 +1,36 @@
+@import '../../../fontcolors.scss';
+.QR {
+
+}
+.q-a{
+    padding: 0px 30px 0px 30px;
+    margin: 10px 0px 10px 0px;
+}
+.q-a .row{
+    padding: 20px;
+    border: solid 2px;
+    margin: 10px 0px 10px 0px;
+    display: block;
+}
+.q-a .row .question{
+    margin: 10px 0px 10px 0px;
+}
+.q-a .row .response{
+    margin: 10px 0px 10px 0px;
+}
+.see{
+    display: flex;
+    justify-content: flex-end;
+    color:$primary-color ;
+    text-decoration: none;
+    a{
+        color: $primary-color;
+        font-style: italic;
+    }
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
