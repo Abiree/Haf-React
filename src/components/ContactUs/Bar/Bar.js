@@ -8,21 +8,43 @@ import {
   Nav
 } from 'react-bootstrap';
 import { withRouter } from "react-router-dom";
-const Bar = (props) => {
-  const {location} = props;
-  console.log(location);
+import Contact from '../Contact/Contact';
+import QR from '../QR/QR';
+import Search from '../Search/Search';
+
+const Bar = () => {
+  const [navItems, setnavItems] = useState({"QR":true,"Contact":false});
+  const [activeClass, setactiveClass] = useState({"QR":"active","Contact":""})
+  const toggle = (Event) =>{
+
+      switch (Event.target.id) {
+          case "QRs":
+              setnavItems({"QR":true,"Contact":false});
+              setactiveClass({"QR":"active","Contact":""});
+              break;
+          case "Contacts":
+              setnavItems({"QR":false,"Contact":true});
+              setactiveClass({"QR":"","Contact":"active"});
+              break;
+          
+      }
+  }
   return(
     <div className="Bar" data-testid="Bar">
-      <Navbar className="nav" >
-        <Nav id="navigation" defaultActiveKey="/ContactUs" activeKey={location.pathname} navbar>
-          <Nav.Item>
-              <Nav.Link href="/QA">Q&A</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </Navbar>
+      <div className="navigation">
+        <ul id="navs" navbar>
+          <li>
+            <a class={"link "+activeClass.QR} id="QRs" onClick={toggle}>QR</a>
+          </li>
+          <li>
+            <a class={"link "+activeClass.Contact} id="Contacts" onClick={toggle}>Contact</a>
+          </li>
+        </ul>
+            </div>
+            <div>
+                {navItems.QR ? <div><Search/><QR/></div> :null}
+                {navItems.Contact ? <Contact/>:null}
+            </div>
     </div>
   );
 }
@@ -30,5 +52,5 @@ const Bar = (props) => {
 Bar.propTypes = {};
 
 Bar.defaultProps = {};
-const BarWithRouter = withRouter(Bar)
-export default BarWithRouter;
+
+export default Bar;

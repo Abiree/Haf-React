@@ -1,19 +1,28 @@
+@import '../../../fontcolors.scss';
 .Bar {
-    .navigation{
-        padding: 0 30 0 30;
-    }
-    .navbar{
-        padding: 0 0 0 0;
-        color :rgba(175, 220, 255, 0.01);
-    }
-    .nav{
-        display:flex;
-        .nav-link{
-            color: grey;
+
+        .navigation{
+           background-color: $ciel;
+           #navs{
+               display: flex;
+           }
+           ul{
+            li{
+                list-style-type: none;
+                padding: 10px 20px 10px 20px;
+                .link{
+                    color: gray;
+                }
+                .link:hover{
+                    cursor: pointer;
+                    color: black;
+                }
+                .active{
+                    color: black;
+                }
+            }
+        
+         }
         }
-        .active{
-            color:black;
-        }
-    }
-    
+        
 }
