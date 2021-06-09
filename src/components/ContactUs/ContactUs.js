@@ -9,7 +9,6 @@ const ContactUs = () => (
      <Forum/>
      <BarRouter/>
      <Contact/>
-     
   </div>
   
 );
