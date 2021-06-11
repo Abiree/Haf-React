@@ -1,0 +1,40 @@
+@import '../../../fontcolors.scss';
+.ProfilUpdates {
+    padding: 0px 60px 0px 60px;
+    .row{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px 0px 10px 0px;
+        border:2px solid black; 
+        display: flex;
+        justify-content: center;
+        .cadre{
+            .elemntImg{
+                width: 300px;
+            }
+            text-align: center;
+            .contribution,.donations{
+                padding: 0px;
+                margin: 0px;
+                font-size: 12px;
+            }
+        }
+        .seeMore{
+            width: 100%;
+            text-align: right; 
+            margin-right: 10px;
+            font-size: 15px;
+            .seemorelink{
+                color:$primary-color;
+            }
+            .seemorelink:hover{
+                cursor: pointer;
+                color: $secondary-color;
+                text-decoration: none;
+            }
+            @media screen and (max-width:700px) {
+                text-align: center;
+            }
+        }
+    }
+}

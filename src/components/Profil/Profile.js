@@ -1,22 +1,9 @@
 import Header from './Header/Header';
 import {useState} from 'react';
+import ProfilInfo from './ProfilInfo/ProfilInfo';
+import ProfilDonation from './ProfilDonation/ProfilDonation';
+import ProfilUpdates from './ProfilUpdates/ProfilUpdates';
 import './Profile.scss';
-
-export const ProfilInfo= () => {
-    return(
-        <h1>Info</h1>
-    );
-}
-export const ProfilDonation= () => {
-    return(
-        <h1>Donations</h1>
-    );
-}
-export const ProfilUpdates= () => {
-    return(
-        <h1>Updates</h1>
-    );
-}
 
 const Profile = () => {
     const [navItems, setnavItems] = useState({"info":true,"donation":false,"updates":false});

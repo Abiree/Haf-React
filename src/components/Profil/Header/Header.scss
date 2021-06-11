@@ -1,3 +1,4 @@
+@import '../../../fontcolors.scss';
 .Header {
     padding-top: 10vh;
     .ProfileSection{
@@ -10,9 +11,11 @@
             background-image: url("https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png");
             background-size: cover;
             border-radius: 80px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
+            #cam{
+                position: relative;
+                top: 44%;
+                left: 90%;
+            }
         }
     }
     .ProfileSectionInfo{
@@ -20,6 +23,17 @@
         justify-content: center;
         text-align: center;
         padding: 0px 0px 30px 0px;
+        .subsection{
+            .btn{
+                background-color: $primary-color;
+                border-color: $primary-color;
+                &:hover{
+                    background-color:$secondary-color;
+                    border-color: $secondary-color;
+                }
+            }
+            
+        }
     }
     
 }
