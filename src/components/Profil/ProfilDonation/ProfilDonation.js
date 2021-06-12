@@ -26,7 +26,7 @@ const ProfilDonation = () => {
       <Row className="row">
         <div className="cadre">
           <div className="element">
-            <img className="elemntImg" src={elements.image} alt="projectimg"/>
+            <img className="elemntImg" class="img-fluid"src={elements.image} alt="projectimg"/>
             <h6 className="title"><b>{elements.title}</b></h6>
             <p className="contribution">My Contribution : {elements.myContribution} $</p>
             <p className="donations">Number of Donations : {elements.N_of_donations} times</p>
