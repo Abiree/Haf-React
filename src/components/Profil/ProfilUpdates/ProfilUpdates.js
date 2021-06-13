@@ -24,7 +24,7 @@ const ProfilUpdates = () => {
       <Row className="row">
         <div className="cadre">
           <div className="element">
-            <img className="elemntImg" class="img-fluid" src={elements.image} alt="projectimg"/>
+            <img class="img-fluid" src={elements.image} width="400px" alt="projectimg"/>
             <h6 className="title"><b>{elements.title}</b></h6>
             <p className="contribution">{elements.update}</p>
           </div>

@@ -10,14 +10,22 @@ import {
   Nav
 } from 'react-bootstrap';
 import { withRouter } from "react-router-dom";
-
-
+import Login from './Login/Login';
+import Register from './Register/Register';
 
 const UpBar = (props) => {
   const {location} = props;
   const [isOpen , setIsOpen] = useState(false);
+  /*----------------------------login---------------------------------*/
+  const [loginmodal, setloginModal] = useState(false);
+  const [loginunmountOnClose, setloginUnmountOnClose] = useState(false);
+  const toggleLoginModal = () => setloginModal(!loginmodal);
+  /*----------------------------Register-------------------------------*/
+  const [registermodal, setregisterModal] = useState(false);
+  const [registerunmountOnClose, setregisterUnmountOnClose] = useState(false);
+  const toggleRegisterModal = () => setregisterModal(!registermodal);
+
   const toggle = () => setIsOpen(!isOpen);
-  console.log(location);
 
   return(
     <div>
@@ -39,11 +47,13 @@ const UpBar = (props) => {
             <Nav.Link href="/ContactUs">ContactUs</Nav.Link>
           </Nav.Item>
           <Nav.Item id="navitem">
-            <Button id="btn">Login</Button>
+            <Button id="btn" onClick={toggleLoginModal}>Login</Button>
           </Nav.Item>
         </Nav>
       </Collapse>
     </Navbar>
+    <Login modal={loginmodal} toggle={toggleLoginModal} toggleRegister={toggleRegisterModal} unmountOnClose={loginunmountOnClose}/>
+    <Register modal={registermodal} toggle={toggleRegisterModal} toggleLogin={toggleLoginModal} unmountOnClose={registerunmountOnClose}/>
   </div>  
   );
 }

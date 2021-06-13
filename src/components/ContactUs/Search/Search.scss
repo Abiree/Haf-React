@@ -12,6 +12,9 @@
              background-color: $secondary-color;
              border-color: $secondary-color;
          }
+        @media screen and (max-width:400px) {
+            justify-content: center;
+        }
         
     }
     .btn{
