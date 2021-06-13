@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import PropTypes from 'prop-types';
 import './UpBar.scss';
 import {  Collapse,
   Navbar,
@@ -18,11 +17,11 @@ const UpBar = (props) => {
   const [isOpen , setIsOpen] = useState(false);
   /*----------------------------login---------------------------------*/
   const [loginmodal, setloginModal] = useState(false);
-  const [loginunmountOnClose, setloginUnmountOnClose] = useState(false);
+  const [loginunmountOnClose] = useState(false);
   const toggleLoginModal = () => setloginModal(!loginmodal);
   /*----------------------------Register-------------------------------*/
   const [registermodal, setregisterModal] = useState(false);
-  const [registerunmountOnClose, setregisterUnmountOnClose] = useState(false);
+  const [registerunmountOnClose] = useState(false);
   const toggleRegisterModal = () => setregisterModal(!registermodal);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -57,10 +56,6 @@ const UpBar = (props) => {
   </div>  
   );
 }
-
-UpBar.propTypes = {};
-
-UpBar.defaultProps = {};
 
 const HeaderWithRouter = withRouter(UpBar);
 

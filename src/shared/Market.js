@@ -1,4 +1,4 @@
-export const Data = [
+export const Trees = [
     {
         "id":0,
         "img":"./assets/project.png",

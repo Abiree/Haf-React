@@ -1,7 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './ProjectsList.scss';
-import {Data} from './Data';
 import { 
   Col,
   Row 
@@ -12,7 +11,6 @@ import{
   CardText, 
   CardBody,
   CardTitle, 
-  CardSubtitle, 
   Button
 } from 'reactstrap';
 import { 
@@ -21,8 +19,8 @@ import {
   PaginationLink 
 } from 'reactstrap';
 
-const ProjectsList = () => {
-  const [data,setData] = useState(Data);
+const ProjectsList = (props) => {
+  const [data] = useState(props.projects);
   const datamap = data.map((element)=>{
     return(
       <Col id={element.id} xs="12" sm="6" md="4" lg="3" className="col">
@@ -36,7 +34,6 @@ const ProjectsList = () => {
               <p className="donator">{element.donators} <br/> Donors</p>
               <p className="don">{element.dons} <br/> Donations</p>
             </div>
-            
             <Button className="btn">Donate</Button>
           </CardBody>
         </Card>
@@ -83,8 +80,5 @@ const ProjectsList = () => {
   );
 };
 
-ProjectsList.propTypes = {};
-
-ProjectsList.defaultProps = {};
 
 export default ProjectsList;

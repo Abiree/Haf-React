@@ -1,31 +1,73 @@
-import {BrowserRouter , Switch , Route, Redirect} from 'react-router-dom';
+import { Switch , Route, Redirect , withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+/*------------- importing components ------------------*/
 import Home from '.././components/Home/Home';
 import Market from '.././components/Market/Market';
 import Projects from '.././components/Projects/Projects';
 import ContactUs from '../components/ContactUs/ContactUs';
-import QA from '.././components/QA/QA';
 import HeaderWithRouter from '.././components/UpBar/UpBar';
 import FooterWithRouter from '../components/Footer/Footer';
 import ProjectDetail from '../components/DetailProject/DetailProject';
-import Profile,{ProfilInfo,ProfilUpdates,ProfilDonation} from '../components/Profil/Profile';
+import Profile from '../components/Profil/Profile';
 
-const Routes =()=>{
+
+const mapStateToProps = state =>{
+    return{
+        User: state.User,
+        Questions: state.Questions,
+        Projects: state.Projects,
+        Trees: state.Trees
+    }
+}
+const Routes =(props)=>{
+    const homeComponent = () => {
+        return(
+            <Home/>
+        );
+    };
+    const projectComponent = () => {
+        return(
+            <Projects projects={props.Projects}/>
+        );
+    };
+    const marketComponent = () => {
+        return(
+            <Market trees={props.Trees}/>
+        );
+    };
+    const contactComponent = () => {
+        return(
+            <ContactUs questions={props.Questions}/>
+        );  
+    }
+    const profilComponent = () => {
+        return(
+            <Profile
+              profile={props.User}
+              projects={props.Projects.filter(({id})=>{
+                return props.User.Donations.some(include => include.ProjectId === id)
+              })}
+            />
+        );
+    }
     return(
-        <BrowserRouter>
+        <div>
             <HeaderWithRouter/>
             <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/project" component={Projects}/>
-                <Route exact path="/Market" component={Market}/>
-                <Route exact path="/ContactUs" component ={ContactUs}/>
-                <Route exact path="/Profil" component={Profile}/>
+
+
+                <Route exact path="/" component={homeComponent}/>
+                <Route exact path="/project" component={projectComponent}/>
+                <Route exact path="/Market" component={marketComponent}/>
+                <Route exact path="/ContactUs" component ={contactComponent}/>
+                <Route exact path="/Profil" component={profilComponent}/>
                 <Route path="/project/:id" component={ProjectDetail} />
-               
-                <Redirect to={Home}/>
+                <Redirect to="/"/>
+
             </Switch>
             <FooterWithRouter/>
-        </BrowserRouter>
+        </div>
     );
 }
 
-export default Routes;
+export default withRouter(connect(mapStateToProps)(Routes));

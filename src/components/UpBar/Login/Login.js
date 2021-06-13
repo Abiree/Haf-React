@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup } from 'reactstrap';
-import PropTypes from 'prop-types';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
+import { Button, Modal, ModalBody, Form } from 'reactstrap';
 import './Login.scss';
 
 const Login = (props) => {
@@ -63,8 +63,5 @@ const Login = (props) => {
   );
 };
 
-Login.propTypes = {};
-
-Login.defaultProps = {};
 
 export default Login;

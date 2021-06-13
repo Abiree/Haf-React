@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Search.scss';
 import { Button} from 'reactstrap';
 
@@ -13,8 +12,5 @@ const Search = () => (
   </div>
 );
 
-Search.propTypes = {};
-
-Search.defaultProps = {};
 
 export default Search;

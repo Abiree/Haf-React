@@ -1,18 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useState} from 'react';
-import PropTypes from 'prop-types';
 import './Bar.scss';
-import {
-  Navbar,
-} from 'reactstrap';
-import {
-  Nav
-} from 'react-bootstrap';
-import { withRouter } from "react-router-dom";
 import Contact from '../Contact/Contact';
 import QR from '../QR/QR';
 import Search from '../Search/Search';
 
-const Bar = () => {
+const Bar = (props) => {
   const [navItems, setnavItems] = useState({"QR":true,"Contact":false});
   const [activeClass, setactiveClass] = useState({"QR":"active","Contact":""})
   const toggle = (Event) =>{
@@ -25,30 +18,28 @@ const Bar = () => {
               setnavItems({"QR":false,"Contact":true});
               setactiveClass({"QR":"","Contact":"active"});
               break;   
+          default:
+            break;
       }
   }
   return(
     <div className="Bar" data-testid="Bar">
       <div className="navigation">
-        <ul id="navs" navbar>
+        <ul id="navs">
           <li>
-            <a class={"link "+activeClass.QR} id="QRs" onClick={toggle}>QR</a>
+            <a href="#" className={"link "+activeClass.QR} id="QRs" onClick={toggle}>QR</a>
           </li>
           <li>
-            <a class={"link "+activeClass.Contact} id="Contacts" onClick={toggle}>Contact</a>
+            <a href="#" className={"link "+activeClass.Contact} id="Contacts" onClick={toggle}>Contact</a>
           </li>
         </ul>
             </div>
             <div>
-                {navItems.QR ? <div><Search/><QR/></div> :null}
+                {navItems.QR ? <div><Search/><QR questions={props.questions} /></div> :null}
                 {navItems.Contact ? <Contact/>:null}
             </div>
     </div>
   );
 }
-
-Bar.propTypes = {};
-
-Bar.defaultProps = {};
 
 export default Bar;

@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Footer.scss';
-import { Button, Col, Nav, Row } from 'react-bootstrap';
+import { Col, Nav, Row } from 'react-bootstrap';
 import { withRouter } from 'react-router';
 
 const Footer = (props) => {
@@ -20,7 +21,6 @@ const Footer = (props) => {
       <hr/>
       <Row className="row">
         <Col xs="12"  md="4" className="col">
-          
           <div className="content">
             <h5>HAF in Morocco</h5>
             <p>
@@ -85,16 +85,12 @@ const Footer = (props) => {
           </div>
         </Col>
       </Row>
-      <div class="copyright">
+      <div className="copyright">
         <p>© 2021 Copyright:HAF</p>
       </div>
     </div>
   );
 };
 
-Footer.propTypes = {};
-
-Footer.defaultProps = {};
 const FooterWithRouter = withRouter(Footer);
-
 export default FooterWithRouter;
