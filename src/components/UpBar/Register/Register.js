@@ -1,6 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useState} from 'react';
-import PropTypes from 'prop-types';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup } from 'reactstrap';
+import { Button, Modal, ModalBody,  Form } from 'reactstrap';
 import './Register.scss';
 
 const inputStyle = {
@@ -67,6 +67,8 @@ const Register = (props) => {
       case "individu":
         setButtonstate({"Individu":true,"Organisation":false});
         break;  
+      default:
+        break;
     }
   };
   const closeRegister = async()=>{

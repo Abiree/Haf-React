@@ -1,9 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './TodaysProject.scss';
 import {Button, Progress} from 'reactstrap';
 const TodaysProject = () => {
-  const [project, setProject] = useState({
+  const [project] = useState({
     "img":"./assets/project.png",
     "title":"A big Title",
     "paragraph":" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel tortor purus. Donec in tincidunt du Sed congue ut purus vel molestie. Phasellus eu malesuada lacus. Intel lacinia at lectus sit amet fermentum. Curabitur sit amet laoreet ligula, at aliquet sem.",
@@ -15,7 +15,7 @@ const TodaysProject = () => {
       <h2>Todays Project : </h2>
       <section className="todayProject">
         <div className="projectImage">
-          {project.img==null? null:<img class="img-fluid" src={project.img} alt="projectimg"/> }
+          {project.img==null? null:<img className="img-fluid" src={project.img} alt="projectimg"/> }
         </div>
         <div className="textIntro2">
           <div className="projectText">
@@ -30,7 +30,7 @@ const TodaysProject = () => {
             </div>
             <div className = "DonateIntro">
               <Button className="bfont-weight: 20px;tn">Donate Now</Button>
-              <a classname="detail" href="#">More Detail &gt;&gt; </a>
+              <a className="detail" href="#">More Detail &gt;&gt; </a>
             </div>
           </div>
         </div>
@@ -38,9 +38,5 @@ const TodaysProject = () => {
     </div>
   );
 };
-
-TodaysProject.propTypes = {};
-
-TodaysProject.defaultProps = {};
 
 export default TodaysProject;

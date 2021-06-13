@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Intro from './Intro/Intro';
 import Numbers from './Numbers/Numbers';
 import TodaysProject from './TodaysProject/TodaysProject';
@@ -21,8 +20,5 @@ const Home = () => (
   </div>
 );
 
-Home.propTypes = {};
-
-Home.defaultProps = {};
 
 export default Home;

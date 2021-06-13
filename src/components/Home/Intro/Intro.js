@@ -1,5 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Intro.scss';
 import { Button } from 'reactstrap';
 
@@ -23,9 +23,5 @@ const Intro = () => (
     </div>
   </div>
 );
-
-Intro.propTypes = {};
-
-Intro.defaultProps = {};
 
 export default Intro;

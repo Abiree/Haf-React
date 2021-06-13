@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './Numbers.scss';
 import {Card , CardBody, CardText , CardTitle, Col ,Row} from 'reactstrap';
 
 const Numbers = (props) => {
-  const [data, setData] = useState([
+  const [data] = useState([
     {
+      "id":0,
       "number" : "20",
       "title" : "Project"
     },
     {
+      "id":1,
       "number" : "50",
       "title" : "Donors"
     },
     {
+      "id":2,
       "number" : "40",
       "title" : "Dons"
     },
     {
+      "id":3,
       "number" : "10",
       "title" : "Entreprises"
     }
@@ -25,7 +28,7 @@ const Numbers = (props) => {
 
   const card = data.map((element)=>{
       return(
-        <Col>
+        <Col key={element.id}>
           <Card className="card">
             <CardBody>
               <CardTitle className="cardTitle">
@@ -52,8 +55,5 @@ const Numbers = (props) => {
   )
 };
 
-Numbers.propTypes = {};
-
-Numbers.defaultProps = {};
 
 export default Numbers;

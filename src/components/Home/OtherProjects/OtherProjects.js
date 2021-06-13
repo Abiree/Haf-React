@@ -1,5 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useState} from 'react';
-import PropTypes from 'prop-types';
 import './OtherProjects.scss';
 import { 
   Col,
@@ -10,16 +10,15 @@ import{
   CardImg, 
   CardText, 
   CardBody,
-  CardTitle, 
-  CardSubtitle, 
+  CardTitle,  
   Button
 } from 'reactstrap';
 import {Data} from './Data';
 const OtherProjects = () => {
-  const [data, setdata] = useState(Data);
+  const [data] = useState(Data);
   const threeCards = data.map((element)=>{
     return(
-      <Col id={element.id} xs="12" sm="6" md="4" lg="3" className="col">
+      <Col key={element.id} xs="12" sm="6" md="4" lg="3" className="col">
         <Card className="card">
           <CardImg top  className="img" src={element.img} alt={element.title}/>
           <CardBody className="text-center">
@@ -48,9 +47,5 @@ const OtherProjects = () => {
     </div>
   );
 };
-
-OtherProjects.propTypes = {};
-
-OtherProjects.defaultProps = {};
 
 export default OtherProjects;

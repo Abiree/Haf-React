@@ -1,10 +1,9 @@
 import React,{ useState } from 'react';
-import PropTypes from 'prop-types';
 import './Carbon.scss';
 import {Button} from 'reactstrap';
 
 const Carbon = () => {
-  const [carbon, setCarbon] = useState({
+  const [carbon] = useState({
     "img":"./assets/carbon.png",
     "title":"Do you want to become carbon neutral",
     "paragraph":"Balance your carbon footprint by helping support carbon reduction projects. Use our Events Calculator to determine the unavoidable CO2 emissions for your event and purchase offsets to reduce your carbon footprint",
@@ -22,15 +21,12 @@ const Carbon = () => {
             </div>
           </div>
           <div className="carbonimg">
-            {carbon.img==null? null:<img width="400px" class="img-fluid" src={carbon.img} alt="carbonimg"/> }
+            {carbon.img==null? null:<img width="400px" className="img-fluid" src={carbon.img} alt="carbonimg"/> }
           </div>
         </section>
       </div>
   );
 };
 
-Carbon.propTypes = {};
-
-Carbon.defaultProps = {};
 
 export default Carbon;

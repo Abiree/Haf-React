@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './Filltrage.scss';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem , Button} from 'reactstrap';
 
@@ -76,8 +75,5 @@ const Filltrage = (props) =>{
   
 } 
 
-Filltrage.propTypes = {};
-
-Filltrage.defaultProps = {};
 
 export default Filltrage;

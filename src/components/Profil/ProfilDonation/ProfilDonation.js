@@ -1,35 +1,22 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useState} from 'react';
 import Search from '../../ContactUs/Search/Search';
-import PropTypes from 'prop-types';
 import {Row} from 'reactstrap';
 import './ProfilDonation.scss';
 
-const ProfilDonation = () => {
-  const [projects, setprojects] = useState(
-  [
-    {
-      "image":"./assets/project.png",
-      "title":"Multicultiral Cooperation for fruit",
-      "myContribution":15,
-      "N_of_donations":3
-    },
-    {
-      "image":"./assets/project.png",
-      "title":"Multicultiral Cooperation for fruit",
-      "myContribution":15,
-      "N_of_donations":3
-    }
-  ]);
+const ProfilDonation = (props) => {
+  const [projects] = useState(props.projects);
+  const [Donations] = useState(props.profile.Donations);
 
-  const cards = projects.map((elements)=>{
+  const cards = projects.map((element,index)=>{
     return(
-      <Row className="row">
+      <Row key={element.id} className="row">
         <div className="cadre">
           <div className="element">
-            <img className="elemntImg" class="img-fluid"src={elements.image} width="400px" alt="projectimg"/>
-            <h6 className="title"><b>{elements.title}</b></h6>
-            <p className="contribution">My Contribution : {elements.myContribution} $</p>
-            <p className="donations">Number of Donations : {elements.N_of_donations} times</p>
+            <img className="img-fluid elemntImg" src={element.img} width="400px" alt="projectimg"/>
+            <h6 className="title"><b>{element.title}</b></h6>
+            <p className="contribution">My Contribution : {Donations[index].contribution} $</p>
+            <p className="donations">Number of Donations : {Donations[index].nOfDonations} times</p>
           </div>
         </div>
         <div className="seeMore">
@@ -49,8 +36,5 @@ const ProfilDonation = () => {
   );
 };
 
-ProfilDonation.propTypes = {};
-
-ProfilDonation.defaultProps = {};
 
 export default ProfilDonation;

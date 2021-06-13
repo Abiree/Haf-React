@@ -1,4 +1,4 @@
-export const Data = [
+export const Questions = [
     {
         "id":0,
         "question":"Lorem ipsum dolor sit amet, consectetur adipiscing elit",

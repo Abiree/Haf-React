@@ -1,7 +1,5 @@
 import React, { useState }  from 'react';
-import PropTypes from 'prop-types';
 import './MarketList.scss';
-import {Data} from './Data';
 import { 
   Col,
   Row 
@@ -12,7 +10,6 @@ import{
   CardText, 
   CardBody,
   CardTitle, 
-  CardSubtitle, 
   Button
 } from 'reactstrap';
 import { 
@@ -21,11 +18,11 @@ import {
   PaginationLink 
 } from 'reactstrap';
 
-const MarketList = () => {
-  const [data,setData] = useState(Data);
+const MarketList = (props) => {
+  const [data] = useState(props.trees);
   const datamap = data.map((element)=>{
     return(
-      <Col id={element.id} xs="12" sm="6" md="4" lg="3" className="col">
+      <Col key={element.id} xs="12" sm="6" md="4" lg="3" className="col">
         <Card className="card">
           <CardImg top  className="img" src={element.img} alt={element.title}/>
           <CardBody className="text-center">
@@ -77,9 +74,5 @@ const MarketList = () => {
     </div>
   );
 };
-
-MarketList.propTypes = {};
-
-MarketList.defaultProps = {};
 
 export default MarketList;

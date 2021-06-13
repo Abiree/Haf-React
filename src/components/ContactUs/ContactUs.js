@@ -1,19 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './ContactUs.scss';
 import Forum from './Forum/Forum';
 import Bar from './Bar/Bar';
-import Contact from './Contact/Contact';
-const ContactUs = () => (
+const ContactUs = (props) => (
   <div className="ContactUs" data-testid="ContactUs">
      <Forum/>
-     <Bar/>
-  </div>
-  
+     <Bar questions={props.questions}/>
+  </div>  
 );
-
-ContactUs.propTypes = {};
-
-ContactUs.defaultProps = {};
 
 export default ContactUs;

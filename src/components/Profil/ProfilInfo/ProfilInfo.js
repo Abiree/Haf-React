@@ -1,15 +1,8 @@
 import React,{useState} from 'react';
-import PropTypes from 'prop-types';
 import './ProfilInfo.scss';
 
-const ProfilInfo = () => {
-  const [info, setInfo] = useState({
-    "FirstName":"user",
-    "LastName":"user",
-    "Email":"user@email.com",
-    "Phone":"+212 666 666 666",
-    "Adress":"City , Street"
-  })
+const ProfilInfo = (props) => {
+  const [info] = useState(props.profile);
 
   return(
     <div className="ProfilInfo" data-testid="ProfilInfo">
@@ -27,9 +20,5 @@ const ProfilInfo = () => {
   );
   
 };
-
-ProfilInfo.propTypes = {};
-
-ProfilInfo.defaultProps = {};
 
 export default ProfilInfo;

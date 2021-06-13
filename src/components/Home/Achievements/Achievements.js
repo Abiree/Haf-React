@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './Achievements.scss';
 import {Row, Col} from 'reactstrap';
 const Achievements = () => {
-  const [data,setdata] = useState([
+  const [data] = useState([
     {
       "id" : 0,
       "img" : "./assets/badge-consumer-HAf.png"
@@ -31,7 +30,7 @@ const Achievements = () => {
   ])
   const cards = data.map((element)=>{
     return(
-      <Col className="column" xs="12" sm="6" md="4" lg="2">
+      <Col key={element.id} className="column" xs="12" sm="6" md="4" lg="2">
         <img width="130px"src={element.img} alt={element.id}/>
       </Col>
     );
@@ -47,9 +46,5 @@ const Achievements = () => {
     </div>
   );
 };
-
-Achievements.propTypes = {};
-
-Achievements.defaultProps = {};
 
 export default Achievements;
