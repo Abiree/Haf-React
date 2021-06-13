@@ -1,0 +1,142 @@
+@import '../../fontcolors';
+.DetailProject {
+    #navigation{
+        justify-content: space-between;
+        padding: 20 100 20 100;
+    }
+    /*  project-categorie*/
+.projectCategorie{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.projectCategorie { 
+    margin:10px;
+    #pad{ padding: 0px 10px 0px 10px ;
+    
+        display: flex;
+        justify-items:center;
+        justify-content: center;}
+   
+}
+/*  project-name */
+.projectName{
+    text-align: center;
+}
+.main{
+    padding-top:15vh;
+  
+   
+    
+    @media screen and (max-width:500px){
+        padding-top: 11vh;
+}
+}
+/*  project-section */
+.project{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.projectImage{
+    width: 500px;
+}
+.projectDonation h5{
+    text-align: center;
+    
+}
+.infos{
+    display:flex ;
+    justify-content: space-between;
+    margin: 15 0 0 0;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+}
+.projectInfo{
+    width: 50%;
+}
+.share{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.projectShare button{
+    display: block;
+    margin: 5px;
+}
+.btn{
+    background-color: $primary-color  ;
+    border-color: $primary-color;
+    color:white;
+   
+}
+.progress-bar {
+    background-color: $secondary-color;
+}
+.input-group-text{
+    background-color: $button;
+    color:black;
+}
+.vertical{
+    border-left: 2px solid black;
+    height: 20px;
+}
+.btn:hover{
+    background-color: $secondary-color  ;
+    border-color: $secondary-color;
+    color:white;
+}
+.fa-facebook-square:before,.fa-twitter-square:before{
+    margin-right:10px ;
+}
+
+@media screen and (max-width: 363px) {
+    .h5,h5{ font-size: 0.85rem;}
+    .donation{font-size: 0.85rem;}
+    .price{font-size: 0.85rem;}
+    
+}
+
+@media screen and (max-width: 991px) {
+    #navigation{
+        display: block;
+    }
+    #navigation{
+        padding: 20 10 20 10;
+    }
+    .brand{
+        display: flex;
+        justify-content: space-between;
+    }
+    #navigation li{
+        display: flex;
+        justify-content: center;
+    }
+
+    .project{
+        display: block;
+    }
+    .projectImage{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .projectDonation{
+        padding: 35px;
+    }
+    .info{
+        display: block;
+    }
+    .projectInfo{
+        width: 100%;
+        text-align: center;
+    }
+
+    .share{
+        width: 100%;
+        
+    }
+}
+}
