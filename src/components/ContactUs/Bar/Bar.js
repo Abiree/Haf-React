@@ -27,10 +27,10 @@ const Bar = (props) => {
       <div className="navigation">
         <ul id="navs">
           <li>
-            <a href="#" className={"link "+activeClass.QR} id="QRs" onClick={toggle}>QR</a>
+            <a className={"link "+activeClass.QR} id="QRs" onClick={toggle}>QR</a>
           </li>
           <li>
-            <a href="#" className={"link "+activeClass.Contact} id="Contacts" onClick={toggle}>Contact</a>
+            <a className={"link "+activeClass.Contact} id="Contacts" onClick={toggle}>Contact</a>
           </li>
         </ul>
             </div>

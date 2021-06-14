@@ -24,7 +24,10 @@ export const Projects = [
         "paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur vel tortor purus. Donec in tincidunt dui. Sed congue ut purus vel molestie",
         "donators":500,
         "dons":300,
-        "Updates":[
+        "Updates":[ {
+            "id":0,
+            "Update":"update numbre 1" 
+        }
             
         ]
     },

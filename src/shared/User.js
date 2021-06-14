@@ -15,6 +15,11 @@ export const User = {
             "ProjectId":1,
             "contribution":35,
             "nOfDonations":1
+        },
+        {
+            "ProjectId":2,
+            "contribution":35,
+            "nOfDonations":1
         }
     ]
 }
