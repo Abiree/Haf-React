@@ -29,7 +29,7 @@ const ProjectsList = (props) => {
           <CardBody className="text-center">
             <CardTitle tag="h5" className="text-align-center">{element.title}</CardTitle>
             <CardText className="parag">{element.paragraph}</CardText>
-            <a className="blue">view more</a>
+            <a href={'./project/'.concat(element.id)} className="blue">view more</a>
             <div className="donators">
               <p className="donator">{element.donators} <br/> Donors</p>
               <p className="don">{element.dons} <br/> Donations</p>

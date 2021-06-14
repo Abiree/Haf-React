@@ -2,10 +2,14 @@ export const Projects = [
     {
         "id":0,
         "img":"./assets/project.png",
-        "title":"A big title",
+        "title":"Youth empowerment",
         "paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur vel tortor purus. Donec in tincidunt dui. Sed congue ut purus vel molestie",
         "donators":500,
         "dons":300,
+        "category":"Youth",
+        "date":"16/10/2020",
+        "donations":"2500000",
+        "goal": 5000000,
         "Updates":[
             {
                 "id":0,
@@ -24,6 +28,10 @@ export const Projects = [
         "paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur vel tortor purus. Donec in tincidunt dui. Sed congue ut purus vel molestie",
         "donators":500,
         "dons":300,
+        "category":"Youth",
+        "date":"16/10/2020",
+        "donations":"2500000",
+        "goal": 5000000,
         "Updates":[ {
             "id":0,
             "Update":"update numbre 1" 
@@ -38,6 +46,10 @@ export const Projects = [
         "paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur vel tortor purus. Donec in tincidunt dui. Sed congue ut purus vel molestie",
         "donators":500,
         "dons":300,
+        "category":"Youth",
+        "date":"16/10/2020",
+        "donations":"2500000",
+        "goal": 5000000,
         "Updates":[
             
         ]
@@ -49,6 +61,10 @@ export const Projects = [
         "paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur vel tortor purus. Donec in tincidunt dui. Sed congue ut purus vel molestie",
         "donators":500,
         "dons":300,
+        "category":"Youth",
+        "date":"16/10/2020",
+        "donations":"2500000",
+        "goal": 5000000,
         "Updates":[
             
         ]
@@ -60,6 +76,10 @@ export const Projects = [
         "paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Curabitur vel tortor purus. Donec in tincidunt dui. Sed congue ut purus vel molestie",
         "donators":500,
         "dons":300,
+        "category":"Youth",
+        "date":"16/10/2020",
+        "donations":"2500000",
+        "goal": 5000000,
         "Updates":[
             
         ]

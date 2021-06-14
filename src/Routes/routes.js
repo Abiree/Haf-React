@@ -50,6 +50,19 @@ const Routes =(props)=>{
             />
         );
     }
+    const detailprojectComponent = () => {
+        console.log("hehe")
+        console.log(props)
+        console.log(props.Projects)
+        console.log(props.location.pathname.slice(9))
+        return(
+            <ProjectDetail
+              projectid={props.Projects.filter((x) => x.id === Number(props.location.pathname.slice(9)))
+              }
+            />
+        );
+       
+    }
     return(
         <div>
             <HeaderWithRouter/>
@@ -61,7 +74,7 @@ const Routes =(props)=>{
                 <Route exact path="/Market" component={marketComponent}/>
                 <Route exact path="/ContactUs" component ={contactComponent}/>
                 <Route exact path="/Profil" component={profilComponent}/>
-                <Route path="/project/:id" component={ProjectDetail} />
+                <Route path="/project/:id" component={detailprojectComponent} />
                 <Redirect to="/"/>
 
             </Switch>
