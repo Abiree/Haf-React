@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-pascal-case */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { Button, Modal, ModalBody, Form } from 'reactstrap';
+import { Button, Modal, ModalBody } from 'reactstrap';
+import {Control , LocalForm , Errors} from 'react-redux-form';
 import './Login.scss';
 
 const Login = (props) => {
@@ -27,6 +29,7 @@ const Login = (props) => {
     "outline": "0",
     "border-width": "0 0 1px",
     "border-color":"grey",
+    "border-radius":"0px",
     "margin":"0px 0px 10px 0px",
     "width":"100%",
     "padding":"10px"
@@ -40,7 +43,15 @@ const Login = (props) => {
   const toggleToRegister = () =>{
     closeLogin().then(toggleRegister());
   }
-
+  /*-----------------formvalidation-----------------------*/
+  const required = (val) => val && val.length;
+  const maxLength = (len) => (val) => !(val) || (val.length <= len);
+  const minLength = (len) => (val) => val && (val.length >= len);
+  const isNumber = (val) => !isNaN(Number(val));
+  const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+  const handleSubmit = (values) => {
+    alert('Current State is: ' + JSON.stringify(values));
+  }
   return(
     <Modal isOpen={modal} toggle={toggle} unmountOnClose={unmountOnClose}>
       <ModalBody>
@@ -50,14 +61,59 @@ const Login = (props) => {
         <Button style={googleBtnStyle}><i style={iStyle} className="fa fa-google"></i>Login By Gmail</Button>
         <Button style={ButtonStyle} onClick={toggleToRegister}><i style={iStyle} className="fa fa-envelope"></i>Register By Mail</Button>
         <h6><b>Sign In By mail :</b></h6>
-        <Form>
-          <input style={inputStyle} className="Username" type="text" placeholder="Username" rows={5} />
-          <input style={inputStyle} className="Password" type="text" placeholder="Password" rows={5} />
+        <LocalForm onSubmit = {(values)=> handleSubmit(values)}>
+          <Control.text
+            model=".Email"
+            id="Email"
+            name="Email"
+            style={inputStyle}
+            className="form-control"
+            placeholder="user@email.com"
+            rows={5} 
+            validators={{
+              required,
+              validEmail
+            }}
+          />
+          <Errors
+            className="text-danger"
+            model=".Email"
+            show="touched"
+            messages={{
+              required: 'Required, ',
+              validEmail: 'Not a valid email'
+            }}
+          />
+          <Control
+            model=".password"
+            id="password"
+            name="password"
+            type="password"
+            style={inputStyle}
+            className="form-control"
+            placeholder="Password"
+            rows={5}
+            validators={{
+              required,
+              minLength: minLength(6),
+              maxLength: maxLength(15)
+            }}
+          />
+          <Errors
+            className="text-danger"
+            model=".password"
+            show="touched"
+            messages={{
+              required: 'Required, ',
+              minLength: 'Must be greater than 6 characters',
+              maxLength: 'Must be 15 characters or less'
+            }}
+          />
           <div style={{"display":"flex","justify-content":"space-between","align-items":"center"}}>
-            <Button style={{"background-color":"#1A75BB","border-color":"#1A75BB"}}>Login</Button>
+            <Button type="submit" style={{"background-color":"#1A75BB","border-color":"#1A75BB"}}>Login</Button>
             <a>Reset password</a>
           </div>
-        </Form>
+        </LocalForm>
       </ModalBody>
     </Modal>
   );

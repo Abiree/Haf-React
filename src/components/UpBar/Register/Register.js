@@ -1,12 +1,15 @@
+/* eslint-disable react/jsx-pascal-case */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useState} from 'react';
-import { Button, Modal, ModalBody,  Form } from 'reactstrap';
+import { Button, Modal, ModalBody } from 'reactstrap';
+import {Control , LocalForm , Errors} from 'react-redux-form';
 import './Register.scss';
 
 const inputStyle = {
   "outline": "0",
   "border-width": "0 0 1px",
   "border-color":"grey",
+  "border-radius":"0px",
   "margin":"0px 0px 10px 0px",
   "width":"100%",
   "padding":"10px"
@@ -22,35 +25,249 @@ const ButtonStyleActive = {
   ...ButtonStyle,
   "background-color":"black"
 };
-
+/*-----------------formvalidation-----------------------*/
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => val && (val.length >= len);
+const isNumber = (val) => !isNaN(Number(val));
+const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+const handleSubmit = (values) => {
+  alert('Current State is: ' + JSON.stringify(values));
+}
 const OrganisationForm = (props)=>{
   return(
-    <Form>
-      <input style={inputStyle} className="OrganisatioName" type="text" placeholder="OrganisatioName" rows={5} />
-      <input style={inputStyle} className="Adresse" type="text" placeholder="Adresse" rows={5} />
-      <input style={inputStyle} className="Phone" type="text" placeholder="Phone" rows={5} />
-      <input style={inputStyle} className="Email" type="text" placeholder="Email" rows={5} />
-      <input style={inputStyle} className="Password" type="text" placeholder="Password" rows={5} />
+    <LocalForm onSubmit = {(values)=>handleSubmit(values)}>
+      <Control.text
+        model=".OrganisationName"
+        id="OrganisationName"
+        name="OrganisationName"
+        style={inputStyle}
+        className="form-control"
+        placeholder="OrganisatioName"
+        rows={5}
+        validators={{
+          required,
+          minLength: minLength(3),
+          maxLength: maxLength(15)
+        }}
+      />
+      <Errors
+        className="text-danger"
+        model=".OrganisationName"
+        show="touched"
+        messages={{
+          required: 'Required, ',
+          minLength: 'Must be greater than 3 characters',
+          maxLength: 'Must be 15 characters or less'
+        }}
+      />
+      <Control.text
+        model=".Adresse"
+        id="Adresse"
+        name="Adresse"
+        style={inputStyle}
+        className="form-control" 
+        placeholder="Adresse" 
+        rows={5} 
+        validators={{
+          required,
+          minLength: minLength(3),
+          maxLength: maxLength(15)
+        }}
+      />
+      <Errors
+        className="text-danger"
+        model=".Adresse"
+        show="touched"
+        messages={{
+          required: 'Required, ',
+          minLength: 'Must be greater than 3 characters',
+          maxLength: 'Must be 15 characters or less'
+        }}
+      />
+      <Control.text
+        model=".Phone"
+        id="Phone"
+        name="Phone"
+        style={inputStyle}
+        className="form-control"
+        placeholder="Phone"
+        rows={5}
+        validators={{
+          required,
+          isNumber,
+          minLength: minLength(3),
+          maxLength: maxLength(15)
+        }}
+      />
+      <Errors
+        className="text-danger"
+        model=".Phone"
+        show="touched"
+        messages={{
+          required: 'Required, ',
+          isNumber: 'Not a number',
+          minLength: 'Must be greater than 3 characters',
+          maxLength: 'Must be 15 characters or less'
+        }}
+      />
+      <Control.text
+        model=".Email"
+        id="Email"
+        name="Email"
+        style={inputStyle}
+        className="form-control"  
+        placeholder="Email" 
+        rows={5}
+        validators={{
+          required,
+          validEmail
+        }} />
+      <Errors
+        className="text-danger"
+        model=".Email"
+        show="touched"
+        messages={{
+          required: 'Required, ',
+          validEmail: 'Not a valid Email'
+        }}
+      />
+      <Control 
+        model=".password"
+        id="password"
+        name="password"
+        type="password"
+        style={inputStyle}
+        className="form-control"
+        placeholder="Password"
+        rows={5} 
+        validators={{
+          required,
+          minLength: minLength(6),
+          maxLength: maxLength(15)
+        }}
+      />
+      <Errors
+        className="text-danger"
+        model=".password"
+        show="touched"
+        messages={{
+          required: 'Required, ',
+          minLength: 'Must be greater than 6 characters',
+          maxLength: 'Must be 15 characters or less'
+        }}
+      />
       <div style={{"display":"flex","justify-content":"space-between","align-items":"center"}}>
-        <Button style={{"background-color":"#1A75BB","border-color":"#1A75BB"}}>Register</Button>
+        <Button type="submit" style={{"background-color":"#1A75BB","border-color":"#1A75BB"}}>Register</Button>
         <a>Reset password</a>
       </div>
-    </Form>
+    </LocalForm>
   );
 }
 
 const IndividuForm = (props)=>{
   return(
-    <Form>
-      <input style={inputStyle} className="FirstName" type="text" placeholder="FirstName" rows={5} />
-      <input style={inputStyle} className="LastName" type="text" placeholder="LastName" rows={5} />
-      <input style={inputStyle} className="Email" type="text" placeholder="Email" rows={5} />
-      <input style={inputStyle} className="Password" type="text" placeholder="Password" rows={5} />      
+    <LocalForm onSubmit = {(values)=>handleSubmit(values)}>
+      <Control.text
+        model=".FirstName"
+        id="FirstName"
+        name="FirstName"
+        style={inputStyle}
+        className="form-control"
+        placeholder="FirstName"
+        rows={5}
+        validators={{
+          required,
+          minLength: minLength(3),
+          maxLength: maxLength(15)
+        }}
+      />
+      <Errors
+        className="text-danger"
+        model=".FirstName"
+        show="touched"
+        messages={{
+          required: 'Required, ',
+          minLength: 'Must be greater than 3 characters',
+          maxLength: 'Must be 15 characters or less'
+        }}
+      />
+      <Control.text
+        model=".LastName"
+        id="LastName"
+        name="LastName"
+        style={inputStyle}
+        className="form-control"
+        placeholder="LastName"
+        rows={5}
+        validators={{
+          required,
+          minLength: minLength(3),
+          maxLength: maxLength(15)
+        }}
+      />
+      <Errors
+        className="text-danger"
+        model=".LastName"
+        show="touched"
+        messages={{
+          required: 'Required, ',
+          minLength: 'Must be greater than 3 characters',
+          maxLength: 'Must be 15 characters or less'
+        }}
+      />
+      <Control.text
+        model=".Email"
+        id="Email"
+        name="Email"
+        style={inputStyle}
+        className="form-control"
+        placeholder="Email"
+        rows={5}
+        validators={{
+          required,
+          validEmail
+        }}
+      />
+      <Errors
+        className="text-danger"
+        model=".Email"
+        show="touched"
+        messages={{
+          required: 'Required, ',
+          validEmail: 'Not a valid email'
+        }}
+      />
+      <Control
+        model=".password"
+        id="password"
+        name="password"
+        type="password"
+        style={inputStyle}
+        className="form-control"
+        placeholder="Password"
+        rows={5}
+        validators={{
+          required,
+          minLength: minLength(6),
+          maxLength: maxLength(15)
+        }}
+      />
+      <Errors
+        className="text-danger"
+        model=".password"
+        show="touched"
+        messages={{
+          required: 'Required, ',
+          minLength: 'Must be greater than 6 characters',
+          maxLength: 'Must be 15 characters or less'
+        }}
+      />
       <div style={{"display":"flex","justify-content":"space-between","align-items":"center"}}>
-        <Button style={{"background-color":"#1A75BB","border-color":"#1A75BB"}}>Register</Button>
+        <Button type="submit" style={{"background-color":"#1A75BB","border-color":"#1A75BB"}}>Register</Button>
         <a>Reset password</a>
       </div>
-    </Form>
+    </LocalForm>
   );
 }
 
