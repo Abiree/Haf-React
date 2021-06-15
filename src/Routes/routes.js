@@ -9,6 +9,7 @@ import HeaderWithRouter from '.././components/UpBar/UpBar';
 import FooterWithRouter from '../components/Footer/Footer';
 import ProjectDetail from '../components/DetailProject/DetailProject';
 import Profile from '../components/Profil/Profile';
+import DetailMarket from '../components/DetailMarket/DetailMarket';
 
 
 const mapStateToProps = state =>{
@@ -63,6 +64,16 @@ const Routes =(props)=>{
         );
        
     }
+    const marketDetailComponent = () => {
+        //console.log("hehe")
+        //console.log(props)
+        //console.log(props.location.pathname.slice(8))
+        return(
+            <DetailMarket 
+            treelist={props.Trees.filter((x)=> x.id===0||x.id===1||x.id===2)}
+            trees={props.Trees.filter((x) => x.id === Number(props.location.pathname.slice(8)))}/>
+        );
+    };
     return(
         <div>
             <HeaderWithRouter/>
@@ -72,6 +83,7 @@ const Routes =(props)=>{
                 <Route exact path="/" component={homeComponent}/>
                 <Route exact path="/project" component={projectComponent}/>
                 <Route exact path="/Market" component={marketComponent}/>
+                <Route exact path="/Market/:id" component={marketDetailComponent}/>
                 <Route exact path="/ContactUs" component ={contactComponent}/>
                 <Route exact path="/Profil" component={profilComponent}/>
                 <Route path="/project/:id" component={detailprojectComponent} />

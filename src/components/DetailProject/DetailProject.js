@@ -15,12 +15,12 @@ if (data[0]!=null){
     <div class="container-lg">    
         <div className="main"> 
           <div className="projectCategorie">
-            <div id="pad">{data[0].category} </div>
+            <div id="pad"><b>{data[0].category}</b> </div>
             <div className= "vertical"></div>
-            <div id="pad">{data[0].date}</div>
+            <div id="pad"><b>{data[0].date}</b></div>
           </div>
-          <div class="projectName"> 
-            <h2>{data[0].title}</h2>
+          <div className="projectName"> 
+            <h2 id="green"><b>{data[0].title}</b></h2>
           </div>
         <div className="project"> 
           <div className="projectImage"><img class="img-fluid" src={'../'.concat(data[0].img)} alt="projectimg"/>

@@ -9,6 +9,9 @@ const Bar = (props) => {
   const [navItems, setnavItems] = useState({"QR":true,"Contact":false});
   const [activeClass, setactiveClass] = useState({"QR":"active","Contact":""})
   const toggle = (Event) =>{
+    console.log("cont")
+    console.log(Event.target.id)
+    console.log(Event)
       switch (Event.target.id) {
           case "QRs":
               setnavItems({"QR":true,"Contact":false});

@@ -1,0 +1,15 @@
+@import '../../../fontcolors.scss';
+
+.Minilist {
+    overflow: hidden;
+    padding: 30px;
+  .btn{
+      background-color: $primary-color;
+      color: white;
+  }
+  .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

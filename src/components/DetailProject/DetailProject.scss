@@ -9,19 +9,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.projectCategorie { 
-    margin:10px;
+    margin:20px;
     #pad{ padding: 0px 10px 0px 10px ;
     
         display: flex;
         justify-items:center;
-        justify-content: center;}
-   
+        justify-content: center;
+        color:$primary-color;
+        font-size: 20px;
+    }
+}
+
+
+#green{
+    color:$secondary-color;
+    font-size: 2rem;
 }
 /*  project-name */
 .projectName{
     text-align: center;
+    
 }
 .main{
     padding-top:15vh;
@@ -80,8 +87,9 @@
     color:black;
 }
 .vertical{
-    border-left: 2px solid black;
+    border-left: 2px solid $primary-color;
     height: 20px;
+    background-color:$primary-color;
 }
 .btn:hover{
     background-color: $secondary-color  ;

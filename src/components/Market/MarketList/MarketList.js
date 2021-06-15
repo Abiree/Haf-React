@@ -29,6 +29,9 @@ const MarketList = (props) => {
             <CardTitle tag="h5" className="text-align-center">{element.title}</CardTitle>
             <CardText className="category">{element.category}</CardText>
             <CardText className="price">{element.price}</CardText>
+            <CardText>
+              <a href={'./Market/'.concat(element.id)} className="blue">view more</a>
+            </CardText>
             <Button className="btn">Donate</Button>
           </CardBody>
         </Card>

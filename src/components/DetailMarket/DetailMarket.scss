@@ -1,0 +1,195 @@
+@import '../../fontcolors.scss';
+
+.DetailMarket {
+    .main{
+        padding-top:15vh;
+    }
+   
+    .div1{
+        @media screen and (max-width:500px){
+            width: 100%;
+        }
+        .show{
+            #dropdowntoggle{
+                background-color: $secondary-color;
+                border-color: $secondary-color;
+            }
+        }
+       }
+
+    .treeCategorie{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:20px;
+        margin-bottom:30px;
+        #pad{ padding: 0px 10px 0px 10px ;
+        
+            display: flex;
+            justify-items:center;
+            justify-content: center;
+            color:$primary-color;
+            font-size: 20px;
+        }
+    }
+    
+    .treeName{
+        text-align: center;
+        margin-bottom: 10px;
+        
+    }
+    .vertical{
+        border-left: 2px solid $primary-color;
+        height: 20px;
+        background-color:$primary-color;
+    }
+    #green{
+        color:$secondary-color;
+        font-size: 2rem;
+    }
+   /*  project-section */
+.project{
+    background-color: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.projectImage{
+    width: 350px;
+    margin-right: 30px;
+    padding:20px 0px 20px 0px;
+ 
+}
+.projectDonation{
+    margin-left: 10px;
+}
+.projectDonation h5{
+    text-align: center;
+    margin-left: 10px;
+    
+}
+.infos{
+    display:flex ;
+    justify-content: space-between;
+    margin: 15 0 0 0;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+}
+.projectInfo{
+    width: 50%;
+}
+.share{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.projectShare button{
+    display: block;
+    margin: 5px;
+}
+.btn{
+    background-color: $button  ;
+    border-color: $button;
+    color:black;
+   
+}
+.progress-bar {
+    background-color: $secondary-color;
+}
+.input-group-text{
+    background-color: rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 0, 0, 0.4);
+    color:white;
+}
+.vertical{
+    border-left: 2px solid $primary-color;
+    height: 20px;
+    background-color:$primary-color;
+}
+.btn:hover{
+    background-color: $secondary-color  ;
+    border-color: $secondary-color;
+    color:white;
+}
+.fa-facebook-square:before,.fa-twitter-square:before{
+    margin-right:10px ;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-left: 10px;
+    h5{
+        font-size: 2rem;
+    }
+}
+#font{
+    color: white;
+    margin-left: 20px ;
+}
+#price{padding-top: 10px;}
+@media screen and (max-width: 363px) {
+    .h5,h5{ font-size: 0.85rem;}
+    .donation{font-size: 0.85rem;}
+    
+    
+}
+
+@media screen and (max-width: 991px) {
+    
+    #green{
+        color:$secondary-color;
+        font-size: 2.5rem;
+    }
+   
+    #navigation{
+        display: block;
+    }
+    #navigation{
+        padding: 20 10 20 10;
+    }
+    .brand{
+        display: flex;
+        justify-content: space-between;
+    }
+    #navigation li{
+        display: flex;
+        justify-content: center;
+    }
+    
+
+    .project{
+        display: block;
+        background-color: $primary-color;
+        
+    }
+    .projectImage{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding:50px 0px 20px 0px;
+    }
+    .projectDonation{
+        padding: 35px;
+    }
+    .info{
+        display: block;
+    }
+    .projectInfo{
+        width: 100%;
+        text-align: center;
+    }
+
+    .share{
+        width: 100%;
+        
+    }
+}
+
+    //treeid section
+
+}
