@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 
 import './DetailProject.scss';
@@ -12,7 +13,7 @@ const DetailProject = (props) => {
 if (data[0]!=null){
   return(
   <div className="DetailProject" data-testid="DetailProject">
-    <div class="container-lg">    
+    <div className="container-lg">    
         <div className="main"> 
           <div className="projectCategorie">
             <div id="pad"><b>{data[0].category}</b> </div>
@@ -23,7 +24,7 @@ if (data[0]!=null){
             <h2 id="green"><b>{data[0].title}</b></h2>
           </div>
         <div className="project"> 
-          <div className="projectImage"><img class="img-fluid" src={'../'.concat(data[0].img)} alt="projectimg"/>
+          <div className="projectImage"><img className="img-fluid" src={'../'.concat(data[0].img)} alt="projectimg"/>
           </div>
           <div className="projectDonation">
             <h5 id="font">{data[0].donations} DH raised of {data[0].goal} DH goal</h5>
@@ -36,10 +37,10 @@ if (data[0]!=null){
                 <p className="donation"><b>{data[0].dons} donations</b></p>
                 <p className="price"><b>{parseInt(data[0].goal - data[0].donations)} DH to go</b></p>
               </div>
-              <div class="priceInput"> 
-              <div class="input-group mb-3">
-                <input class="form-control" type="text" aria-label="Amount (to the nearest dirham)" placeholder="Price ..."/><span class="input-group-text"><b>DH</b></span>
-                <button class="btn btn-primary" type="button"><b>Donate Now</b></button>
+              <div className="priceInput"> 
+              <div className="input-group mb-3">
+                <input className="form-control" type="text" aria-label="Amount (to the nearest dirham)" placeholder="Price ..."/><span className="input-group-text"><b>DH</b></span>
+                <button className="btn btn-primary" type="button"><b>Donate Now</b></button>
               </div>
             </div>
           </div>
@@ -47,11 +48,11 @@ if (data[0]!=null){
         <div className="navigation"> 
           <div className="navbar navbar-expand navbar-light bg-light">
             <div id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active" href="#">Summary </a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Lorem </a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Lorem </a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Lorem </a></li>
+              <ul className="navbar-nav">
+                <li className="nav-item"><a className="nav-link active" href="#">Summary </a></li>
+                <li className="nav-item"><a className="nav-link" href="#">Lorem </a></li>
+                <li className="nav-item"><a className="nav-link" href="#">Lorem </a></li>
+                <li className="nav-item"><a className="nav-link" href="#">Lorem </a></li>
               </ul>
             </div>
           </div>
@@ -64,8 +65,8 @@ if (data[0]!=null){
           </div>
           <div className="share">
             <div className="projectShare">
-              <button class="btn" ><i class="fa fa-facebook-square" id="white">Share this On facebook</i></button>
-              <button class="btn" ><i class="fa fa-twitter-square" id="white">Share this On facebook</i></button>
+              <button className="btn" ><i className="fa fa-facebook-square" id="white">Share this On facebook</i></button>
+              <button className="btn" ><i className="fa fa-twitter-square" id="white">Share this On facebook</i></button>
             </div>
           </div>
         </div>
@@ -78,7 +79,7 @@ if (data[0]!=null){
   console.log("koko")
   return(
     <div className="DetailProject" data-testid="DetailProject">
-      <div class="container-lg">
+      <div className="container-lg">
         
     <div className="main"> 
       <div className="projectCategorie">

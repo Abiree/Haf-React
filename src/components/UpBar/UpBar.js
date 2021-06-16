@@ -13,6 +13,7 @@ import Login from './Login/Login';
 import Register from './Register/Register';
 
 const UpBar = (props) => {
+
   const {location} = props;
   const [isOpen , setIsOpen] = useState(false);
   /*----------------------------login---------------------------------*/
@@ -47,6 +48,18 @@ const UpBar = (props) => {
           </Nav.Item>
           <Nav.Item id="navitem">
             <Button id="btn" onClick={toggleLoginModal}>Login</Button>
+          </Nav.Item>
+          <Nav.Item id="navitem">
+            <Nav.Link href="/shop">
+              <div id="cart" className="d-none">
+              </div>
+              <a href="/store/cart.stml" className="cart position-relative d-inline-flex" aria-label="View your shopping cart">
+                <i className="fas fa fa-shopping-cart fa-lg"></i>
+                <span className="cart-basket d-flex align-items-center justify-content-center">
+                  {props.cart.length}
+                </span>
+              </a>
+            </Nav.Link>
           </Nav.Item>
         </Nav>
       </Collapse>

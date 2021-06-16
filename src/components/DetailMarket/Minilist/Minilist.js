@@ -47,5 +47,4 @@ const Minilist = (props) =>{
 }
 
 
-
 export default Minilist;

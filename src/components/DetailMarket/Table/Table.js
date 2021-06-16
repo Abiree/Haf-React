@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import PropTypes from 'prop-types';
 import './Table.scss';
 
 const Table = (props) => {
@@ -24,8 +23,5 @@ const Table = (props) => {
 );
 }
 
-Table.propTypes = {};
-
-Table.defaultProps = {};
 
 export default Table;

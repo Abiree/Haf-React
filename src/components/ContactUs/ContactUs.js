@@ -5,7 +5,7 @@ import Bar from './Bar/Bar';
 const ContactUs = (props) => (
   <div className="ContactUs" data-testid="ContactUs">
      <Forum/>
-     <Bar questions={props.questions}/>
+     <Bar questions={props.questions} addQuestion={props.addQuestion}/>
   </div>  
 );
 

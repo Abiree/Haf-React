@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable react/jsx-no-target-blank */
 import React,{useState} from 'react';
-import PropTypes from 'prop-types';
 import './Album.scss';
 import {Container,Row,Col} from 'reactstrap';
 
@@ -46,8 +47,5 @@ const Album = (props) =>{
 );
 }
 
-Album.propTypes = {};
-
-Album.defaultProps = {};
 
 export default Album;

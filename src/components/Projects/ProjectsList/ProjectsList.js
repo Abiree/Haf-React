@@ -11,7 +11,8 @@ import{
   CardText, 
   CardBody,
   CardTitle, 
-  Button
+  Button,
+  Spinner
 } from 'reactstrap';
 import { 
   Pagination,
@@ -43,7 +44,7 @@ const ProjectsList = (props) => {
   return(
     <div className="ProjectsList" data-testid="ProjectsList">
       <Row>
-        {datamap}
+        {props.projectsLoading?<div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="light" /></div> : datamap}
       </Row>
       <Row className="pagination">
           <Pagination size="sm" aria-label="Page navigation example">

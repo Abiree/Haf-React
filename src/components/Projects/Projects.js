@@ -8,7 +8,11 @@ const Projects = (props) => {
     <div className="Projects" data-testid="Projects">
       <Filltrage/>
       <h2>Other Projects</h2>
-      <ProjectList projects={props.projects}/>
+      <ProjectList 
+        projects={props.projects}
+        projectsLoading={props.projectsLoading}
+        projectsFailed={props.projectsFailed}
+      />
   </div>
   );
 };

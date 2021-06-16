@@ -10,7 +10,8 @@ import{
   CardText, 
   CardBody,
   CardTitle, 
-  Button
+  Button,
+  Spinner
 } from 'reactstrap';
 import { 
   Pagination,
@@ -41,7 +42,7 @@ const MarketList = (props) => {
   return(
     <div className="MarketList" data-testid="MarketList">
       <Row>
-        {datamap}
+        {props.treesLoading?<div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="light" /></div> : datamap}
       </Row>
       <Row className="pagination">
           <Pagination size="sm" aria-label="Page navigation example">

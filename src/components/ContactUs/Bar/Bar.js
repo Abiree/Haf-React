@@ -39,7 +39,7 @@ const Bar = (props) => {
             </div>
             <div>
                 {navItems.QR ? <div><Search/><QR questions={props.questions} /></div> :null}
-                {navItems.Contact ? <Contact/>:null}
+                {navItems.Contact ? <Contact addQuestion={props.addQuestion}/>:null}
             </div>
     </div>
   );

@@ -24,7 +24,7 @@ if (data[0]!=null){
       
         <div className="project"> 
             <div className="projectImage">
-              <img class="img-fluid" src={'../'.concat(data[0].img)} alt="projectimg"/>
+              <img className="img-fluid" src={'../'.concat(data[0].img)} alt="projectimg"/>
             </div>
             <div className="projectDonation">
               <div className="flex">
@@ -34,10 +34,10 @@ if (data[0]!=null){
               
               <p id="font">{data[0].category}</p>
             
-                <div class="priceInput"> 
-                <div class="input-group mb-3">
-                  <input class="form-control" type="text" aria-label="Amount (to the nearest dirham)" placeholder="Number of trees..."/><span class="input-group-text"><b>Tree</b></span>
-                  <button class="btn btn-primary" type="button"><b>Add to cart</b></button>
+                <div className="priceInput"> 
+                <div className="input-group mb-3">
+                  <input className="form-control" type="text" aria-label="Amount (to the nearest dirham)" placeholder="Number of trees..."/><span className="input-group-text"><b>Tree</b></span>
+                  <button className="btn btn-primary" type="button"><b>Add to cart</b></button>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@ if (data[0]!=null){
 console.log("koko")
 return(
   <div className="DetailMarket" data-testid="DetailMarket">
-    <div class="container-lg">
+    <div className="container-lg">
       
   <div className="main"> 
     <div className="treeCategorie">
