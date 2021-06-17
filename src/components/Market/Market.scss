@@ -5,4 +5,31 @@
             text-align: center;
             color : $secondary-color;
         }
+       
     }
+    .navigation{
+        padding-top:10vh;
+        
+       
+        #navs{
+            display: flex;
+            background-color: rgba(175, 220, 255, 0.01);
+        }
+        ul{
+         li{
+             list-style-type: none;
+             padding: 10px 20px 10px 20px;
+             .link{
+                 color: gray;
+             }
+             .link:hover{
+                 cursor: pointer;
+                 color: black;
+             }
+             .active{
+                 color: black;
+             }
+         }
+     
+      }
+     }

@@ -1,13 +1,13 @@
 @import '../../../fontcolors.scss';
 
-.intro{
-   padding-top:15vh;
-   padding-left: 30px;
-   padding-right: 30px;
+.introo{
+    padding-left: 30px;
+    padding-right: 30px;
+   
    display: flex;
    justify-content: space-between;
    @media screen and (max-width:500px){
-       padding-top: 11vh;
+       //padding-top: 11vh;
        display: block;;
    }
    .div1{

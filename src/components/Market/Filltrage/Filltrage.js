@@ -11,7 +11,7 @@ const Filltrage = (props) => {
 
   return(
     <> 
-      <div className="intro" id="search">
+      <div className="introo" >
         <div className="div1">
           <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
             <DropdownToggle caret id="dropdowntoggle">
