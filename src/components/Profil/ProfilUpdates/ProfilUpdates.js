@@ -1,13 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React,{useState} from 'react';
+import React from 'react';
 import './ProfilUpdates.scss';
-import {Row} from 'reactstrap';
+import {Row,Spinner} from 'reactstrap';
 import Search from '../../ContactUs/Search/Search';
 
 const ProfilUpdates = (props) => {
-  const [projects] = useState(props.projects);
-  const cards = projects.map((element)=>{
-    
+  if(props.profileLoading){
+    return (
+      <div className="ProfilInfo" data-testid="ProfilInfo">
+        <Spinner color="primary"/>
+      </div>
+    );
+  }
+
+  const userProjects = props.projects.filter(({id})=>{
+    return props.profile.Donations.some(include => include.ProjectId === id)
+  });
+
+  const cards = userProjects.map((element)=>{    
       if(element.Updates.length>0){
         return(
           <Row key={element.id} className="row">

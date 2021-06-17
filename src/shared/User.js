@@ -1,4 +1,4 @@
-export const User = {
+export const User = [{
     "FirstName":"User",
     "LastName":"User",
     "Email":"User@email.com",
@@ -16,13 +16,10 @@ export const User = {
             "contribution":35,
             "nOfDonations":1
         },
-        {
-            "ProjectId":2,
-            "contribution":35,
-            "nOfDonations":1
-        }
+    
     ]
 }
+]
 
 export const Organisation = {
     "OrganisationName":"Organisation",

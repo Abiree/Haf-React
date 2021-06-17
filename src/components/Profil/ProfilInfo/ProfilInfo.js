@@ -1,21 +1,27 @@
-import React,{useState} from 'react';
+import React from 'react';
 import './ProfilInfo.scss';
+import {Spinner} from 'reactstrap';
 
 const ProfilInfo = (props) => {
-  const [info] = useState(props.profile);
-
+  if(props.profileLoading){
+    return (
+      <div className="ProfilInfo" data-testid="ProfilInfo">
+        <Spinner color="primary"/>
+      </div>
+    );
+  }
   return(
     <div className="ProfilInfo" data-testid="ProfilInfo">
       <h6 className="title"><b>First Name :</b></h6>
-      <p>{info.FirstName}</p>
+      <p>{props.profile.FirstName}</p>
       <h6 className="title"><b>Last Name :</b></h6>
-      <p>{info.LastName}</p>
+      <p>{props.profile.LastName}</p>
       <h6 className="title"><b>Email :</b></h6>
-      <p>{info.Email}</p>
+      <p>{props.profile.Email}</p>
       <h6 className="title"><b>Phone :</b></h6>
-      <p>{info.Phone}</p>
+      <p>{props.profile.Phone}</p>
       <h6 className="title"><b>Adress :</b></h6>
-      <p>{info.Adress}</p>
+      <p>{props.profile.Adress}</p>
     </div>
   );
   

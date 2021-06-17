@@ -5,7 +5,7 @@ export const fetchProjects = () => (dispatch) => {
     dispatch(projectsLoading(true));
     setTimeout(()=>{
         dispatch(addProjects(Projects));
-    },2000);
+    },5000);
 }
 
 export const projectsLoading = () => ({

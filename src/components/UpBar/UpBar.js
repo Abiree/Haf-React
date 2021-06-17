@@ -47,7 +47,7 @@ const UpBar = (props) => {
             <Nav.Link href="/ContactUs">ContactUs</Nav.Link>
           </Nav.Item>
           <Nav.Item id="navitem">
-            <Button id="btn" onClick={toggleLoginModal}>Login</Button>
+            {props.user===null?<Button id="btn" onClick={toggleLoginModal}>Login</Button>:<Nav.Link href="/Profil">Profil</Nav.Link>}
           </Nav.Item>
           <Nav.Item id="navitem">
             <Nav.Link href="/shop">

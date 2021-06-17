@@ -44,9 +44,9 @@ const Profile = (props) => {
                 </ul>
             </div>
             <div>
-                {navItems.info ? <ProfilInfo profile={props.profile}/>:null}
-                {navItems.donation ? <ProfilDonation profile={props.profile} projects={props.projects}/>:null}
-                {navItems.updates ? <ProfilUpdates projects={props.projects}/>:null}
+                {navItems.info ? <ProfilInfo profile={props.profile[0]} profileLoading={props.profileLoading} profileFailed={props.profileFailed}/>:null}
+                {navItems.donation ? <ProfilDonation profile={props.profile[0]} profileLoading={props.profileLoading} projects={props.projects} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>:null}
+                {navItems.updates ? <ProfilUpdates profile={props.profile[0]} profileLoading={props.profileLoading} projects={props.projects} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>:null}
             </div>
         </div>
     );

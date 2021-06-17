@@ -1,15 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import './TodaysProject.scss';
-import {Button, Progress} from 'reactstrap';
-const TodaysProject = () => {
-  const [project] = useState({
-    "img":"./assets/project.png",
-    "title":"A big Title",
-    "paragraph":" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel tortor purus. Donec in tincidunt du Sed congue ut purus vel molestie. Phasellus eu malesuada lacus. Intel lacinia at lectus sit amet fermentum. Curabitur sit amet laoreet ligula, at aliquet sem.",
-    "actualAmount":5000,
-    "goalAmount":6000
-  });
+import {Button, Progress,Spinner} from 'reactstrap';
+const TodaysProject = (props) => {
+  const [project] = useState(props.project);
+  if(props.projectsLoading){
+    return (
+      <div className="TodaysProject" data-testid="TodaysProject">
+        <div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="light" /></div>
+      </div>
+    );
+  }
   return(
     <div className="TodaysProject" data-testid="TodaysProject">
       <h2>Todays Project : </h2>

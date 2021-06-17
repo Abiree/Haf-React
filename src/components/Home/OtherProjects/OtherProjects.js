@@ -11,11 +11,11 @@ import{
   CardText, 
   CardBody,
   CardTitle,  
-  Button
+  Button,
+  Spinner
 } from 'reactstrap';
-import {Data} from './Data';
-const OtherProjects = () => {
-  const [data] = useState(Data);
+const OtherProjects = (props) => {
+  const [data] = useState(props.projects);
   const threeCards = data.map((element)=>{
     return(
       <Col key={element.id} xs="12" sm="6" md="4" lg="3" className="col">
@@ -35,6 +35,13 @@ const OtherProjects = () => {
       </Col>
     );
   });
+  if(props.projectsLoading){
+    return (
+      <div className="OtherProjects" data-testid="OtherProjects">
+        <div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="primary" /></div>
+      </div>
+    );
+  }
   return(
     <div className="OtherProjects" data-testid="OtherProjects">
       <h2>Other Projects</h2>

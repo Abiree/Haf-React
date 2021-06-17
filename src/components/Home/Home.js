@@ -8,17 +8,23 @@ import Achievements from './Achievements/Achievements';
 import Carbon from './Carbon/Carbon';
 import Tree from './Tree/Tree';
 
-const Home = () => (
-  <div className="Home" data-testid="Home">
-    <Intro/>
-    <Numbers/>
-    <TodaysProject/>
-    <OtherProjects/>
-    <Achievements/>
-    <Carbon/>
-    <Tree/>
-  </div>
-);
+const Home = (props) => {
+  const index = props.otherProjects.findIndex (element=>element.isTodayProject);
+  const todayProject = props.otherProjects[index];
+  const otherProjects = props.otherProjects.filter(element=>!element.isTodayProject).slice(-3);
+  console.log(otherProjects);
+  return(
+    <div className="Home" data-testid="Home">
+      <Intro/>
+      <Numbers/>
+      <TodaysProject project={todayProject} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>
+      <OtherProjects projects={otherProjects} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>
+      <Achievements/>
+      <Carbon/>
+      <Tree/>
+    </div>
+  );
+};
 
 
 export default Home;

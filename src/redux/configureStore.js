@@ -1,5 +1,5 @@
 import {createStore,combineReducers,applyMiddleware} from 'redux';
-import {UserReducer} from './reducers/userReducer';
+import {loginregisterReducer} from './reducers/LoginRegisterReducer';
 import {treesReducer} from './reducers/treesReducer';
 import {questionsReducer} from './reducers/questionsReducer';
 import {projectsReducer} from './reducers/projectsReducer';
@@ -10,7 +10,7 @@ import logger from 'redux-logger';
 export const configureStore = () =>{
     const store = createStore(
         combineReducers({
-            User: UserReducer,
+            User: loginregisterReducer,
             Questions: questionsReducer,
             Projects: projectsReducer,
             Trees: treesReducer,

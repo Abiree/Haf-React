@@ -10,6 +10,7 @@ export const Projects = [
         "date":"16/10/2020",
         "donations":"2500000",
         "goal": 5000000,
+        "isTodayProject":false,
         "Updates":[
             {
                 "id":0,
@@ -31,6 +32,7 @@ export const Projects = [
         "category":"Youth",
         "date":"16/10/2020",
         "donations":"2500000",
+        "isTodayProject":false,
         "goal": 5000000,
         "Updates":[ {
             "id":0,
@@ -49,10 +51,13 @@ export const Projects = [
         "category":"Youth",
         "date":"16/10/2020",
         "donations":"2500000",
+        "isTodayProject":false,
         "goal": 5000000,
-        "Updates":[
-            
-        ]
+        "Updates":[ {
+            "id":0,
+            "Update":"update for redux test" 
+        }
+        ],
     },
     {
         "id":3,
@@ -64,6 +69,7 @@ export const Projects = [
         "category":"Youth",
         "date":"16/10/2020",
         "donations":"2500000",
+        "isTodayProject":true,
         "goal": 5000000,
         "Updates":[
             
@@ -79,6 +85,7 @@ export const Projects = [
         "category":"Youth",
         "date":"16/10/2020",
         "donations":"2500000",
+        "isTodayProject":false,
         "goal": 5000000,
         "Updates":[
             

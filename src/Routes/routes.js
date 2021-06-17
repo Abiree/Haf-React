@@ -16,6 +16,8 @@ import DetailMarket from '../components/DetailMarket/DetailMarket';
 import {addQuestion} from '../redux/actionCreators/questionCreator';
 import {fetchProjects} from '../redux/actionCreators/projectCreator';
 import {fetchTrees} from '../redux/actionCreators/treesCreator';
+import {fetchUser,Login} from '../redux/actionCreators/LoginRegisterCreator';
+
 const mapStateToProps = state =>{
     return{
         User: state.User,
@@ -28,23 +30,34 @@ const mapStateToProps = state =>{
 const mapDispatchToProps = dispatch =>({
     addQuestion: (Name,Email,Subject,Message)=>dispatch(addQuestion(Name,Email,Subject,Message)),
     fetchProjects:() => {dispatch(fetchProjects())},
-    fetchTrees:()=>{dispatch(fetchTrees())}
-})
+    fetchTrees:()=>{dispatch(fetchTrees())},
+    fetchUser:()=>{dispatch(fetchUser())},
+    Login:()=>{dispatch(Login())}
+});
 
 class Routes extends Component {
+
     constructor(props){
         super(props);
     }
+
     componentDidMount(){
+        this.props.fetchUser();
         this.props.fetchProjects();
         this.props.fetchTrees();
     }
+
    render(){
     const homeComponent = () => {
         return(
-            <Home/>
+            <Home
+                otherProjects = {this.props.Projects.projectsList}
+                projectsLoading={this.props.Projects.isLoading}
+                projectsFailed={this.props.Projects.errMess}
+            />
         );
     };
+
     const projectComponent = () => {
         return(
             <Projects
@@ -65,24 +78,27 @@ class Routes extends Component {
     };
     const contactComponent = () => {
         return(
-            <ContactUs questions={this.props.Questions} addQuestion={this.props.addQuestion}/>
+            <ContactUs 
+                questions={this.props.Questions} 
+                addQuestion={this.props.addQuestion}
+            />
         );  
     }
     const profilComponent = () => {
+        console.log(this.props);
         return(
             <Profile
-              profile={this.props.User}
-              projects={this.props.Projects.filter(({id})=>{
-                return this.props.User.Donations.some(include => include.ProjectId === id)
-              })}
+              profile={this.props.User.userDetail}
+              profileLoading={this.props.User.isLoading}
+              profileFailed={this.props.User.errMess}
+              projectsLoading={this.props.Projects.isLoading}
+              projectsFailed={this.props.Projects.errMess}
+              projects={this.props.Projects.projectsList}
             />
         );
     }
     const detailprojectComponent = () => {
-        console.log("hehe")
-        console.log(this.props)
-        console.log(this.props.Projects)
-        console.log(this.props.location.pathname.slice(9))
+      
         return(
             <ProjectDetail
               projectid={this.props.Projects.filter((x) => x.id === Number(this.props.location.pathname.slice(9)))
@@ -97,13 +113,17 @@ class Routes extends Component {
         //console.log(props.location.pathname.slice(8))
         return(
             <DetailMarket 
-            treelist={this.props.Trees.filter((x)=> x.id===0||x.id===1||x.id===2)}
-            trees={this.props.Trees.filter((x) => x.id === Number(this.props.location.pathname.slice(8)))}/>
+                treelist={this.props.Trees.filter((x)=> x.id===0||x.id===1||x.id===2)}
+                trees={this.props.Trees.filter((x) => x.id === Number(this.props.location.pathname.slice(8)))}
+            />
         );
     };
     return(
         <div>
-            <HeaderWithRouter cart={this.props.Cart}/>
+            <HeaderWithRouter 
+                cart={this.props.Cart}
+                user={this.props.User}    
+            />
             <Switch>
                 <Route exact path="/" component={homeComponent}/>
                 <Route exact path="/project" component={projectComponent}/>
