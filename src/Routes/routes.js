@@ -99,11 +99,11 @@ class Routes extends Component {
         );
     }
     const detailprojectComponent = () => {
+        
       
         return(
             <ProjectDetail
-              projectid={this.props.Projects.filter((x) => x.id === Number(this.props.location.pathname.slice(9)))
-              }
+              projectid={this.props.Projects} idproject={this.props.location.pathname.slice(9)} projectsLoading={this.props.Projects.isLoading}
             />
         );
        

@@ -2,40 +2,54 @@
 import React, { useState } from 'react';
 
 import './DetailProject.scss';
-import {Progress} from 'reactstrap';
+import {Progress,Spinner} from 'reactstrap';
 
 
 
 const DetailProject = (props) => {
+  console.log("chouaib"+props);
+  console.log(props)
+  const id=useState(props.idproject);
   
-  const data = useState(props.projectid[0]);
-  console.log(data[0])
-if (data[0]!=null){
+  
+  const data = useState(props.projectid.projectsList.filter((x) => x.id === Number(id[0])));
+  console.log(data[0][0])
+  if(props.projectsLoading){
+    return (
+      <div className="DetailProject main" data-testid="DetailProject">
+        <div className="main">
+        <div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="#1A75BB" /></div>
+        </div>
+       
+      </div>
+    );
+  }
+if (data[0][0]!=null){
   return(
   <div className="DetailProject" data-testid="DetailProject">
     <div className="container-lg">    
         <div className="main"> 
           <div className="projectCategorie">
-            <div id="pad"><b>{data[0].category}</b> </div>
+            <div id="pad"><b>{data[0][0].category}</b> </div>
             <div className= "vertical"></div>
-            <div id="pad"><b>{data[0].date}</b></div>
+            <div id="pad"><b>{data[0][0].date}</b></div>
           </div>
           <div className="projectName"> 
-            <h2 id="green"><b>{data[0].title}</b></h2>
+            <h2 id="green"><b>{data[0][0].title}</b></h2>
           </div>
         <div className="project"> 
-          <div className="projectImage"><img className="img-fluid" src={'../'.concat(data[0].img)} alt="projectimg"/>
+          <div className="projectImage"><img className="img-fluid" src={'../'.concat(data[0][0].img)} alt="projectimg"/>
           </div>
           <div className="projectDonation">
-            <h5 id="font">{data[0].donations} DH raised of {data[0].goal} DH goal</h5>
+            <h5 id="font">{data[0][0].donations} DH raised of {data[0][0].goal} DH goal</h5>
             <div className="slider">
             </div>
             <div className="range">
-              <Progress value={parseInt((data[0].donations / data[0].goal)*100)}/>
+              <Progress value={parseInt((data[0][0].donations / data[0][0].goal)*100)}/>
             </div>
               <div className="infos"> 
-                <p className="donation"><b>{data[0].dons} donations</b></p>
-                <p className="price"><b>{parseInt(data[0].goal - data[0].donations)} DH to go</b></p>
+                <p className="donation"><b>{data[0][0].dons} donations</b></p>
+                <p className="price"><b>{parseInt(data[0][0].goal - data[0][0].donations)} DH to go</b></p>
               </div>
               <div className="priceInput"> 
               <div className="input-group mb-3">
@@ -60,7 +74,7 @@ if (data[0]!=null){
         <div className="info"> 
           <div className="projectInfo"> 
             <p>
-             {data[0].paragraph}
+             {data[0][0].paragraph}
             </p>
           </div>
           <div className="share">
