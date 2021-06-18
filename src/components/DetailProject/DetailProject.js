@@ -7,13 +7,13 @@ import {Progress,Spinner} from 'reactstrap';
 
 
 const DetailProject = (props) => {
-  console.log("chouaib"+props);
-  console.log(props)
+  //console.log("chouaib"+props);
+  //console.log(props)
   const id=useState(props.idproject);
   
   
   const data = useState(props.projectid.projectsList.filter((x) => x.id === Number(id[0])));
-  console.log(data[0][0])
+  //console.log(data[0][0])
   if(props.projectsLoading){
     return (
       <div className="DetailProject main" data-testid="DetailProject">

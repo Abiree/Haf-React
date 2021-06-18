@@ -15,6 +15,10 @@ export const Trees = [
             {
                 "ImageId":1,
                 "img":"./assets/project.png"
+            },
+            {
+                "ImageId":2,
+                "img":"./assets/project.png"
             }
             
         ]

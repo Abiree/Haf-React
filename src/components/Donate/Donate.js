@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import PropTypes from 'prop-types';
 import './Donate.scss';
 
 const Donate = (props) => {
@@ -70,8 +69,6 @@ const Donate = (props) => {
 );
   }
 
-Donate.propTypes = {};
 
-Donate.defaultProps = {};
 
 export default Donate;

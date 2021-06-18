@@ -39,7 +39,7 @@ const MarketBar = (props) =>{
       </ul>
           </div>
           <div>
-              {navItems.Detail ? <div><Table trees={props.trees}/></div> :null}
+              {navItems.Detail ? <div><Table trees={props.trees} idtree={props.idtree}/></div> :null}
               {navItems.Photo ? <Album trees={props.trees}/>:null}
           </div>
           <div className="navigation">

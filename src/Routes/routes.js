@@ -99,11 +99,11 @@ class Routes extends Component {
         );
     }
     const detailprojectComponent = () => {
-        
-      
         return(
             <ProjectDetail
-              projectid={this.props.Projects} idproject={this.props.location.pathname.slice(9)} projectsLoading={this.props.Projects.isLoading}
+                projectid={this.props.Projects}
+                idproject={this.props.location.pathname.slice(9)}
+                projectsLoading={this.props.Projects.isLoading}
             />
         );
        
@@ -114,8 +114,9 @@ class Routes extends Component {
         //console.log(props.location.pathname.slice(8))
         return(
             <DetailMarket 
-                treelist={this.props.Trees.filter((x)=> x.id===0||x.id===1||x.id===2)}
-                trees={this.props.Trees.filter((x) => x.id === Number(this.props.location.pathname.slice(8)))}
+                trees={this.props.Trees.treesList}
+                treesLoading={this.props.Trees.isLoading}
+                idtree={this.props.location.pathname.slice(8)}
             />
         );
     };

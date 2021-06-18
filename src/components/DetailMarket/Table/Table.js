@@ -2,20 +2,23 @@ import React,{useState} from 'react';
 import './Table.scss';
 
 const Table = (props) => {
-  const data = useState(props.trees[0]);
-  console.log(data[0])
+  //console.log("table")
+  //console.log(props)
+  const id=useState(props.idtree);
+  const data = useState(props.trees.filter((x) => x.id === Number(id[0])));
+ 
   return(
   <div className="Table" data-testid="Table">
    <div className="center">
      <table >
        <tr>
          <th className="wid">Weight :</th>
-         <th>{data[0].weight} kg</th>
+         <th>{data[0][0].weight} kg</th>
         </tr>
         <tr>
           <td className="wid">Dimensions :
           </td>
-          <td>{data[0].dimension} cm</td>
+          <td>{data[0][0].dimension} cm</td>
           </tr>
           </table>
           </div>

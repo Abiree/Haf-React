@@ -15,9 +15,11 @@ import{
 
 
 const Minilist = (props) =>{ 
-  const [data] = useState(props.treelist);
+  console.log(props)
+  const [data] = useState(props.trees.filter((x)=> x.id===0||x.id===1||x.id===2));
   //console.log([data]);
-  //console.log(props);
+  console.log("minilist")
+ 
   const datamap = data.map((element)=>{
     return(
       <Col key={element.id} xs="12" sm="6" md="4" lg="3" className="col">
