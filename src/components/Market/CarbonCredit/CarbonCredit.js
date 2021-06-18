@@ -26,6 +26,7 @@ const CarbonCredit = () => {
             </div>
           </div>
   
+  
   </div>
 );
 }

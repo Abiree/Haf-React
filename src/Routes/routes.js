@@ -12,6 +12,7 @@ import FooterWithRouter from '../components/Footer/Footer';
 import ProjectDetail from '../components/DetailProject/DetailProject';
 import Profile from '../components/Profil/Profile';
 import DetailMarket from '../components/DetailMarket/DetailMarket';
+import Donate from '../components/Donate/Donate';
 /*-----------------import actions---------------------*/
 import {addQuestion} from '../redux/actionCreators/questionCreator';
 import {fetchProjects} from '../redux/actionCreators/projectCreator';
@@ -132,6 +133,7 @@ class Routes extends Component {
                 <Route exact path="/ContactUs" component ={contactComponent}/>
                 <Route exact path="/Profil" component={profilComponent}/>
                 <Route path="/project/:id" component={detailprojectComponent} />
+                <Route path="/donate" component={Donate}/>
                 <Redirect to="/"/>
             </Switch>
             <FooterWithRouter/>

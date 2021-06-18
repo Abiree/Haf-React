@@ -1,0 +1,67 @@
+@import "../../fontcolors.scss";
+.Donate {
+    #paypals:hover,#credits:hover,#otheroptions:hover{
+        cursor:pointer;
+    }
+    .main{
+        padding-top:15vh;
+        display: block;
+        justify-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    h5{
+        text-align: center;
+    }
+    #wi{
+        font-size: 14px;
+        padding-top: 10px;
+    }
+   
+    .DonateTo{
+        margin: 30 0 30 0;
+    }
+    .payements{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .payements h6{
+        margin: 20px;
+    }
+    
+    .bar{
+        height: 6px;
+        background-color: grey;
+    }
+    .bar-active{
+        height: 6px;
+        background-color: $primary-color;
+    }
+    
+    .paragraph,.payButton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .payButton{padding-bottom: 20px;}
+    .btn{
+        background-color: $primary-color;
+        border-color: $primary-color;
+        margin: 0px 30px 0px 30px;
+        padding: 5px 30px 5px 30px;
+        color: white;
+    }
+    .btn:hover{
+        background-color: $secondary-color;
+        border-color: $secondary-color;
+        color: $blackColor;
+        color: $whiteColor;
+    }
+    
+    @media screen and (max-width: 327px) {
+        .payements h6{
+            margin: 4px;
+        }
+    }
+}

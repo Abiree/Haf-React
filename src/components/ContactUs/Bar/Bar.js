@@ -27,7 +27,7 @@ const Bar = (props) => {
   }
   return(
     <div className="Bar" data-testid="Bar">
-      <div className="navigation">
+      <div className="navigations">
         <ul id="navs">
           <li>
             <a className={"link "+activeClass.QR} id="QRs" onClick={toggle}>QR</a>
