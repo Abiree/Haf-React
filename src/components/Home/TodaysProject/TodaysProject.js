@@ -16,18 +16,18 @@ const TodaysProject = (props) => {
       <h2>Todays Project : </h2>
       <section className="todayProject">
         <div className="projectImage">
-          {project.img==null? null:<img className="img-fluid" src={project.img} alt="projectimg"/> }
+          {project.image==null? null:<img className="img-fluid" src={"https://hafbackend.herokuapp.com/api/images/"+project.image} alt="projectimg"/> }
         </div>
         <div className="textIntro2">
           <div className="projectText">
             <h1>{project.title}</h1>
-            <p>{project.paragraph}</p>
+            <p>{project.description}</p>
             <div className="slider">
-              <p className="donator">{project.actualAmount} DH</p>
-              <p className="don">{project.goalAmount} DH</p>
+              <p className="donator">{project.totalDons} DH</p>
+              <p className="don">{project.goal} DH</p>
             </div>
             <div className="range">
-              <Progress value={parseInt((project.actualAmount / project.goalAmount)*100)}/>
+              <Progress value={parseInt((project.totalDons / project.goal)*100)}/>
             </div>
             <div className = "DonateIntro">
               <Button className="bfont-weight: 20px;tn">Donate Now</Button>

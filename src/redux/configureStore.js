@@ -16,7 +16,7 @@ export const configureStore = () =>{
             Trees: treesReducer,
             Cart : cartReducer
         }),
-        applyMiddleware(thunk,logger)
+        applyMiddleware(thunk)
     );
     return store;
 };

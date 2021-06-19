@@ -20,14 +20,14 @@ const OtherProjects = (props) => {
     return(
       <Col key={element.id} xs="12" sm="6" md="4" lg="3" className="col">
         <Card className="card">
-          <CardImg top  className="img" src={element.img} alt={element.title}/>
+          <CardImg top  className="img" src={"/api/images/"+element.image} alt={element.title}/>
           <CardBody className="text-center">
             <CardTitle tag="h5" className="text-align-center">{element.title}</CardTitle>
-            <CardText className="parag">{element.paragraph}</CardText>
+            <CardText className="parag">{element.description}</CardText>
             <a className="blue">view more</a>
             <div className="donators">
-              <p className="donator">{element.donators}  <br/> Donors</p>
-              <p className="don">{element.dons} <br/> Donations</p>
+              <p className="donator">{element.donations.length}  <br/> Donors</p>
+              <p className="don">{element.totalDons} <br/> Donations</p>
             </div>
             <Button className="btn">Donate</Button>
           </CardBody>

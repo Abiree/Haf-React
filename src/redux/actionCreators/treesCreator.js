@@ -1,11 +1,9 @@
 import * as treesActions from "../actions/treesActions";
-import {Trees} from '../../shared/Market';
+import axios from 'axios';
 
 export const fetchTrees = () => (dispatch) => {
     dispatch(treesLoading(true));
-    setTimeout(()=>{
-        dispatch(addTrees(Trees));
-    },3000);
+    axios.get('/api/trees?limit=8').then((result)=>dispatch(addTrees(result.data)));
 }
 
 export const treesLoading = () => ({

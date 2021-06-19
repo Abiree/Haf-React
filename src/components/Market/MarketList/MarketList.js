@@ -25,13 +25,13 @@ const MarketList = (props) => {
     return(
       <Col key={element.id} xs="12" sm="6" md="4" lg="3" className="col">
         <Card className="card">
-          <CardImg top  className="img" src={element.img} alt={element.title}/>
+          <CardImg top  className="img"  src={"/api/images/"+element.picture} alt={element.name}/>
           <CardBody className="text-center">
-            <CardTitle tag="h5" className="text-align-center">{element.title}</CardTitle>
-            <CardText className="category">{element.category}</CardText>
-            <CardText className="price">{element.price}</CardText>
+            <CardTitle tag="h5" className="text-align-center">{element.name}</CardTitle>
+            {/*<CardText className="category">{element.category}</CardText>*/}
+            <CardText className="price">{element.price.mad} DH / {element.price.usd} USD</CardText>
             <CardText>
-              <a href={'./Market/'.concat(element.id)} className="blue">view more</a>
+              <a href={'./Market/'.concat(element._id)} className="blue">view more</a>
             </CardText>
             <Button className="btn">Donate</Button>
           </CardBody>

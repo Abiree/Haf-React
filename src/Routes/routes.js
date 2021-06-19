@@ -15,7 +15,7 @@ import DetailMarket from '../components/DetailMarket/DetailMarket';
 import Donate from '../components/Donate/Donate';
 /*-----------------import actions---------------------*/
 import {addQuestion} from '../redux/actionCreators/questionCreator';
-import {fetchProjects} from '../redux/actionCreators/projectCreator';
+import {fetchProjects,fetchPagination} from '../redux/actionCreators/projectCreator';
 import {fetchTrees} from '../redux/actionCreators/treesCreator';
 import {fetchUser,Login} from '../redux/actionCreators/LoginRegisterCreator';
 
@@ -33,7 +33,8 @@ const mapDispatchToProps = dispatch =>({
     fetchProjects:() => {dispatch(fetchProjects())},
     fetchTrees:()=>{dispatch(fetchTrees())},
     fetchUser:()=>{dispatch(fetchUser())},
-    Login:()=>{dispatch(Login())}
+    Login:()=>{dispatch(Login())},
+    fetchPagination:(Number)=>{dispatch(fetchPagination(Number))}
 });
 
 class Routes extends Component {
@@ -65,6 +66,8 @@ class Routes extends Component {
                 projects={this.props.Projects.projectsList}
                 projectsLoading={this.props.Projects.isLoading}
                 projectsFailed={this.props.Projects.errMess}
+                fetchPagination={this.props.fetchPagination}
+                pagination={this.props.Projects.pagination}
             />
         );
     };

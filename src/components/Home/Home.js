@@ -9,9 +9,8 @@ import Carbon from './Carbon/Carbon';
 import Tree from './Tree/Tree';
 
 const Home = (props) => {
-  const index = props.otherProjects.findIndex (element=>element.isTodayProject);
-  const todayProject = props.otherProjects[index];
-  const otherProjects = props.otherProjects.filter(element=>!element.isTodayProject).slice(-3);
+  const todayProject = props.otherProjects[1];
+  const otherProjects = props.otherProjects.slice(0,3);
   console.log(otherProjects);
   return(
     <div className="Home" data-testid="Home">

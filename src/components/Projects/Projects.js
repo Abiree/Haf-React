@@ -3,7 +3,6 @@ import './Projects.scss';
 import Filltrage from './Filltrage/Filltrage';
 import ProjectList from './ProjectsList/ProjectsList';
 const Projects = (props) => {
-  console.log(props.Projects);
   return(
     <div className="Projects" data-testid="Projects">
       <Filltrage/>
@@ -12,6 +11,8 @@ const Projects = (props) => {
         projects={props.projects}
         projectsLoading={props.projectsLoading}
         projectsFailed={props.projectsFailed}
+        fetchPagination={props.fetchPagination}
+        pagination={props.pagination}
       />
   </div>
   );

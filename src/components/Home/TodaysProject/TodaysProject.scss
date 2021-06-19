@@ -19,10 +19,14 @@
     }
     .projectImage{
         margin: 0 20px 0 20px;
-        min-width: 40%;
+        width: 40%;
         display: flex;
         justify-content: center;  
         align-items: center; 
+        img{
+            width : 457px;
+            height: 298px;
+        }
         @media screen and (max-width: 991px) {
             display: flex;
             justify-content: center;
@@ -33,6 +37,7 @@
         color: $whiteColor;
         display: flex;
         justify-content: center;
+        width:60%;
         @media screen and (max-width: 991px) {
             width: 100%;
         }

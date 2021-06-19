@@ -8,9 +8,8 @@ import Minilist from './Minilist/Minilist'
 const DetailMarket = (props) =>{ 
  
   const id=useState(props.idtree);
- 
-  const data = useState(props.trees.filter((x) => x.id === Number(id[0])));
-  console.log(props);
+  const data = useState(props.trees.filter((x) => x._id === id[0]));
+  console.log(data);
   if(props.treesLoading){
     return (
       <div className="DetailMarket" data-testid="DetailMarket">
@@ -27,25 +26,25 @@ if (data[0][0]!=null){
   <div className="DetailMarket" data-testid="DetailMarket">
     <div className="main"> 
       <div className="treeCategorie">
-        <div id="pad"><b>{data[0][0].category}</b> </div>
+        {/*<div id="pad"><b>{data[0][0].category}</b> </div>*/}
         <div className= "vertical"></div>
         <div id="pad"><b>Market</b></div>
       </div>
       <div className="treeName"> 
-        <h2 id="green"><b>{data[0][0].title}</b></h2>
+        <h2 id="green"><b>{data[0][0].name}</b></h2>
       </div>
       
         <div className="project"> 
             <div className="projectImage">
-              <img className="img-fluid" src={'../'.concat(data[0][0].img)} alt="projectimg"/>
+              <img className="img-fluid" src={"/api/images/"+data[0][0].picture} alt="projectimg"/>
             </div>
             <div className="projectDonation">
               <div className="flex">
-              <h5>{data[0][0].title}</h5>
-              <p id="price">{data[0][0].price}</p>
+              <h5>{data[0][0].name}</h5>
+              <p id="price">{data[0][0].price.mad}</p>
               </div>
               
-              <p id="font">{data[0][0].category}</p>
+              {/*<p id="font">{data[0][0].category}</p>*/}
             
                 <div className="priceInput"> 
                 <div className="input-group mb-3">
