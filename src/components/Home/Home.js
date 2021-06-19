@@ -1,26 +1,28 @@
-import React from 'react';
+import React,{Suspense,lazy} from 'react';
 import Intro from './Intro/Intro';
-import Numbers from './Numbers/Numbers';
-import TodaysProject from './TodaysProject/TodaysProject';
 import './Home.scss';
-import OtherProjects from './OtherProjects/OtherProjects';
-import Achievements from './Achievements/Achievements';
-import Carbon from './Carbon/Carbon';
-import Tree from './Tree/Tree';
+
+const Numbers = lazy(()=>import('./Numbers/Numbers'));
+const TodaysProject = lazy(()=>import('./TodaysProject/TodaysProject'));
+const OtherProjects = lazy(()=> import('./OtherProjects/OtherProjects'));
+const Achievements = lazy(()=>import('./Achievements/Achievements'));
+const Carbon = lazy(()=>import('./Carbon/Carbon'));
+const Tree = lazy(()=>import('./Tree/Tree'));
 
 const Home = (props) => {
   const todayProject = props.otherProjects[1];
   const otherProjects = props.otherProjects.slice(0,3);
-  console.log(otherProjects);
   return(
     <div className="Home" data-testid="Home">
       <Intro/>
-      <Numbers/>
-      <TodaysProject project={todayProject} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>
-      <OtherProjects projects={otherProjects} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>
-      <Achievements/>
-      <Carbon/>
-      <Tree/>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Numbers/>
+        <TodaysProject project={todayProject} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>
+        <OtherProjects projects={otherProjects} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>
+        <Achievements/>
+        <Carbon/>
+        <Tree/>
+      </Suspense>
     </div>
   );
 };

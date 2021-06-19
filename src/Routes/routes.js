@@ -17,7 +17,7 @@ import Donate from '../components/Donate/Donate';
 import {addQuestion} from '../redux/actionCreators/questionCreator';
 import {fetchProjects,fetchPagination} from '../redux/actionCreators/projectCreator';
 import {fetchTrees} from '../redux/actionCreators/treesCreator';
-import {fetchUser,Login} from '../redux/actionCreators/LoginRegisterCreator';
+import {fetchUser,Login,logout} from '../redux/actionCreators/LoginRegisterCreator';
 
 const mapStateToProps = state =>{
     return{
@@ -33,8 +33,9 @@ const mapDispatchToProps = dispatch =>({
     fetchProjects:() => {dispatch(fetchProjects())},
     fetchTrees:()=>{dispatch(fetchTrees())},
     fetchUser:()=>{dispatch(fetchUser())},
-    Login:()=>{dispatch(Login())},
-    fetchPagination:(Number)=>{dispatch(fetchPagination(Number))}
+    Login:(Email,Password)=>{dispatch(Login(Email,Password))},
+    fetchPagination:(Number)=>{dispatch(fetchPagination(Number))},
+    logout:()=>{dispatch(logout())}
 });
 
 class Routes extends Component {
@@ -95,9 +96,7 @@ class Routes extends Component {
               profile={this.props.User.userDetail}
               profileLoading={this.props.User.isLoading}
               profileFailed={this.props.User.errMess}
-              projectsLoading={this.props.Projects.isLoading}
-              projectsFailed={this.props.Projects.errMess}
-              projects={this.props.Projects.projectsList}
+              logout={this.props.logout}
             />
         );
     }
@@ -127,7 +126,8 @@ class Routes extends Component {
         <div>
             <HeaderWithRouter 
                 cart={this.props.Cart}
-                user={this.props.User}    
+                user={this.props.User}  
+                Login={this.props.Login}  
             />
             <Switch>
                 <Route exact path="/" component={homeComponent}/>

@@ -1,5 +1,6 @@
 import * as LoginRegisterActions from "../actions/LoginRegisterActions";
 import {User} from '../../shared/User';
+import axios from 'axios';
 
 export const IndividuRegister = (FirstName,LastName,Email,Password) => ({
     type: LoginRegisterActions.INDIVIDU_REGISTER,
@@ -23,17 +24,27 @@ export const OrganisationRegister = (OrganisationName, Adresse ,Phone,Email,Pass
 });
 
 export const Login = (Email,Password) => (dispatch)=> {
+    
     dispatch(loadingUser(true));
-    setTimeout(()=>{
-        dispatch(getUser(User));
-    },1000)
+    const user = JSON.stringify({
+        "email": Email,
+        "password": Password
+    });
+    
+    axios.post('/api/donors/login',user,{
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((result)=>dispatch(getUser(result.data)))
+    .catch((err)=>failedUser(err));
 };
 
 export const fetchUser = () => (dispatch) =>{
     dispatch(loadingUser(true));
-    setTimeout(()=>{
-        dispatch(getUser(User));
-    },3000);    
+    axios.get('/jwtid')
+    .then((res)=>dispatch(getUser(res.data)))
+    .catch((err)=>dispatch(failedUser(err)));
 }
 
 export const loadingUser = () => ({
@@ -49,3 +60,9 @@ export const failedUser = (errmess) => ({
     payload : errmess
 })
 
+export const logout = () => (dispatch) =>{
+    dispatch(loadingUser(true));
+    axios.get('/api/donors/logout')
+    .then((res)=>dispatch(getUser(null)))
+    .catch((err)=>dispatch(failedUser(err)));
+}

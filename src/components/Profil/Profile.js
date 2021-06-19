@@ -4,11 +4,15 @@ import {useState} from 'react';
 import ProfilInfo from './ProfilInfo/ProfilInfo';
 import ProfilDonation from './ProfilDonation/ProfilDonation';
 import ProfilUpdates from './ProfilUpdates/ProfilUpdates';
+import {Button} from 'reactstrap';
 import './Profile.scss';
 
 const Profile = (props) => {
     const [navItems, setnavItems] = useState({"info":true,"donation":false,"updates":false});
-    const [activeClass, setactiveClass] = useState({"info":"active","donation":"","updates":""})
+    const [activeClass, setactiveClass] = useState({"info":"active","donation":"","updates":""});
+    const logout = () => {
+        props.logout();
+    }
     const toggle = (Event) =>{
         switch (Event.target.id) {
             case "infos":
@@ -29,9 +33,9 @@ const Profile = (props) => {
     }
     return(
         <div className="Profil">
-            <Header/>
-            <div className="navigation">
-                <ul id="navs">
+            <Header profile={props.profile} profileLoading={props.profileLoading}/>
+            <div className="navigation" style={{"display":"flex","justify-content":"space-between","padding":"10px"}}>
+                <ul id="navs" style={{"margin":"0px"}}>
                     <li>
                         <a className={"link "+activeClass.info} id="infos" onClick={toggle}>infos</a>
                     </li>
@@ -42,11 +46,14 @@ const Profile = (props) => {
                         <a className={"link "+activeClass.updates} id="updates" onClick={toggle}>updates</a>
                     </li>
                 </ul>
+                <div style={{"display":"flex","align-items":"center"}}>
+                 <Button style={{"height":"35px"}} onClick={logout}>Logout</Button>
+                </div>
             </div>
             <div>
-                {navItems.info ? <ProfilInfo profile={props.profile[0]} profileLoading={props.profileLoading} profileFailed={props.profileFailed}/>:null}
-                {navItems.donation ? <ProfilDonation profile={props.profile[0]} profileLoading={props.profileLoading} projects={props.projects} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>:null}
-                {navItems.updates ? <ProfilUpdates profile={props.profile[0]} profileLoading={props.profileLoading} projects={props.projects} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>:null}
+                {navItems.info ? <ProfilInfo profile={props.profile} profileLoading={props.profileLoading} profileFailed={props.profileFailed}/>:null}
+                {navItems.donation ? <ProfilDonation profile={props.profile} profileLoading={props.profileLoading} profileFailed={props.profileFailed}/>:null}
+                {navItems.updates ? null:null}
             </div>
         </div>
     );

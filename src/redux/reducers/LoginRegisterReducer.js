@@ -4,7 +4,7 @@ export const loginregisterReducer = (
     state={
         isLoading:true,
         errMess:null,
-        userDetail : []
+        userDetail : null
     },
     action
 ) => {
@@ -12,7 +12,7 @@ export const loginregisterReducer = (
         case LoginRegisterActions.GET_USER:
             return {...state,isLoading:false,errMess:null,userDetail:action.payload};
         case LoginRegisterActions.LOADING_USER:
-            return {...state,isLoading:true,errMess:null , userDetail:[]};
+            return {...state,isLoading:true,errMess:null , userDetail:null};
         case LoginRegisterActions.NO_USER:
             return {...state,isLoading:false,errMess:action.payload};
         default:

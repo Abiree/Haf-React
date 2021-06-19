@@ -6,26 +6,30 @@ import './ProfilDonation.scss';
 
 const ProfilDonation = (props) => {
   
-  if(props.projectsLoading || props.profileLoading){
+  if(props.profileLoading){
     return(
       <div className="ProfilDonation" data-testid="ProfilDonation">
         <Spinner color="primary"/>
       </div>
     );
   }
-    console.log("haaaaahaaaaa : "+props.profile);
-    const userProjects = props.projects.filter(({id})=>{
-      return props.profile.Donations.some(include => include.ProjectId === id)
-    });
-    const cards = userProjects.map((element,index)=>{
+  if(!props.profile){
+    return(
+      <div className="ProfilInfo" data-testid="ProfilInfo">
+        you are not logged in
+      </div>
+    );
+  }
+    
+    const cards = props.profile.donations.map((element)=>{
       return(
-        <Row key={element.id} className="row">
+        <Row key={element.projectId} className="row">
           <div className="cadre">
             <div className="element">
-              <img className="img-fluid elemntImg" src={element.img} width="400px" alt="projectimg"/>
-              <h6 className="title"><b>{element.title}</b></h6>
-              <p className="contribution">My Contribution : {props.profile.Donations[index].contribution} $</p>
-              <p className="donations">Number of Donations : {props.profile.Donations[index].nOfDonations} times</p>
+              {/*<img className="img-fluid elemntImg" src={element.img} width="400px" alt="projectimg"/>*/}
+              <h6 className="title"><b>{element.projectTitle}</b></h6>
+              <p className="contribution">My Contribution : {element.amount} DH</p>
+              <p className="donations">donatedAt : {element.donatedAt} times</p>
             </div>
           </div>
           <div className="seeMore">

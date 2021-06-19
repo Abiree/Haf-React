@@ -11,9 +11,18 @@ import {
 import { withRouter } from "react-router-dom";
 import Login from './Login/Login';
 import Register from './Register/Register';
+ 
+const NavProfil = (props) => {
+  return(
+    <div style={{"display":"flex"}}>
+      <img style={{"border-radius":"45px","margin-right":"5px"}} width="25px" height="25px" src={"http://hafbackend.herokuapp.com/api/images/"+props.image} />
+      <p style={{"margin-bottom":"0px"}}> {props.name} </p>
+    </div>
+  );
+}
 
 const UpBar = (props) => {
-
+ 
   const {location} = props;
   const [isOpen , setIsOpen] = useState(false);
   /*----------------------------login---------------------------------*/
@@ -47,7 +56,7 @@ const UpBar = (props) => {
             <Nav.Link href="/ContactUs">ContactUs</Nav.Link>
           </Nav.Item>
           <Nav.Item id="navitem">
-            {props.user===null?<Button id="btn" onClick={toggleLoginModal}>Login</Button>:<Nav.Link href="/Profil">Profil</Nav.Link>}
+            {props.user.userDetail===null?<Button id="btn" onClick={toggleLoginModal}>Login</Button>:<Nav.Link href="/profil"><NavProfil image={props.user.userDetail.picture} name={props.user.userDetail.name}/></Nav.Link>}
           </Nav.Item>
           <Nav.Item id="navitem">
             <Nav.Link href="/shop">
@@ -64,9 +73,9 @@ const UpBar = (props) => {
         </Nav>
       </Collapse>
     </Navbar>
-    <Login modal={loginmodal} toggle={toggleLoginModal} toggleRegister={toggleRegisterModal} unmountOnClose={loginunmountOnClose}/>
-    <Register modal={registermodal} toggle={toggleRegisterModal} toggleLogin={toggleLoginModal} unmountOnClose={registerunmountOnClose}/>
-  </div>  
+    <Login modal={loginmodal} toggle={toggleLoginModal} toggleRegister={toggleRegisterModal} unmountOnClose={loginunmountOnClose} Login={props.Login}/>
+    <Register modal={registermodal} toggle={toggleRegisterModal} toggleLogin={toggleLoginModal} unmountOnClose={registerunmountOnClose} />
+  </div> 
   );
 }
 
