@@ -127,7 +127,8 @@ class Routes extends Component {
             <HeaderWithRouter 
                 cart={this.props.Cart}
                 user={this.props.User}  
-                Login={this.props.Login}  
+                Login={this.props.Login} 
+                logout={this.props.logout} 
             />
             <Switch>
                 <Route exact path="/" component={homeComponent}/>

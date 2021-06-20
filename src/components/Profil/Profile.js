@@ -10,6 +10,7 @@ import './Profile.scss';
 const Profile = (props) => {
     const [navItems, setnavItems] = useState({"info":true,"donation":false,"updates":false});
     const [activeClass, setactiveClass] = useState({"info":"active","donation":"","updates":""});
+    console.log(props)
     const logout = () => {
         props.logout();
     }
@@ -46,9 +47,7 @@ const Profile = (props) => {
                         <a className={"link "+activeClass.updates} id="updates" onClick={toggle}>updates</a>
                     </li>
                 </ul>
-                <div style={{"display":"flex","align-items":"center"}}>
-                 <Button style={{"height":"35px"}} onClick={logout}>Logout</Button>
-                </div>
+              
             </div>
             <div>
                 {navItems.info ? <ProfilInfo profile={props.profile} profileLoading={props.profileLoading} profileFailed={props.profileFailed}/>:null}
