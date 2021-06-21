@@ -1,7 +1,28 @@
 import React,{useState} from 'react';
 import './Donate.scss';
+import ReactDOM from "react-dom"
+
+const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
 const Donate = (props) => {
+  const createOrder = (data, actions) =>{
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: "0.01",
+          },
+        },
+      ],
+    });
+  };
+
+  const onApprove=async(data, actions) => {
+    const order = await actions.order.capture();
+   
+    console.log('ORDER', order);
+};
+
   const [navItems, setnavItems] = useState({"paypal":true,"credit":false});
   const [activeClass, setactiveClass] = useState({"paypal":"active","credit":""});
   const toggle = (Event) =>{
@@ -56,8 +77,11 @@ const Donate = (props) => {
           </p>
         </div>
         <div>
-                {navItems.paypal ? <div><div className="payButton"> 
-          <button className="btn btn-primary" type="button"> <i className="fa fa-paypal">Paypal checkout</i></button>
+                {navItems.paypal ? <div><div> 
+                <PayPalButton style={{"z-index":"10px"}}
+      createOrder={(data, actions) => createOrder(data, actions)}
+      onApprove={(data, actions) => onApprove(data, actions)}
+    />
         </div></div> :null}
                 {navItems.credit ? <div>credit</div>:null}
                 {navItems.otheroption ? <div>otheroption</div>:null}
