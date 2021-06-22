@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './OtherProjects.scss';
 import { 
   Col,
@@ -14,8 +14,15 @@ import{
   Button,
   Spinner
 } from 'reactstrap';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 const OtherProjects = (props) => {
   const [data] = useState(props.projects);
+  useEffect(()=>{
+    Aos.init({duration: 1000});
+  },[]);
+
   const threeCards = data.map((element)=>{
     return(
       <Col key={element._id} xs="12" sm="6" md="4" lg="3" className="col">
@@ -45,7 +52,7 @@ const OtherProjects = (props) => {
   return(
     <div className="OtherProjects" data-testid="OtherProjects">
       <h2>Other Projects</h2>
-      <Row className="row">
+      <Row data-aos="fade-right" className="row">
         {threeCards}
       </Row>
       <div className="projects">

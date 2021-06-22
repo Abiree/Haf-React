@@ -1,9 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './TodaysProject.scss';
 import {Button, Progress,Spinner} from 'reactstrap';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 const TodaysProject = (props) => {
   const [project] = useState(props.project);
+
+  useEffect(()=>{
+    Aos.init({duration: 1000});
+  },[]);
+
   if(props.projectsLoading){
     return (
       <div className="TodaysProject" data-testid="TodaysProject">
@@ -11,10 +19,11 @@ const TodaysProject = (props) => {
       </div>
     );
   }
+
   return(
-    <div className="TodaysProject" data-testid="TodaysProject">
+    <div  className="TodaysProject" data-testid="TodaysProject">
       <h2>Todays Project : </h2>
-      <section className="todayProject">
+      <section data-aos="fade-left" className="todayProject">
         <div className="projectImage">
           {project.image==null? null:<img className="img-fluid" src={"https://hafbackend.herokuapp.com/api/images/"+project.image} alt="projectimg"/> }
         </div>

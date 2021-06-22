@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Numbers.scss';
 import {Card , CardBody, CardText , CardTitle, Col ,Row} from 'reactstrap';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Numbers = (props) => {
   const [data] = useState([
@@ -25,7 +27,9 @@ const Numbers = (props) => {
       "title" : "Entreprises"
     }
   ]);
-
+  useEffect(()=>{
+    Aos.init({duration: 1000});
+  },[]);
   const card = data.map((element)=>{
       return(
         <Col key={element.id}>
@@ -46,7 +50,7 @@ const Numbers = (props) => {
   return(
   <div className="cards" data-testid="Numbers">
     <h2>Numbers</h2>
-    <div className="content">
+    <div data-aos="fade-up" className="content">
       <Row className="row">
         {card}
       </Row>

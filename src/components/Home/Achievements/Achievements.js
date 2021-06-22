@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Achievements.scss';
 import {Row, Col} from 'reactstrap';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 const Achievements = () => {
   const [data] = useState([
     {
@@ -27,7 +30,10 @@ const Achievements = () => {
       "id":5,
       "img": "./assets/topRanked.png"
     }
-  ])
+  ]);
+  useEffect(()=>{
+    Aos.init({duration: 1000});
+  },[]);
   const cards = data.map((element)=>{
     return(
       <Col key={element.id} className="column" xs="12" sm="6" md="4" lg="2">
@@ -38,7 +44,7 @@ const Achievements = () => {
   return(
     <div className="Achievements" data-testid="Achievements">
       <h2>Achievements</h2>
-      <div className="content">
+      <div data-aos="fade-up" className="content">
         <Row>
           {cards}
         </Row>
