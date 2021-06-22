@@ -2,10 +2,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import './Footer.scss';
-import { Col, Nav, Row } from 'react-bootstrap';
+import { Col, Nav , NavItem , Row} from 'reactstrap';
 import { withRouter } from 'react-router';
+import { NavLink } from "react-router-dom";
 
-const Footer = (props) => {
+const FooterWithRouter = (props) => {
   const {location} = props;
   return(
     <div className="Footer" data-testid="Footer">
@@ -68,19 +69,19 @@ const Footer = (props) => {
         <Col  xs="12"  md="4" className="col">
           <div className="content">
             <h5>Links</h5>
-            <Nav className="nav" activeKey={location.pathname}>
-              <Nav.Item>
-                <Nav.Link href="/">Home</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/project">Projects</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/market">Market</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/ContactUs">ContactUs</Nav.Link>
-              </Nav.Item>
+            <Nav className="nav">
+              <NavItem>
+                <NavLink className="nav-link" to="/home">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/project">Projects</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/market">Market</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/ContactUs">ContactUs</NavLink>
+              </NavItem>
             </Nav>
           </div>
         </Col>
@@ -92,5 +93,5 @@ const Footer = (props) => {
   );
 };
 
-const FooterWithRouter = withRouter(Footer);
+
 export default FooterWithRouter;

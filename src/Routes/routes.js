@@ -1,7 +1,8 @@
 /* eslint-disable no-useless-constructor */
 import { Switch , Route, Redirect , withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
-import {Component} from 'react';
+import {PureComponent} from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 /*------------- importing components ------------------*/
 import Home from '.././components/Home/Home';
 import Market from '.././components/Market/Market';
@@ -38,7 +39,7 @@ const mapDispatchToProps = dispatch =>({
     logout:()=>{dispatch(logout())}
 });
 
-class Routes extends Component {
+class Routes extends PureComponent {
 
     constructor(props){
         super(props);
@@ -51,6 +52,7 @@ class Routes extends Component {
     }
 
    render(){
+    console.log("----------------Route mounted-------------------")
     const homeComponent = () => {
         return(
             <Home
@@ -130,18 +132,23 @@ class Routes extends Component {
                 Login={this.props.Login} 
                 logout={this.props.logout} 
             />
-            <Switch>
-                <Route exact path="/" component={homeComponent}/>
-                <Route exact path="/project" component={projectComponent}/>
-                <Route exact path="/Market" component={marketComponent}/>
-                <Route exact path="/Market/:id" component={marketDetailComponent}/>
-                <Route exact path="/ContactUs" component ={contactComponent}/>
-                <Route exact path="/Profil" component={profilComponent}/>
-                <Route path="/project/:id" component={detailprojectComponent} />
-                <Route path="/donate" component={Donate}/>
-                <Redirect to="/"/>
-            </Switch>
+            <TransitionGroup>
+                <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+                    <Switch>
+                        <Route exact path="/home" component={homeComponent}/>
+                        <Route exact path="/project" component={projectComponent}/>
+                        <Route exact path="/Market" component={marketComponent}/>
+                        <Route exact path="/Market/:id" component={marketDetailComponent}/>
+                        <Route exact path="/ContactUs" component ={contactComponent}/>
+                        <Route exact path="/Profil" component={profilComponent}/>
+                        <Route path="/project/:id" component={detailprojectComponent} />
+                        <Route path="/donate" component={Donate}/>
+                        <Redirect to="/home"/>
+                    </Switch>
+                  </CSSTransition>
+            </TransitionGroup>
             <FooterWithRouter/>
+              
         </div>
     );
    }
