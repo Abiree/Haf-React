@@ -20,6 +20,7 @@ import {
 } from 'reactstrap';
 
 const MarketList = (props) => {
+  console.log(props.trees)
   const [data] = useState(props.trees);
   const datamap = data.map((element)=>{
     return(

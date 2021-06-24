@@ -46,7 +46,7 @@ const HeaderWithRouter = (props) => {
   const [registermodal, setregisterModal] = useState(false);
   const [registerunmountOnClose] = useState(false);
   const toggleRegisterModal = () => setregisterModal(!registermodal);
-
+  
   const toggle = () => setIsOpen(!isOpen);
 
   return(
@@ -87,7 +87,7 @@ const HeaderWithRouter = (props) => {
       </Collapse>
     </Navbar>
     <Login modal={loginmodal} toggle={toggleLoginModal} toggleRegister={toggleRegisterModal} unmountOnClose={loginunmountOnClose} Login={props.Login}/>
-    <Register modal={registermodal} toggle={toggleRegisterModal} toggleLogin={toggleLoginModal} unmountOnClose={registerunmountOnClose} />
+    <Register modal={registermodal} toggle={toggleRegisterModal} toggleLogin={toggleLoginModal} unmountOnClose={registerunmountOnClose}  IndividuRegister={props.IndividuRegister}  OrganisationRegister={props.OrganisationRegister} />
   </div> 
   );
 }

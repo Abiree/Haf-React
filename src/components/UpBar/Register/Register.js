@@ -31,10 +31,15 @@ const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
 const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
-const handleSubmit = (values) => {
-  alert('Current State is: ' + JSON.stringify(values));
-}
+
 const OrganisationForm = (props)=>{
+  const {toggle} = props;
+  const handleSubmit = (values) => {
+    console.log(values)
+    const {OrganisationName, Adresse ,Phone,Email,Password} = values;
+      props.OrganisationRegister(OrganisationName, Adresse ,Phone,Email,Password);
+      toggle()
+  }
   return(
     <LocalForm onSubmit = {(values)=>handleSubmit(values)}>
       <Control.text
@@ -166,6 +171,15 @@ const OrganisationForm = (props)=>{
 }
 
 const IndividuForm = (props)=>{
+  const {toggle} = props;
+  
+  const handleSubmit = (values) => {
+    console.log(values)
+    const {FirstName,LastName,Email,Password} = values;
+      props.IndividuRegister(FirstName,LastName,Email,Password);
+      toggle();
+   
+  }
   return(
     <LocalForm onSubmit = {(values)=>handleSubmit(values)}>
       <Control.text
@@ -272,6 +286,7 @@ const IndividuForm = (props)=>{
 }
 
 const Register = (props) => {
+  console.log(props)
   const {modal,toggle,unmountOnClose,toggleLogin} = props;
   const [buttonstate, setButtonstate] = useState({"Individu":true,"Organisation":false});
 
@@ -294,6 +309,7 @@ const Register = (props) => {
   const toggleToLogin = () =>{
     closeRegister().then(toggleLogin());
   }
+ console.log(props)
 
   return(
     <Modal isOpen={modal} toggle={toggle} unmountOnClose={unmountOnClose}>
@@ -301,11 +317,11 @@ const Register = (props) => {
         <h5 style={hpStyle}><b>HAF</b></h5>
         <p style={hpStyle}><b>Already have an account ?</b> <a href="#" onClick={toggleToLogin}>Login</a></p>
         <div style={{"display":"flex","justifyContent":"center"}}>
-          <Button id="individu" onClick={changeActiveButton} style={buttonstate.Individu ? ButtonStyleActive:ButtonStyle }>Individu</Button>
-          <Button id="organisation" onClick={changeActiveButton} style={buttonstate.Organisation ? ButtonStyleActive:ButtonStyle}>Organisation</Button>
+          <Button id="individu" onClick={changeActiveButton} style={buttonstate.Individu ? ButtonStyleActive:ButtonStyle } >Individu</Button>
+          <Button id="organisation" onClick={changeActiveButton} style={buttonstate.Organisation ? ButtonStyleActive:ButtonStyle} >Organisation</Button>
         </div>
         <h6 style={{"margin-top":"10px"}}><b>Register :</b></h6>
-        {buttonstate.Individu ? <IndividuForm/> : <OrganisationForm/>}
+        {buttonstate.Individu ? <IndividuForm toggle={toggle}  IndividuRegister={props.IndividuRegister} /> : <OrganisationForm toggle={toggle} OrganisationRegister={props.OrganisationRegister}/>}
       </ModalBody>
     </Modal>
   );

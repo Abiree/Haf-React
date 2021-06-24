@@ -106,8 +106,13 @@
     .price{font-size: 0.85rem;}
     
 }
+.img-fluid{
+    max-height: 500px;
+}
 
 @media screen and (max-width: 991px) {
+    
+    
     #navigation{
         display: block;
     }

@@ -2,7 +2,25 @@ import * as LoginRegisterActions from "../actions/LoginRegisterActions";
 import {User} from '../../shared/User';
 import axios from 'axios';
 
-export const IndividuRegister = (FirstName,LastName,Email,Password) => ({
+export const IndividuRegister = (FirstName,LastName,Email,Password) => (dispatch)=> {
+    
+    dispatch(loadingUser(true));
+    let formData = new FormData()
+      formData.append('name', FirstName+' '+LastName)
+      formData.append('email',Email)
+      formData.append('password',Password)
+      
+    
+    
+    axios.post('/api/donors',formData,{
+        headers:{
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+    .then((result)=>dispatch(getUser(result.data)))
+    .catch((err)=>failedUser(err));
+};
+/*({
     type: LoginRegisterActions.INDIVIDU_REGISTER,
     payload:{
         FirstName : FirstName,
@@ -11,8 +29,31 @@ export const IndividuRegister = (FirstName,LastName,Email,Password) => ({
         Password : Password
     }
 });
+*/
 
-export const OrganisationRegister = (OrganisationName, Adresse ,Phone,Email,Password) => ({
+export const OrganisationRegister = (OrganisationName, Adresse ,Phone,Email,Password) => 
+(dispatch)=> {
+    
+    dispatch(loadingUser(true));
+    let formData = new FormData()
+      formData.append('name', OrganisationName)
+      formData.append('email',Email)
+      formData.append('password',Password)
+      formData.append('address',Adresse)
+      formData.append('phone',Phone)
+      formData.append('type',"Organisation")
+    
+    console.log(formData)
+    
+    axios.post('/api/donors',formData,{
+        headers:{
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+    .then((result)=>dispatch(getUser(result.data)))
+    .catch((err)=>failedUser(err));
+};
+/*({
     type: LoginRegisterActions.ORGANISATION_REGISTER,
     payload: {
         OrganisationName : OrganisationName,
@@ -22,7 +63,7 @@ export const OrganisationRegister = (OrganisationName, Adresse ,Phone,Email,Pass
         Password : Password
     }
 });
-
+*/
 export const Login = (Email,Password) => (dispatch)=> {
     
     dispatch(loadingUser(true));

@@ -18,7 +18,7 @@ import Donate from '../components/Donate/Donate';
 import {addQuestion} from '../redux/actionCreators/questionCreator';
 import {fetchProjects,fetchPagination} from '../redux/actionCreators/projectCreator';
 import {fetchTrees} from '../redux/actionCreators/treesCreator';
-import {fetchUser,Login,logout} from '../redux/actionCreators/LoginRegisterCreator';
+import {fetchUser,Login,logout,IndividuRegister,OrganisationRegister} from '../redux/actionCreators/LoginRegisterCreator';
 
 const mapStateToProps = state =>{
     return{
@@ -36,7 +36,9 @@ const mapDispatchToProps = dispatch =>({
     fetchUser:()=>{dispatch(fetchUser())},
     Login:(Email,Password)=>{dispatch(Login(Email,Password))},
     fetchPagination:(Number)=>{dispatch(fetchPagination(Number))},
-    logout:()=>{dispatch(logout())}
+    logout:()=>{dispatch(logout())},
+    IndividuRegister : (FirstName,LastName,Email,Password)=>dispatch(IndividuRegister(FirstName,LastName,Email,Password)),
+    OrganisationRegister : (OrganisationName, Adresse ,Phone,Email,Password)=>dispatch(OrganisationRegister(OrganisationName, Adresse ,Phone,Email,Password))
 });
 
 class Routes extends PureComponent {
@@ -103,6 +105,7 @@ class Routes extends PureComponent {
         );
     }
     const detailprojectComponent = () => {
+        console.log(this.props)
         return(
             <ProjectDetail
                 projectid={this.props.Projects}
@@ -131,6 +134,8 @@ class Routes extends PureComponent {
                 user={this.props.User}  
                 Login={this.props.Login} 
                 logout={this.props.logout} 
+                IndividuRegister={this.props.IndividuRegister}
+                OrganisationRegister={this.props.OrganisationRegister}
             />
             <TransitionGroup>
                 <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
