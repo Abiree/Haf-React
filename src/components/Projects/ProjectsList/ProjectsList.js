@@ -47,7 +47,7 @@ const ProjectsList = (props) => {
         <Card className="card">
           <CardImg top  className="img" src={"/api/images/"+element.image} alt={element.title}/>
           <CardBody className="text-center">
-            <CardTitle tag="h5" className="text-align-center">{element.title}</CardTitle>
+            <CardTitle tag="h6" className="text-align-center">{element.title}</CardTitle>
             <CardText className="parag">{element.description}</CardText>
             <a href={'./project/'.concat(element._id)} className="blue">view more</a>
             <div className="donators">

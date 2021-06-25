@@ -24,10 +24,13 @@
 #green{
     color:$secondary-color;
     font-size: 2rem;
+    
 }
 /*  project-name */
 .projectName{
     text-align: center;
+    
+    
     
 }
 .main{
@@ -37,20 +40,38 @@
     
     @media screen and (max-width:500px){
         padding-top: 11vh;
+        #pad{
+            font-size: 14px;
+        }
+        #green{
+            font-size: 20px;
+        }
 }
 }
 /*  project-section */
 .project{
     display: flex;
-    justify-content: center;
+    padding: 30px;
+   
     align-items: center;
 }
 .projectImage{
     width: 500px;
+    display: flex;
+    justify-content: center;
+    
 }
 .projectDonation h5{
     text-align: center;
     
+   
+    
+}
+.projectDonation{
+    
+    justify-content: center;
+    width: 60%;
+    padding:30px
 }
 .infos{
     display:flex ;
@@ -63,6 +84,7 @@
 }
 .projectInfo{
     width: 50%;
+    padding: 10px;
 }
 .share{
     width: 50%;
@@ -138,6 +160,7 @@
     }
     .projectDonation{
         padding: 35px;
+        width:100%
     }
     .info{
         display: block;

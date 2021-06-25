@@ -59,7 +59,7 @@ if (data[0][0]!=null){
             </div>
           </div>
         </div>
-        <div className="navigation"> 
+        <div id="navigation"> 
           <div className="navbar navbar-expand navbar-light bg-light">
             <div id="navbarNav">
               <ul className="navbar-nav">
