@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState,useEffect } from 'react';
 import './ProjectsList.scss';
+import Login from '../../UpBar/Login/Login';
+import Register from '../../UpBar/Register/Register';
 import { 
   Col,
   Row 
@@ -19,8 +21,10 @@ import {
   PaginationItem, 
   PaginationLink 
 } from 'reactstrap';
+import Donationpop from '../Donationpop/Donationpop';
 
 const ProjectsList = (props) => {
+  /*----------------------Pagination---------------------------------------------------*/ 
   const [pagination] = useState(props.pagination === undefined || props.pagination<1 ? 1 : props.pagination);
   const [data] = useState(props.projects);
  
@@ -38,11 +42,27 @@ const ProjectsList = (props) => {
       props.fetchPagination(pagination-1);
     }
   }
-
+  const [isOpen , setIsOpen] = useState(false);
+   /*----------------------------login---------------------------------*/
+   const [loginmodal, setloginModal] = useState(false);
+   const [loginunmountOnClose] = useState(false);
+   const toggleLoginModal = () => setloginModal(!loginmodal);
+  /*----------------------------donate---------------------------------*/
+  const [donatemodal, setdonateModal] = useState(false);
+  const [donateunmountOnClose] = useState(false);
+  const toggleDonateModal = () => setdonateModal(!donatemodal);
+  /*----------------------------Register-------------------------------*/
+  const [registermodal, setregisterModal] = useState(false);
+  const [registerunmountOnClose] = useState(false);
+  const toggleRegisterModal = () => setregisterModal(!registermodal);
+ 
+   
+   const toggle = () => setIsOpen(!isOpen);
   
 
   const datamap = data.length===0 ? <div style={{"color":"white","text-align":"center","font-size":"20px","width":"100%"}}>No More Items</div>:data.map((element)=>{
     return(
+      
       <Col id={element.id} xs="12" sm="6" md="4" lg="3" className="col">
         <Card className="card">
           <CardImg top  className="img" src={"/api/images/"+element.image} alt={element.title}/>
@@ -54,14 +74,18 @@ const ProjectsList = (props) => {
               <p className="donator">{element.donations.length} <br/> Donors</p>
               <p className="don">{element.totalDons} <br/> Donations</p>
             </div>
-            <Button className="btn">Donate</Button>
+            <Button className="btn" onClick={toggleDonateModal}>Donate</Button>
           </CardBody>
         </Card>
       </Col>
+      
+  
     );
   })
   return(
     <div className="ProjectsList" data-testid="ProjectsList">
+      <Donationpop modal={donatemodal} toggle={toggleDonateModal}  user={props.user}  unmountOnClose={donateunmountOnClose} Donate={props.Donate}/>
+     
       <Row>
         {props.projectsLoading?<div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="light" /></div> : datamap}
       </Row>

@@ -65,13 +65,14 @@ export const OrganisationRegister = (OrganisationName, Adresse ,Phone,Email,Pass
 });
 */
 export const Login = (Email,Password) => (dispatch)=> {
+   
     
     dispatch(loadingUser(true));
     const user = JSON.stringify({
         "email": Email,
         "password": Password
     });
-    
+    console.log(user)
     axios.post('/api/donors/login',user,{
         headers:{
             'Content-Type': 'application/json'

@@ -66,8 +66,10 @@ class Routes extends PureComponent {
     };
 
     const projectComponent = () => {
+        
         return(
             <Projects
+                user={this.props.User} 
                 projects={this.props.Projects.projectsList}
                 projectsLoading={this.props.Projects.isLoading}
                 projectsFailed={this.props.Projects.errMess}
@@ -108,6 +110,9 @@ class Routes extends PureComponent {
         console.log(this.props)
         return(
             <ProjectDetail
+                Login={this.props.Login} 
+                IndividuRegister={this.props.IndividuRegister}
+                OrganisationRegister={this.props.OrganisationRegister}
                 projectid={this.props.Projects}
                 idproject={this.props.location.pathname.slice(9)}
                 projectsLoading={this.props.Projects.isLoading}
