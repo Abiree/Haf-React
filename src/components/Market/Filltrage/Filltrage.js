@@ -3,9 +3,6 @@ import './Filltrage.scss';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem , Button} from 'reactstrap';
 
 const Filltrage = (props) => {
-  const [dropdownOpen, setOpen] = useState(false);
-  const toggle = () => setOpen(!dropdownOpen);
-
   const [dropdownOpen2, setOpen2] = useState(false);
   const toggle2 = () => setOpen2(!dropdownOpen2);
 
@@ -13,16 +10,6 @@ const Filltrage = (props) => {
     <> 
       <div className="introo" >
         <div className="div1">
-          <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
-            <DropdownToggle caret id="dropdowntoggle">
-              Category
-            </DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem >Economic Growth </DropdownItem>
-              <DropdownItem>Education</DropdownItem>
-              <DropdownItem >Climate Action </DropdownItem>
-            </DropdownMenu>
-          </ButtonDropdown>
           <ButtonDropdown isOpen={dropdownOpen2} toggle={toggle2}>
             <DropdownToggle caret id="dropdowntoggle">
             Name
@@ -32,22 +19,14 @@ const Filltrage = (props) => {
               <DropdownItem >Asc</DropdownItem>
             </DropdownMenu>
           </ButtonDropdown>
-         
         </div> 
         <div className="div2">
           <input type="hidden" name="search_param" value="all" id="search_param"/>
           <input className="form-control resize" type="text" name="x" placeholder="Search"/>
           <Button className="btn"><i className="fa fa-search"></i></Button>
         </div>
-      </div>
-       
-        
-        
-  </>
-  
-        
-     
-    
+      </div>     
+  </> 
   );
   
 } 
