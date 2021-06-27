@@ -90,7 +90,7 @@ class Routes extends PureComponent {
     }
     const profilComponent = () => {
       console.log( this.props );
-      return ( <Profile profile={this.props.User.userDetail} profileLoading={this.props.User.isLoading} profileFailed={this.props.User.errMess} logout={this.props.logout}/> );
+      return ( <Profile projects={this.props.Projects.allProjects} profile={this.props.User.userDetail} profileLoading={this.props.User.isLoading} profileFailed={this.props.User.errMess} logout={this.props.logout}/> );
     }
     const detailprojectComponent = () => {
       console.log( this.props )
