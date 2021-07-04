@@ -4,6 +4,7 @@ import './Bar.scss';
 import Contact from '../Contact/Contact';
 import QR from '../QR/QR';
 import Search from '../Search/Search';
+import AddQuestion from './addQuestion';
 
 const Bar = ( props ) => {
   const [navItems, setnavItems] = useState( { "QR": true, "Contact": false } );
@@ -36,12 +37,12 @@ const Bar = ( props ) => {
     <div>
       {
         navItems.QR
-          ? <div><Search/><QR questions={props.questions}/></div>
+          ? <div><div style={{"display":"flex","justify-content":"space-between","align-items":"center","margin-left":"20px"}}><AddQuestion buttonLabel="+" className="addQuestion" addQuestion={props.addQuestion}/><Search/></div><QR questions={props.questions}/></div>
           : null
       }
       {
         navItems.Contact
-          ? <Contact addQuestion={props.addQuestion}/>
+          ? <Contact />
           : null
       }
     </div>

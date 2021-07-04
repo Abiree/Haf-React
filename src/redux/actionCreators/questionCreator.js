@@ -1,15 +1,16 @@
 import * as ActionTypes from '../actions/questionsActions';
 import axios from 'axios';
 
-export const addQuestion = ( Name, Email, Subject, Message ) => ( {
-  type: ActionTypes.ADD_QUESTION,
-  payload: {
-    Name: Name,
-    Email: Email,
-    question: Subject,
-    answer: Message
+export const addQuestion = ( question ) => (dispatch) => {
+  const questionJson = {
+    "question" : question
   }
-} )
+  axios.post("/api/questions",questionJson,{
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    })
+} 
 
 export const fetchQuestions = () => ( dispatch ) => {
   dispatch( loadingQuestions( true ) );
