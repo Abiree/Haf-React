@@ -1,6 +1,7 @@
 import * as projectActionTypes from '../actions/projectActions';
 
 export const projectsReducer = ( state = {
+  query:null,
   pagination: 1,
   isLoading: true,
   errMess: null,
@@ -11,6 +12,7 @@ export const projectsReducer = ( state = {
     case projectActionTypes.ADD_PROJECTS:
       return {
         ...state,
+        query:action.query,
         pagination: action.pagination,
         isLoading: false,
         errMess: null,

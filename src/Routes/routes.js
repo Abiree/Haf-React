@@ -45,8 +45,8 @@ const mapDispatchToProps = dispatch => ( {
   Login: ( Email, Password ) => {
     dispatch( Login( Email, Password ) )
   },
-  fetchPagination: ( Number ) => {
-    dispatch( fetchPagination( Number ) )
+  fetchPagination: ( Number , query) => {
+    dispatch( fetchPagination( Number , query ) )
   },
   logout: () => {
     dispatch( logout() )
@@ -74,13 +74,12 @@ class Routes extends PureComponent {
   }
 
   render() {
-    console.log( "----------------Route mounted-------------------" )
     const homeComponent = () => {
       return ( <Home otherProjects={this.props.Projects.projectsList} projectsLoading={this.props.Projects.isLoading} projectsFailed={this.props.Projects.errMess}/> );
     };
     const projectComponent = () => {
 
-      return ( <Projects user={this.props.User} projects={this.props.Projects.projectsList} projectsLoading={this.props.Projects.isLoading} projectsFailed={this.props.Projects.errMess} fetchPagination={this.props.fetchPagination} pagination={this.props.Projects.pagination}/> );
+      return ( <Projects user={this.props.User} projects={this.props.Projects.projectsList} projectsLoading={this.props.Projects.isLoading} projectsFailed={this.props.Projects.errMess} fetchPagination={this.props.fetchPagination} pagination={this.props.Projects.pagination} query = {this.props.Projects.query}/> );
     };
     const marketComponent = () => {
       return ( <Market trees={this.props.Trees.treesList} treesLoading={this.props.Trees.isLoading} treesFailed={this.props.Trees.errMess}/> );

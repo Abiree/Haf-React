@@ -33,7 +33,7 @@ const DetailProject = ( props ) => {
             </div>
             <div className="vertical"></div>
             <div id="pad">
-              <b>{data[ 0 ][ 0 ].createdAt.slice( 0, 10 )}</b>
+              <b>{data[ 0 ][ 0 ].updatedAt.slice( 0, 10 )}</b>
             </div>
           </div>
           <div className="projectName">

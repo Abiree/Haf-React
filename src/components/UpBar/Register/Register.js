@@ -168,7 +168,6 @@ const IndividuForm = ( props ) => {
 }
 
 const Register = ( props ) => {
-  console.log( props )
   const { modal, toggle, unmountOnClose, toggleLogin } = props;
   const [buttonstate, setButtonstate] = useState( { "Individu": true, "Organisation": false } );
 
@@ -191,7 +190,6 @@ const Register = ( props ) => {
   const toggleToLogin = () => {
     closeRegister().then( toggleLogin() );
   }
-  console.log( props )
 
   return ( <Modal isOpen={modal} toggle={toggle} unmountOnClose={unmountOnClose}>
     <ModalBody>
