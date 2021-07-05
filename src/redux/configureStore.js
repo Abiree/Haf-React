@@ -3,7 +3,6 @@ import {loginregisterReducer} from './reducers/LoginRegisterReducer';
 import {treesReducer} from './reducers/treesReducer';
 import {questionsReducer} from './reducers/questionsReducer';
 import {projectsReducer} from './reducers/projectsReducer';
-import {cartReducer} from './reducers/cartReducer';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
@@ -14,7 +13,6 @@ export const configureStore = () =>{
             Questions: questionsReducer,
             Projects: projectsReducer,
             Trees: treesReducer,
-            Cart : cartReducer
         }),
         applyMiddleware(thunk)
     );

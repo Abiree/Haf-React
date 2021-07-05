@@ -34,7 +34,7 @@ const MarketList = (props) => {
             <CardText>
               <a href={'./Market/'.concat(element._id)} className="blue">view more</a>
             </CardText>
-            <Button className="btn">Donate</Button>
+            <Button className="btn">Add to Cart</Button>
           </CardBody>
         </Card>
       </Col>
