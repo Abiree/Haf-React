@@ -25,8 +25,8 @@ const mapStateToProps = state => {
   return { User: state.User, Questions: state.Questions, Projects: state.Projects, Trees: state.Trees, Cart: state.Cart }
 }
 const mapDispatchToProps = dispatch => ( {
-  addQuestion: ( Name, Email, Subject, Message ) => {
-    dispatch( addQuestion( Name, Email, Subject, Message ) )
+  addQuestion: ( question ) => {
+    dispatch( addQuestion( question ) )
   },
   fetchQuestions: () => {
     dispatch( fetchQuestions() )
