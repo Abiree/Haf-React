@@ -11,6 +11,7 @@ import Image from "react-bootstrap/Image";
 import { NavLink } from "react-router-dom";
 import Login from './Login/Login';
 import Register from './Register/Register';
+import Cart from './cart';
 
 /************************NavProfil*******************/
 const NavProfil = (props) => {
@@ -21,6 +22,8 @@ const NavProfil = (props) => {
 }
 //console.log(props)
 //console.log(props.image)
+
+
 
 const [images, setImages] = useState( { "image": "" } );
 useEffect(()=>{if(props.type=="fb"){
@@ -33,11 +36,11 @@ else{
 }},[])
 
 
-  return(
+return(
     <div style={{"display":"flex","align-items":"center","height":"3vh" }}>
       <Image style={{"margin-right":"5px"}} width="25px" height="25px" src={images.image} roundedCircle/>
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-      <DropdownToggle caret style={{"margin-bottom":"0px", "color":"black","background-color": "transparent","border-color":"transparent","width": "fit-content"}}>
+      <DropdownToggle caret style={{"margin-bottom":"0px", "color":"black","background-color": "transparent","border-color":"transparent","width": "fit-content","padding":"0px 8px 0px 8px"}}>
          {props.name} 
       </DropdownToggle>
       <DropdownMenu>
@@ -61,8 +64,14 @@ const HeaderWithRouter = (props) => {
   const [registerunmountOnClose] = useState(false);
   const toggleRegisterModal = () => setregisterModal(!registermodal);
   
+  /*-------------------------------------------------------------------*/
   const toggle = () => setIsOpen(!isOpen);
+  console.log();
 
+  if(props.user.isLoading){
+  return <div></div>;
+  }
+  
   return(
     <div>
     <Navbar id="nav" light expand="md">
@@ -82,20 +91,13 @@ const HeaderWithRouter = (props) => {
           <NavItem id="navitem">
             <NavLink  className="nav-link" to="/ContactUs">ContactUs</NavLink>
           </NavItem>
-          <NavItem id="navitem">
-            {props.user.userDetail===null?<Button id="btn" onClick={toggleLoginModal}>Login</Button>:<NavLink className="nav-link" to="#"><NavProfil image={props.user.userDetail.picture} name={props.user.userDetail.name} logout={props.logout} type={props.user.userDetail.type}/></NavLink>}
+          <NavItem id="navitem" style={{"display":"flex","justify-content":"center","align-items":"center"}}>
+            {props.user.userDetail===null?<Button id="btn" onClick={toggleLoginModal}>Login</Button>:<NavProfil image={props.user.userDetail.picture} name={props.user.userDetail.name} logout={props.logout} type={props.user.userDetail.type}/>}
           </NavItem>
-          <NavItem id="navitem">
-            <NavLink className="nav-link" to="/shop">
-              <div id="cart" className="d-none">
-              </div>
-              <a href="/store/cart.stml" className="cart position-relative d-inline-flex" aria-label="View your shopping cart">
-                <i className="fas fa fa-shopping-cart fa-lg"></i>
-                <span className="cart-basket d-flex align-items-center justify-content-center">
-                  {props.cart.length}
-                </span>
-              </a>
-            </NavLink>
+          <NavItem id="navitem" style={{"display":"flex","justify-content":"center","align-items":"center"}}>
+            
+              <Cart cartLength = {props.user.userDetail.cart.length} cart={props.user.userDetail.cart} trees={props.trees}   />
+            
           </NavItem>
         </Nav>
       </Collapse>

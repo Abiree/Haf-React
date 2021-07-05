@@ -22,7 +22,7 @@ import { fetchTrees } from '../redux/actionCreators/treesCreator';
 import { fetchUser, Login, logout, IndividuRegister, OrganisationRegister,getUser } from '../redux/actionCreators/LoginRegisterCreator';
 
 const mapStateToProps = state => {
-  return { User: state.User, Questions: state.Questions, Projects: state.Projects, Trees: state.Trees, Cart: state.Cart }
+  return { User: state.User, Questions: state.Questions, Projects: state.Projects, Trees: state.Trees }
 }
 const mapDispatchToProps = dispatch => ( {
   addQuestion: ( question ) => {
@@ -113,7 +113,7 @@ class Routes extends PureComponent {
     };
 
     return ( <div>
-      <HeaderWithRouter cart={this.props.Cart} user={this.props.User} Login={this.props.Login} logout={this.props.logout} IndividuRegister={this.props.IndividuRegister} OrganisationRegister={this.props.OrganisationRegister} getUser={this.props.getUser}/>
+      <HeaderWithRouter trees={this.props.Trees.treesList} user={this.props.User} Login={this.props.Login} logout={this.props.logout} IndividuRegister={this.props.IndividuRegister} OrganisationRegister={this.props.OrganisationRegister} getUser={this.props.getUser}/>
       <TransitionGroup>
         <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
           <Switch>
