@@ -21,7 +21,7 @@ const ProfilUpdates = ( props ) => {
     return props.profile.donations.some( include => include.projectId === _id )
   } );
 
-  console.log( userProjects );
+ 
 
   const cards = userProjects.map( ( element ) => {
     if ( element.updates.length > 0 ) {

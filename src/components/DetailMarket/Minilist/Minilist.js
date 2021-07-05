@@ -15,10 +15,10 @@ import{
 
 
 const Minilist = (props) =>{ 
-  console.log(props)
+  //console.log(props)
   const [data] = useState(props.trees.slice(0,3));
   //console.log([data]);
-  console.log("minilist")
+  //console.log("minilist")
  
   const datamap = data.map((element)=>{
     return(

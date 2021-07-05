@@ -76,6 +76,8 @@ const ProjectsList = (props) => {
     }
   }
   const [isOpen , setIsOpen] = useState(false);
+  /*-------------------------------------------------------*/
+  const [idProject, setIdProject] = useState("");
    /*----------------------------login---------------------------------*/
    const [loginmodal, setloginModal] = useState(false);
    const [loginunmountOnClose] = useState(false);
@@ -83,11 +85,18 @@ const ProjectsList = (props) => {
   /*----------------------------donate---------------------------------*/
   const [donatemodal, setdonateModal] = useState(false);
   const [donateunmountOnClose] = useState(false);
-  const toggleDonateModal = () => setdonateModal(!donatemodal);
+  const toggleDonateModal = (id) => {
+    setdonateModal(!donatemodal);
+    setIdProject(id);
+    console.log(id)
+    
+  };
   /*----------------------------Register-------------------------------*/
   const [registermodal, setregisterModal] = useState(false);
   const [registerunmountOnClose] = useState(false);
   const toggleRegisterModal = () => setregisterModal(!registermodal);
+  
+
 
 
    const toggle = () => setIsOpen(!isOpen);
@@ -96,7 +105,7 @@ const ProjectsList = (props) => {
   const datamap = data.length===0 ? <div style={{"color":"white","text-align":"center","font-size":"20px","width":"100%"}}>No More Items</div>:data.map((element)=>{
     return(
 
-      <Col id={element.id} xs="12" sm="6" md="4" lg="3" className="col">
+      <Col id={element._id} xs="12" sm="6" md="4" lg="3" className="col">
         <Card className="card">
           <CardImg top  className="img" src={"/api/images/"+element.image} alt={element.title}/>
           <CardBody className="text-center">
@@ -107,7 +116,7 @@ const ProjectsList = (props) => {
               <p className="donator">{element.donations.length} <br/> Donors</p>
               <p className="don">{element.totalDons} <br/> Donations</p>
             </div>
-            <Button className="btn" onClick={toggleDonateModal}>Donate</Button>
+            <Button className="btn" onClick={()=>toggleDonateModal(element._id)}>Donate</Button>
           </CardBody>
         </Card>
       </Col>
@@ -156,10 +165,10 @@ const ProjectsList = (props) => {
               <i className="fa fa-search"></i>
             </Button>
           </LocalForm>
-        </div> < /div>
+        </div> </div>
 
-      </ >
-      <Donationpop modal={donatemodal} toggle={toggleDonateModal}  user={props.user}  unmountOnClose={donateunmountOnClose} Donate={props.Donate}/>
+      </>
+      <Donationpop modal={donatemodal} toggle={toggleDonateModal}  user={props.user}  unmountOnClose={donateunmountOnClose} Donate={props.Donate} idProject={idProject} />
 
       <Row>
         {props.projectsLoading?<div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="light" /></div> : datamap}

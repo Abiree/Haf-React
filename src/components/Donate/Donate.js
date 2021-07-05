@@ -5,12 +5,15 @@ import ReactDOM from "react-dom"
 const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
 const Donate = (props) => {
+  
+  console.log(props)
+  console.log(props.location.state.input)
   const createOrder = (data, actions) =>{
     return actions.order.create({
       purchase_units: [
         {
           amount: {
-            value: "0.01",
+            value: props.location.state.input.input,
           },
         },
       ],
@@ -19,25 +22,27 @@ const Donate = (props) => {
 
   const onApprove=async(data, actions) => {
     const order = await actions.order.capture();
-   
+    const donation={
+      "projectId":props.history.location.state.idProject,
+      "donorId":props.profile._id,
+      "amount":order.purchase_units[0].amount.value
+    }
+    props.AddDonation(donation.projectId,donation.donorId,donation.amount);
+    console.log(donation)
     console.log('ORDER', order);
 };
 
   const [navItems, setnavItems] = useState({"paypal":true,"credit":false});
   const [activeClass, setactiveClass] = useState({"paypal":"active","credit":""});
   const toggle = (Event) =>{
-    console.log("cont")
-    console.log(Event.target.id)
-    console.log(Event)
+    
+    
       switch (Event.target.id) {
           case "paypals":
               setnavItems({"paypal":true,"credit":false,"otheroption":false});
               setactiveClass({"paypal":"-active","credit":"","otheroption":""});
               break;
-          case "credits":
-              setnavItems({"paypal":false,"credit":true,"otheroption":false});
-              setactiveClass({"paypal":"","credit":"-active","otheroption":""});
-              break; 
+         
           case "otheroptions":
               setnavItems({"paypal":false,"credit":false,"otheroption":true});
               setactiveClass({"paypal":"","credit":"","otheroption":"-active"});
@@ -59,12 +64,9 @@ const Donate = (props) => {
         <div className="payements"> 
           <div className="paypal"> 
             <div className={"bar"+activeClass.paypal}></div>
-            <h6  id="paypals" onClick={toggle} >paypal</h6>
+            <h6  id="paypals" onClick={toggle} >Paypal/Credit Card</h6>
           </div>
-          <div className="creditcard"> 
-            <div className={"bar"+activeClass.credit}></div>
-            <h6 id="credits" onClick={toggle}>Credit Card</h6>
-          </div>
+          
           <div className="others">
             <div className={"bar"+activeClass.otheroption}></div>
             <h6 id="otheroptions" onClick={toggle}>others</h6>
@@ -73,7 +75,7 @@ const Donate = (props) => {
         <div className="paragraph"> 
           <p>
             Please click the button below and follow the instructions
-            provided to complete your $28.75 donation.
+            provided to complete your   {props.location.state.input.input} $ donation.
           </p>
         </div>
         <div>

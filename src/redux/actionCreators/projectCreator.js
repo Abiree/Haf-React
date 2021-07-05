@@ -17,6 +17,23 @@ export const fetchAllProjects = () => ( dispatch ) => {
   } );
 }
 
+export const AddDonation = (projectId,donorId,amount) => (dispatch)=> {
+  
+  const donation = JSON.stringify({
+      "projectId": projectId,
+      "donorId": donorId,
+      "amount": amount
+  });
+  console.log(donation)
+  axios.post('/api/donations',donation,{
+      headers:{
+          'Content-Type': 'application/json'
+      }
+  })
+}
+
+
+
 export const projectsLoading = () => ( { type: projectActions.LOADING_PORJECTS } )
 
 export const addProjects = ( projects, number , query) => {

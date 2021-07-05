@@ -10,9 +10,9 @@ const MarketBar = (props) =>{
   const [activeClass, setactiveClass] = useState({"Detail":"active","Photo":""})
   //console.log(props)
   const toggle = (Event) =>{
-    console.log("market")
-    console.log(Event)
-    console.log(Event.target.id)
+    //console.log("market")
+    //console.log(Event)
+    //console.log(Event.target.id)
       switch (Event.target.id) {
           case "Details":
               setnavItems({"Detail":true,"Photo":false});

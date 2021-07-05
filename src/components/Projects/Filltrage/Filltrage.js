@@ -34,7 +34,7 @@ const Filltrage = ( props ) => {
     props.fetchWithFilters(query)
   }
 
-  return ( <> < div className = "intro" id = "search" > <div className="div1">
+  return ( <> <div className = "intro" id = "search" > <div className="div1">
     <ButtonDropdown id='category' isOpen={dropdownOpen} toggle={toggle} onClick={filtre}>
       <DropdownToggle caret="caret" id="dropdowntoggle">
         Category
@@ -73,7 +73,7 @@ const Filltrage = ( props ) => {
         <i className="fa fa-search"></i>
       </Button>
     </LocalForm>
-  </div> < /div>
+  </div> </div>
 
 </ > );
 

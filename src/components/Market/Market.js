@@ -13,9 +13,8 @@ const Market = (props) =>{
     "font-weight": "bold"
   };
   const toggle = (Event) =>{
-    console.log("cont")
-    console.log(Event.target.id)
-    console.log(Event)
+    
+   
       switch (Event.target.id) {
           case "trees":
               setnavItems({"tree":true,"carbon":false});

@@ -9,7 +9,7 @@ const DetailMarket = (props) =>{
  
   const id=useState(props.idtree);
   const data = useState(props.trees.filter((x) => x._id === id[0]));
-  console.log(data);
+  //console.log(data);
   if(props.treesLoading){
     return (
       <div className="DetailMarket" data-testid="DetailMarket">
@@ -65,7 +65,7 @@ if (data[0][0]!=null){
   </div>
 );
 }
-console.log("koko")
+//console.log("koko")
 return(
   <div className="DetailMarket" data-testid="DetailMarket">
     <div className="container-lg">

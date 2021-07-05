@@ -10,7 +10,7 @@ import './Profile.scss';
 const Profile = ( props ) => {
   const [navItems, setnavItems] = useState( { "info": true, "donation": false, "updates": false } );
   const [activeClass, setactiveClass] = useState( { "info": "active", "donation": "", "updates": "" } );
-  console.log( props )
+  
   const logout = () => {
     props.logout();
   }

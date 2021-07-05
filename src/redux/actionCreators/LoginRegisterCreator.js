@@ -92,10 +92,12 @@ export const fetchUser = () => (dispatch) =>{
 export const loadingUser = () => ({
     type:LoginRegisterActions.LOADING_USER
 })
-export const getUser = (user) => ({
+export const getUser = (user) => {
+    console.log(user)
+    return({
     type:LoginRegisterActions.GET_USER,
-    payload:user
-});
+    payload:user})
+};
 
 export const failedUser = (errmess) => ({
     type:LoginRegisterActions.NO_USER,

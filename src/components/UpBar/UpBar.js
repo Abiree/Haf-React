@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './UpBar.scss';
 import {  Collapse,
   Nav,
@@ -19,9 +19,23 @@ const NavProfil = (props) => {
   const logout = () => {
     props.logout();
 }
+//console.log(props)
+//console.log(props.image)
+
+const [images, setImages] = useState( { "image": "" } );
+useEffect(()=>{if(props.type=="fb"){
+  setImages({"image":props.image})
+ 
+}
+else{
+  setImages({"image":"http://hafbackend.herokuapp.com/api/images/"+props.image})
+  
+}},[])
+
+
   return(
     <div style={{"display":"flex","align-items":"center","height":"3vh" }}>
-      <Image style={{"margin-right":"5px"}} width="25px" height="25px" src={"http://hafbackend.herokuapp.com/api/images/"+props.image} roundedCircle/>
+      <Image style={{"margin-right":"5px"}} width="25px" height="25px" src={images.image} roundedCircle/>
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
       <DropdownToggle caret style={{"margin-bottom":"0px", "color":"black","background-color": "transparent","border-color":"transparent","width": "fit-content"}}>
          {props.name} 
@@ -69,7 +83,7 @@ const HeaderWithRouter = (props) => {
             <NavLink  className="nav-link" to="/ContactUs">ContactUs</NavLink>
           </NavItem>
           <NavItem id="navitem">
-            {props.user.userDetail===null?<Button id="btn" onClick={toggleLoginModal}>Login</Button>:<NavLink className="nav-link" to="#"><NavProfil image={props.user.userDetail.picture} name={props.user.userDetail.name} logout={props.logout}/></NavLink>}
+            {props.user.userDetail===null?<Button id="btn" onClick={toggleLoginModal}>Login</Button>:<NavLink className="nav-link" to="#"><NavProfil image={props.user.userDetail.picture} name={props.user.userDetail.name} logout={props.logout} type={props.user.userDetail.type}/></NavLink>}
           </NavItem>
           <NavItem id="navitem">
             <NavLink className="nav-link" to="/shop">
@@ -86,7 +100,7 @@ const HeaderWithRouter = (props) => {
         </Nav>
       </Collapse>
     </Navbar>
-    <Login modal={loginmodal} toggle={toggleLoginModal} toggleRegister={toggleRegisterModal} unmountOnClose={loginunmountOnClose} Login={props.Login}/>
+    <Login modal={loginmodal} toggle={toggleLoginModal} toggleRegister={toggleRegisterModal} unmountOnClose={loginunmountOnClose} Login={props.Login} getUser={props.getUser}/>
     <Register modal={registermodal} toggle={toggleRegisterModal} toggleLogin={toggleLoginModal} unmountOnClose={registerunmountOnClose}  IndividuRegister={props.IndividuRegister}  OrganisationRegister={props.OrganisationRegister} />
   </div> 
   );
