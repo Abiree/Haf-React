@@ -125,7 +125,7 @@ const ProjectsList = (props) => {
     );
   })
   return(
-    <div className="ProjectsList" data-testid="ProjectsList">
+    <div  data-testid="ProjectsList" style={{"margin-buttom":"10px"}}>
         <> < div className = "intro" id = "search" > <div className="div1">
           <ButtonDropdown id='category' isOpen={dropdownOpen} toggle={toggle1} onClick={filtre}>
             <DropdownToggle caret="caret" id="dropdowntoggle">
@@ -159,15 +159,25 @@ const ProjectsList = (props) => {
         </div>
         <div className="div2">
           <LocalForm onSubmit={(values) => handleSubmit(values)}>
+            <div style={{
+          'width' : '100%',
+          'display' : 'flex',
+          'justify-content' : 'center'
+        }}>
             <input type="hidden" name="search_param" value="all" id="search_param"/>
             <Control.text model=".text" className="form-control resize" type="text" name="x" placeholder="Search"/>
             <Button className="btn">
               <i className="fa fa-search"></i>
             </Button>
+            </div>
           </LocalForm>
-        </div> </div>
+        </div>
+         </div>
+         <h2>Project</h2>
+
 
       </>
+      <div className="ProjectsList" >
       <Donationpop modal={donatemodal} toggle={toggleDonateModal}  user={props.user}  unmountOnClose={donateunmountOnClose} Donate={props.Donate} idProject={idProject} />
 
       <Row>
@@ -186,6 +196,7 @@ const ProjectsList = (props) => {
           </PaginationItem>
         </Pagination>
       </Row>
+    </div>
     </div>
   );
 };
