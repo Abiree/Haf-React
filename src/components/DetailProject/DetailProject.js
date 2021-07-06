@@ -3,14 +3,36 @@ import React, { useState } from 'react';
 
 import './DetailProject.scss';
 import { Progress, Spinner } from 'reactstrap';
-
+import {
+  Redirect
+} from "react-router-dom";
 const DetailProject = ( props ) => {
   //console.log("chouaib"+props);
   //console.log(props)
   const id = useState( props.idproject );
 
   const data = useState( props.projectid.allProjects.filter( ( x ) => x._id === id[ 0 ] ) );
-  console.log( data[ 0 ][ 0 ] )
+  console.log( data[ 0 ][ 0 ] );
+  const [input, setInput] = useState('');
+  const [toNext, setToNext] = useState(false)
+  const handleSubmit = (values) => {
+    console.log(input)
+      
+    console.log(input)
+    if(props.profile == null || input=="" ){
+      console.log(input)
+      
+      console.log(values)
+      
+    }
+    else{
+      console.log(input)
+      
+      console.log(values)
+      setToNext(true)
+    }
+    
+  }
   if ( props.projectsLoading ) {
     return ( <div className="DetailProject main" data-testid="DetailProject">
       <div className="main">
@@ -64,11 +86,16 @@ const DetailProject = ( props ) => {
               </div>
               <div className="priceInput">
                 <div className="input-group mb-3">
-                  <input className="form-control" type="text" aria-label="Amount (to the nearest dirham)" placeholder="Price ..."/>
+                  <input className="form-control" type="text" aria-label="Amount (to the nearest dirham)" placeholder="Price ..." value={input} onInput={e => setInput(e.target.value)}/>
                   <span className="input-group-text">
                     <b>DH</b>
                   </span>
-                  <button className="btn btn-primary" type="button">
+                  {toNext ? <Redirect to={{
+                      pathname: '/donate',
+                      state: { input: {input},
+                    idProject : data[ 0 ][ 0 ]._id }
+                  }} /> : null}
+                  <button className="btn btn-primary" type="button" onClick={handleSubmit}>
                     <b>Donate Now</b>
                   </button>
                 </div>
