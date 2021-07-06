@@ -104,7 +104,7 @@ class Routes extends PureComponent {
     }
     const detailprojectComponent = () => {
       //console.log( this.props )
-      return ( <ProjectDetail Login={this.props.Login} IndividuRegister={this.props.IndividuRegister} OrganisationRegister={this.props.OrganisationRegister} projectid={this.props.Projects} idproject={this.props.location.pathname.slice( 9 )} projectsLoading={this.props.Projects.isLoading}/> );
+      return ( <ProjectDetail Login={this.props.Login} IndividuRegister={this.props.IndividuRegister} OrganisationRegister={this.props.OrganisationRegister} projectid={this.props.Projects} idproject={this.props.location.pathname.slice( 9 )} projectsLoading={this.props.Projects.isLoading} profile={this.props.User.userDetail}/> );
 
     }
     const marketDetailComponent = () => {

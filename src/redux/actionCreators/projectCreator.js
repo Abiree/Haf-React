@@ -1,6 +1,6 @@
 import * as projectActions from "../actions/projectActions";
 import axios from 'axios';
-
+import { fetchUser } from "./LoginRegisterCreator";
 export const fetchProjects = () => ( dispatch ) => {
   dispatch( projectsLoading( true ) );
   axios.get( '/api/projects?limit=8' ).then( ( result ) => {
@@ -29,7 +29,7 @@ export const AddDonation = (projectId,donorId,amount) => (dispatch)=> {
       headers:{
           'Content-Type': 'application/json'
       }
-  })
+  });
 }
 
 

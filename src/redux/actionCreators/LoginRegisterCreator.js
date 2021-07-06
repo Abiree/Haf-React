@@ -3,7 +3,7 @@ import {User} from '../../shared/User';
 import axios from 'axios';
 
 export const IndividuRegister = (FirstName,LastName,Email,Password) => (dispatch)=> {
-    
+    console.log(Password);
     dispatch(loadingUser(true));
     let formData = new FormData()
       formData.append('name', FirstName+' '+LastName)
@@ -15,7 +15,7 @@ export const IndividuRegister = (FirstName,LastName,Email,Password) => (dispatch
             'Content-Type': 'multipart/form-data'
         }
     })
-    .then((result)=>dispatch(getUser(result.data)))
+    .then((result)=>alert("Register successfully, you can login now "))
     .catch((err)=>failedUser(err));
 };
 /*({
@@ -48,7 +48,7 @@ export const OrganisationRegister = (OrganisationName, Adresse ,Phone,Email,Pass
             'Content-Type': 'multipart/form-data'
         }
     })
-    .then((result)=>dispatch(getUser(result.data)))
+    .then((result)=>alert("Register successfully, you can login now "))
     .catch((err)=>failedUser(err));
 };
 /*({
