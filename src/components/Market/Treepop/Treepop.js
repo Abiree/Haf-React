@@ -7,7 +7,7 @@ import {
 import './Treepop.scss';
 
 const Treepop = (props) => {
-  console.log(props)
+  console.log(props.user)
   const [alert , setAlert] = useState(false);
  
   const {modal,toggle,unmountOnClose} = props;
@@ -19,17 +19,11 @@ const Treepop = (props) => {
   const handleSubmit = (values) => {
     console.log(input)
     if(props.user.userDetail == null || input=="" ){
-      console.log(input)
-      
-      console.log(values)
-      
+      setAlert(true);
+      console.log("hahoa")
     }
     else{
-      console.log(input)
-      
-      console.log(values)
-      setAlert(true);
-     
+      props.addToCart(props.treeId,input,props.user.userDetail._id)
     }
     
   }

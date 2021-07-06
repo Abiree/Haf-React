@@ -35,3 +35,24 @@ export const removeFromCart = (userId,id) => (dispatch) => {
         alert("an error have occured")
     })
 }
+
+export const addToCart = (id,quantity,userId) => (dispatch) => {
+   
+
+    const tree = JSON.stringify({
+        "treeId": id,
+        "quantity" : quantity
+    });
+
+    const Url = "/api/donors/"+userId+"/cart/add"
+    console.log(Url)
+    axios.put(Url, tree , {
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    }).then((result)=>{
+        dispatch(fetchUser())
+    }).catch((err)=>{
+        alert("an error have occured")
+    })
+}

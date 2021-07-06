@@ -18,7 +18,7 @@ import Donationpop from '../components/Projects/Donationpop/Donationpop';
 /* -----------------import actions--------------------- */
 import { addQuestion, fetchQuestions } from '../redux/actionCreators/questionCreator';
 import { fetchProjects, fetchPagination, fetchAllProjects,AddDonation } from '../redux/actionCreators/projectCreator';
-import { fetchTrees,removeFromCart } from '../redux/actionCreators/treesCreator';
+import { fetchTrees,removeFromCart, addToCart } from '../redux/actionCreators/treesCreator';
 import { fetchUser, Login, logout, IndividuRegister, OrganisationRegister,getUser } from '../redux/actionCreators/LoginRegisterCreator';
 
 const mapStateToProps = state => {
@@ -42,6 +42,9 @@ const mapDispatchToProps = dispatch => ( {
   },
   fetchTrees: () => {
     dispatch( fetchTrees() )
+  },
+  addToCart:(id, quantity,userId) =>{
+    dispatch(addToCart(id,quantity,userId))
   },
   removeFromCart: (userId,id) => {
     dispatch(removeFromCart(userId,id))
@@ -90,7 +93,7 @@ class Routes extends PureComponent {
       return ( <Projects user={this.props.User} projects={this.props.Projects.projectsList} projectsLoading={this.props.Projects.isLoading} projectsFailed={this.props.Projects.errMess} fetchPagination={this.props.fetchPagination} pagination={this.props.Projects.pagination} query = {this.props.Projects.query}/> );
     };
     const marketComponent = () => {
-      return ( <Market trees={this.props.Trees.treesList} treesLoading={this.props.Trees.isLoading} treesFailed={this.props.Trees.errMess}/> );
+      return ( <Market trees={this.props.Trees.treesList} treesLoading={this.props.Trees.isLoading} treesFailed={this.props.Trees.errMess} addToCart={this.props.addToCart} user={this.props.User}/> );
     };
     const contactComponent = () => {
       return ( <ContactUs questions={this.props.Questions.questions} addQuestion={this.props.addQuestion}/> );

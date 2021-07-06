@@ -9,6 +9,7 @@ const Market = (props) =>{
 
   const [navItems, setnavItems] = useState({"tree":true,"carbon":false});
   const [activeClass, setactiveClass] = useState({"tree":"active","carbon":""});
+  console.log(props.user)
   const BarStyle = {
     "font-weight": "bold"
   };
@@ -42,7 +43,7 @@ const Market = (props) =>{
         </ul>
             </div>
             <div>
-                {navItems.tree ? <div> <Filltrage/><h2>Market</h2><MarketList trees={props.trees} treesLoading={props.treesLoading} treesFailed={props.treesFailed}/></div> :null}
+                {navItems.tree ? <div> <Filltrage/><h2>Market</h2><MarketList addToCart={props.addToCart} trees={props.trees} treesLoading={props.treesLoading} treesFailed={props.treesFailed} user={props.user}/></div> :null}
                 {navItems.carbon ? <CarbonCredit/>:null}
             </div>
    

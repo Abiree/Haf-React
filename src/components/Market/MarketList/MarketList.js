@@ -34,6 +34,7 @@ const MarketList = (props) => {
    };
    const toggle = () => setIsOpen(!isOpen);
   const [data] = useState(props.trees);
+  console.log(props.user);
   const datamap = data.map((element)=>{
     return(
       <Col key={element._id} xs="12" sm="6" md="4" lg="3" className="col">
@@ -54,7 +55,7 @@ const MarketList = (props) => {
   })
   return(
     <div className="MarketList" data-testid="MarketList">
-      <Treepop modal={treemodal} toggle={toggleTreeModal}  user={props.user}  unmountOnClose={treeunmountOnClose} Tree={props.Tree} idProject={idProject} />
+      <Treepop addToCart={props.addToCart} modal={treemodal} toggle={toggleTreeModal}  user={props.user}  unmountOnClose={treeunmountOnClose} Tree={props.Tree} treeId={idProject} />
       <Row>
         {props.treesLoading?<div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="light" /></div> : datamap}
       </Row>
