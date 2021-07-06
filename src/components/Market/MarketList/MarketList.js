@@ -18,13 +18,25 @@ import {
   PaginationItem, 
   PaginationLink 
 } from 'reactstrap';
+import Treepop from '../Treepop/Treepop';
 
 const MarketList = (props) => {
-  
+  const [isOpen , setIsOpen] = useState(false);
+  /*-------------------------------------------------------*/
+  const [idProject, setIdProject] = useState("");
+   /*----------------------------tree---------------------------------*/
+   const [treemodal, settreeModal] = useState(false);
+   const [treeunmountOnClose] = useState(false);
+   const toggleTreeModal = (id) => {
+     settreeModal(!treemodal);
+     setIdProject(id);
+     console.log(id)
+   };
+   const toggle = () => setIsOpen(!isOpen);
   const [data] = useState(props.trees);
   const datamap = data.map((element)=>{
     return(
-      <Col key={element.id} xs="12" sm="6" md="4" lg="3" className="col">
+      <Col key={element._id} xs="12" sm="6" md="4" lg="3" className="col">
         <Card className="card">
           <CardImg top  className="img"  src={"/api/images/"+element.picture} alt={element.name}/>
           <CardBody className="text-center">
@@ -34,7 +46,7 @@ const MarketList = (props) => {
             <CardText>
               <a href={'./Market/'.concat(element._id)} className="blue">view more</a>
             </CardText>
-            <Button className="btn">Add to Cart</Button>
+            <Button className="btn" onClick={()=>toggleTreeModal(element._id)}>Add to Cart</Button>
           </CardBody>
         </Card>
       </Col>
@@ -42,6 +54,7 @@ const MarketList = (props) => {
   })
   return(
     <div className="MarketList" data-testid="MarketList">
+      <Treepop modal={treemodal} toggle={toggleTreeModal}  user={props.user}  unmountOnClose={treeunmountOnClose} Tree={props.Tree} idProject={idProject} />
       <Row>
         {props.treesLoading?<div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="light" /></div> : datamap}
       </Row>
