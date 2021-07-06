@@ -66,12 +66,7 @@ const HeaderWithRouter = (props) => {
   
   /*-------------------------------------------------------------------*/
   const toggle = () => setIsOpen(!isOpen);
-  console.log();
-
-  if(props.user.isLoading){
-  return <div></div>;
-  }
-  
+  console.log(props.user);
   return(
     <div>
     <Navbar id="nav" light expand="md">
@@ -96,7 +91,7 @@ const HeaderWithRouter = (props) => {
           </NavItem>
           <NavItem id="navitem" style={{"display":"flex","justify-content":"center","align-items":"center"}}>
             
-              <Cart cartLength = {props.user.userDetail.cart.length} cart={props.user.userDetail.cart} trees={props.trees}   />
+              {props.user==null ? null : <Cart userLoading={props.user.isLoading} removeFromCart={props.removeFromCart} user = {props.user.userDetail} trees={props.trees}   />}
             
           </NavItem>
         </Nav>

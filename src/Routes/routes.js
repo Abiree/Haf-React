@@ -18,7 +18,7 @@ import Donationpop from '../components/Projects/Donationpop/Donationpop';
 /* -----------------import actions--------------------- */
 import { addQuestion, fetchQuestions } from '../redux/actionCreators/questionCreator';
 import { fetchProjects, fetchPagination, fetchAllProjects,AddDonation } from '../redux/actionCreators/projectCreator';
-import { fetchTrees } from '../redux/actionCreators/treesCreator';
+import { fetchTrees,removeFromCart } from '../redux/actionCreators/treesCreator';
 import { fetchUser, Login, logout, IndividuRegister, OrganisationRegister,getUser } from '../redux/actionCreators/LoginRegisterCreator';
 
 const mapStateToProps = state => {
@@ -42,6 +42,9 @@ const mapDispatchToProps = dispatch => ( {
   },
   fetchTrees: () => {
     dispatch( fetchTrees() )
+  },
+  removeFromCart: (userId,id) => {
+    dispatch(removeFromCart(userId,id))
   },
   fetchUser: () => {
     dispatch( fetchUser() )
@@ -113,7 +116,7 @@ class Routes extends PureComponent {
     };
 
     return ( <div>
-      <HeaderWithRouter trees={this.props.Trees.treesList} user={this.props.User} Login={this.props.Login} logout={this.props.logout} IndividuRegister={this.props.IndividuRegister} OrganisationRegister={this.props.OrganisationRegister} getUser={this.props.getUser}/>
+      <HeaderWithRouter removeFromCart={this.props.removeFromCart} trees={this.props.Trees.treesList} user={this.props.User} Login={this.props.Login} logout={this.props.logout} IndividuRegister={this.props.IndividuRegister} OrganisationRegister={this.props.OrganisationRegister} getUser={this.props.getUser}/>
       <TransitionGroup>
         <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
           <Switch>

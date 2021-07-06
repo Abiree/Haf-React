@@ -22,6 +22,8 @@ const TodaysProject = ( props ) => {
     </div> );
   }
 
+  else{
+
   return ( <div className="TodaysProject" data-testid="TodaysProject">
     <h2>Todays Project :
     </h2>
@@ -55,6 +57,7 @@ const TodaysProject = ( props ) => {
       </div>
     </section>
   </div> );
+}
 };
 
 export default TodaysProject;

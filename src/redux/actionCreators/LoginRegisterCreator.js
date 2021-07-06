@@ -10,8 +10,6 @@ export const IndividuRegister = (FirstName,LastName,Email,Password) => (dispatch
       formData.append('email',Email)
       formData.append('password',Password)
       
-    
-    
     axios.post('/api/donors',formData,{
         headers:{
             'Content-Type': 'multipart/form-data'
@@ -66,7 +64,7 @@ export const OrganisationRegister = (OrganisationName, Adresse ,Phone,Email,Pass
 */
 export const Login = (Email,Password) => (dispatch)=> {
    
-    
+ 
     dispatch(loadingUser(true));
     const user = JSON.stringify({
         "email": Email,
