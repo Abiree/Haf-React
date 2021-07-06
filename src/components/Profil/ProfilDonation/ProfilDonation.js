@@ -5,6 +5,7 @@ import { Row, Spinner } from 'reactstrap';
 import './ProfilDonation.scss';
 
 const ProfilDonation = ( props ) => {
+  console.log(props)
   if ( props.profileLoading ) {
     return ( <div className="ProfilDonation" data-testid="ProfilDonation">
       <Spinner color="primary"/>

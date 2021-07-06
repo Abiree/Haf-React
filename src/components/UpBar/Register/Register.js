@@ -109,8 +109,9 @@ const IndividuForm = ( props ) => {
   const { toggle } = props;
 
   const handleSubmit = ( values ) => {
-    const { FirstName, LastName, Email, Password } = values;
-    props.IndividuRegister( FirstName, LastName, Email, Password );
+    console.log(values)
+    const { FirstName, LastName, Email, password } = values;
+    props.IndividuRegister( FirstName, LastName, Email, password );
     toggle();
 
   }
