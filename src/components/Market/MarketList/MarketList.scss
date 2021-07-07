@@ -1,5 +1,6 @@
 
 @import '../../../fontcolors.scss';
+
 .blue{
     color:$primary-color;
 }
@@ -7,9 +8,11 @@
     cursor: pointer;
 }
 .MarketList {
+    
     background-color: $primary-color;
     overflow: hidden;
     padding: 30px;
+    
     .col{
         display: flex;
         justify-content: center;
@@ -67,5 +70,50 @@
         justify-content: center;
         padding: 30px;
     }
+    
 
+}
+.introo{
+    padding-left: 30px;
+    padding-right: 30px;
+   
+   display: flex;
+   justify-content: space-between;
+   @media screen and (max-width:500px){
+       //padding-top: 11vh;
+       display: block;;
+   }
+   .btn{
+    background-color: $primary-color;
+    border-color: $primary-color;
+   }
+   .div1{
+    @media screen and (max-width:500px){
+        width: 100%;
+    }
+    .show{
+        #dropdowntoggle{
+            background-color: $secondary-color;
+            border-color: $secondary-color;
+        }
+    }
+    .div2{
+        display: flex;
+         max-height: 40px;
+         margin: 5px;
+         .btn:hover{
+             background-color: $secondary-color;
+             border-color: $secondary-color;
+         }
+        
+    }
+    .btn-group{
+        margin: 5px;
+    }
+    #dropdowntoggle{
+        background-color: $primary-color;
+        border-color: $primary-color;
+    }
+   
+   }
 }

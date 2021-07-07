@@ -26,7 +26,7 @@ if (data[0][0]!=null){
   <div className="DetailMarket" data-testid="DetailMarket">
     <div className="main"> 
       <div className="treeCategorie">
-        {/*<div id="pad"><b>{data[0][0].category}</b> </div>*/}
+        <div id="pad"><b>{data[0][0].latinName}</b> </div>
         <div className= "vertical"></div>
         <div id="pad"><b>Market</b></div>
       </div>
@@ -36,15 +36,15 @@ if (data[0][0]!=null){
       
         <div className="project"> 
             <div className="projectImage">
-              <img className="img-fluid" src={"/api/images/"+data[0][0].picture} alt="projectimg"/>
+              <img className="img-fluid" src={"/api/images/"+data[0][0].picture} alt="projectimg" style={{"width":"200px"}}/>
             </div>
             <div className="projectDonation">
               <div className="flex">
               <h5>{data[0][0].name}</h5>
-              <p id="price">{data[0][0].price.mad}</p>
+              <p id="price">{data[0][0].price.mad}DH/{data[0][0].price.usd} $</p>
               </div>
               
-              {/*<p id="font">{data[0][0].category}</p>*/}
+              <p id="font">{data[0][0].latinName}</p>
             
                 <div className="priceInput"> 
                 <div className="input-group mb-3">
@@ -65,7 +65,7 @@ if (data[0][0]!=null){
   </div>
 );
 }
-//console.log("koko")
+
 return(
   <div className="DetailMarket" data-testid="DetailMarket">
     <div className="container-lg">

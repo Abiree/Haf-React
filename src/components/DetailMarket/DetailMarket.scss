@@ -121,20 +121,33 @@
 .flex{
     display: flex;
     justify-content: space-between;
+    justify-items: center;
     color: white;
     margin-left: 10px;
     h5{
         font-size: 2rem;
-    }
+        @media screen and (max-width: 426px) {
+            font-size: 1rem;
+            padding-top: 10px;
+            .donation{font-size: 0.85rem;}
+            
+            
+        }
+      
 }
 #font{
     color: white;
     margin-left: 20px ;
 }
-#price{padding-top: 10px;}
-@media screen and (max-width: 363px) {
-    .h5,h5{ font-size: 0.85rem;}
-    .donation{font-size: 0.85rem;}
+#price{padding-top: 10px;
+    @media screen and (max-width: 426px) {
+        font-size: 1rem;
+      
+        
+        
+    }
+}
+
     
     
 }

@@ -28,12 +28,12 @@ const Minilist = (props) =>{
           <CardBody className="text-center">
             <CardTitle tag="h5" className="text-align-center">{element.name}</CardTitle>
             {/*<CardText className="category">{element.category}</CardText>*/}
-            <CardText className="price">{element.price.mad}</CardText>
+            <CardText className="price">{element.price.mad}DH/{element.price.usd} $</CardText>
             <CardText>
               <a href={element._id} className="blue">view more</a>
             </CardText>
             
-            <Button className="btn">Donate</Button>
+            <Button className="btn">Add to cart</Button>
           </CardBody>
         </Card>
       </Col>

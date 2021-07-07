@@ -96,10 +96,10 @@ const MarketList = (props) => {
     );
   })
   return(
-    <div className="MarketList" data-testid="MarketList">
-      <h2>Market</h2>
+    <div  data-testid="MarketList">
+      
        <> 
-      <div className="introo" >
+      <div className="introo"  >
             <div className="div1">
               <ButtonDropdown isOpen={dropdownOpen2} toggle={toggle2} onClick={filtre}>
                 <DropdownToggle caret="caret" id="dropdowntoggle">
@@ -129,6 +129,9 @@ const MarketList = (props) => {
           </div>     
       </> 
       <Treepop addToCart={props.addToCart} modal={treemodal} toggle={toggleTreeModal}  user={props.user}  unmountOnClose={treeunmountOnClose} Tree={props.Tree} treeId={idProject} />
+      <h2>Market</h2>
+      <div className="MarketList">
+      
       <Row>
         {props.treesLoading?<div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="light" /></div> : datamap}
       </Row>
@@ -145,6 +148,7 @@ const MarketList = (props) => {
           </PaginationItem>
         </Pagination>
       </Row>
+      </div>
     </div>
   );
 };
