@@ -113,8 +113,8 @@ const ProjectsList = (props) => {
             <CardText className="parag">{element.description}</CardText>
             <a href={'./project/'.concat(element._id)} className="blue">view more</a>
             <div className="donators">
-              <p className="donator">{element.donations.length} <br/> Donors</p>
-              <p className="don">{element.totalDons} <br/> Donations</p>
+              <p className="donator">{element.donations.length} <br/> Donation</p>
+              <p className="don">{element.totalDons} $<br/> Total Dons</p>
             </div>
             <Button className="btn" onClick={()=>toggleDonateModal(element._id)}>Donate</Button>
           </CardBody>
@@ -134,6 +134,20 @@ const ProjectsList = (props) => {
             <DropdownMenu>
               <DropdownItem id="category">health
               </DropdownItem>
+              <DropdownItem id="category">Economic Growth
+              </DropdownItem>
+              <DropdownItem id="category">Climate Action
+              </DropdownItem>
+              <DropdownItem id="category">Peace and Reconciliation
+              </DropdownItem>
+              <DropdownItem id="category">Education
+              </DropdownItem>
+              <DropdownItem id="category">Physical Health
+              </DropdownItem>
+              <DropdownItem id="category">Child Protection
+              </DropdownItem>
+              
+              
             </DropdownMenu>
           </ButtonDropdown>
           <ButtonDropdown id='date' isOpen={dropdownOpen2} toggle={toggle2} onClick={filtre}>

@@ -24,7 +24,7 @@ const Tree = () => {
               <h1>{tree.title}</h1>
               <p>{tree.paragraph}</p>
               <div className = "treeButtons">
-                <Button className="bfont-weight: 20px;tn">Carbon Calculator</Button>
+                <Button className="bfont-weight: 20px;tn" href='./Market'>Buy Trees</Button>
               </div>
             </div>
           </div> 

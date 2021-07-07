@@ -14,7 +14,7 @@ import ProjectDetail from '../components/DetailProject/DetailProject';
 import Profile from '../components/Profil/Profile';
 import DetailMarket from '../components/DetailMarket/DetailMarket';
 import Donate from '../components/Donate/Donate';
-import Donationpop from '../components/Projects/Donationpop/Donationpop';
+import Buy from '../components/Buy/Buy';
 /* -----------------import actions--------------------- */
 import { addQuestion, fetchQuestions } from '../redux/actionCreators/questionCreator';
 import { fetchProjects, fetchPagination, fetchAllProjects,AddDonation } from '../redux/actionCreators/projectCreator';
@@ -86,14 +86,14 @@ class Routes extends PureComponent {
 
   render() {
     const homeComponent = () => {
-      return ( <Home otherProjects={this.props.Projects.projectsList} projectsLoading={this.props.Projects.isLoading} projectsFailed={this.props.Projects.errMess}/> );
+      return ( <Home otherProjects={this.props.Projects.projectsList} projectsLoading={this.props.Projects.isLoading} projectsFailed={this.props.Projects.errMess} user={this.props.User}/> );
     };
     const projectComponent = () => {
 
       return ( <Projects user={this.props.User} projects={this.props.Projects.projectsList} projectsLoading={this.props.Projects.isLoading} projectsFailed={this.props.Projects.errMess} fetchPagination={this.props.fetchPagination} pagination={this.props.Projects.pagination} query = {this.props.Projects.query}/> );
     };
     const marketComponent = () => {
-      return ( <Market trees={this.props.Trees.treesList} treesLoading={this.props.Trees.isLoading} treesFailed={this.props.Trees.errMess} addToCart={this.props.addToCart} user={this.props.User}/> );
+      return ( <Market trees={this.props.Trees.treesList} treesLoading={this.props.Trees.isLoading} treesFailed={this.props.Trees.errMess} addToCart={this.props.addToCart} user={this.props.User} profile={this.props.User.userDetail}/> );
     };
     const contactComponent = () => {
       return ( <ContactUs questions={this.props.Questions.questions} addQuestion={this.props.addQuestion}/> );
@@ -113,10 +113,8 @@ class Routes extends PureComponent {
       //console.log(props.location.pathname.slice(8))
       return ( <DetailMarket trees={this.props.Trees.treesList} treesLoading={this.props.Trees.isLoading} idtree={this.props.location.pathname.slice( 8 )}/> );
     }
-    const donateComponent = (props) => {
-      //console.log( this.props );
-      return ( <Donate  profile={this.props.User.userDetail} {...props} /> );
-    };
+    
+    
 
     return ( <div>
       <HeaderWithRouter removeFromCart={this.props.removeFromCart} trees={this.props.Trees.treesList} user={this.props.User} Login={this.props.Login} logout={this.props.logout} IndividuRegister={this.props.IndividuRegister} OrganisationRegister={this.props.OrganisationRegister} getUser={this.props.getUser}/>
@@ -130,6 +128,9 @@ class Routes extends PureComponent {
             <Route exact="exact" path="/ContactUs" component={contactComponent}/>
             <Route exact="exact" path="/Profil" component={profilComponent}/>
             <Route path="/project/:id" component={detailprojectComponent}/>
+            <Route path="/buy"  render={(props) => <Buy {...props} profile={this.props.User.userDetail} />}/>
+
+
             <Route path="/donate"  render={(props) => <Donate {...props} profile={this.props.User.userDetail} AddDonation={this.props.AddDonation}/>}/>
             <Redirect to="/home"/>
           </Switch>

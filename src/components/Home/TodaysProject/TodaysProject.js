@@ -4,9 +4,21 @@ import './TodaysProject.scss';
 import { Button, Progress, Spinner } from 'reactstrap';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import Donationpop from '../../Projects/Donationpop/Donationpop';
 
 const TodaysProject = ( props ) => {
+
   const [ project ] = useState( props.project );
+  const [idProject, setIdProject] = useState("");
+  /*----------------------------donate---------------------------------*/
+  const [donatemodal, setdonateModal] = useState(false);
+  const [donateunmountOnClose] = useState(false);
+  const toggleDonateModal = (id) => {
+    setdonateModal(!donatemodal);
+    setIdProject(id);
+    console.log(id)
+    
+  };
 
   useEffect( () => {
     Aos.init( { duration: 1000 } );
@@ -41,16 +53,17 @@ const TodaysProject = ( props ) => {
           <p>{project.description}</p>
           <div className="slider">
             <p className="donator">{project.totalDons}
-              DH</p>
+              $</p>
             <p className="don">{project.goal}
-              DH</p>
+              $</p>
           </div>
           <div className="range">
             <Progress value={parseInt( ( project.totalDons / project.goal ) * 100 )}/>
           </div>
           <div className="DonateIntro">
-            <Button className="bfont-weight: 20px;tn">Donate Now</Button>
-            <a className="detail" href="#">More Detail &gt;&gt;
+            <Button className="bfont-weight: 20px;tn"  onClick={()=>toggleDonateModal(project._id)}>Donate Now</Button>
+            <Donationpop modal={donatemodal} toggle={toggleDonateModal}  user={props.user}  unmountOnClose={donateunmountOnClose} Donate={props.Donate} idProject={idProject} />
+            <a className="detail" href={'./project/'.concat(project._id)}>More Detail &gt;&gt;
             </a>
           </div>
         </div>

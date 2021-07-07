@@ -44,7 +44,7 @@ const Market = (props) =>{
             </div>
             <div>
                 {navItems.tree ? <div> <Filltrage/><h2>Market</h2><MarketList addToCart={props.addToCart} trees={props.trees} treesLoading={props.treesLoading} treesFailed={props.treesFailed} user={props.user}/></div> :null}
-                {navItems.carbon ? <CarbonCredit/>:null}
+                {navItems.carbon ? <CarbonCredit profile={props.profile}/>:null}
             </div>
    
   </div>

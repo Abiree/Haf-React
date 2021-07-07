@@ -1,14 +1,37 @@
 import {  NavbarBrand, Dropdown, DropdownToggle, DropdownMenu, DropdownItem , NavItem ,Button, Spinner } from 'reactstrap';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
+import {
+  Redirect
+} from "react-router-dom";
 
 
 
 const Cart = (props) => {
+  
+  const [toNext, setToNext] = useState(false)
+
+  //useEffect(()=>{setToNext(false)},[])
+
+  
+  const handleSubmit = (values) => {
+  
+    if(props.user == null   ){
+     
+     
+    }
+    else{
+      
+     
+      setToNext(true)
+    }
+    
+  }
+
   /*----------------------------Dropdown-------------------------------*/
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggleDrop = () => setDropdownOpen(prevState => !prevState);
 
-      let total = 0;
+      let input = 0;
 
       const itemo = props.trees.filter(( { _id } ) => {
         return props.user==null || props.userLoading ? null:props.user.cart.some( include => include.treeId === _id )
@@ -21,7 +44,8 @@ const Cart = (props) => {
       const Item = itemo.map((element,index)=>{
         console.log(props.user.cart[index].quantity)
         console.log(element.price)
-        total = total + (Number(props.user.cart[index].quantity) * Number(element.price.mad))
+        input = input + (Number(props.user.cart[index].quantity) * Number(element.price.mad))
+
         return(
           <DropdownItem key={element._id}>
             <div style={{"display": "flex" , "justify-content" : "space-between", "align-items" : "center" , "padding" : "7px" , "width":"200px"}} >
@@ -34,6 +58,7 @@ const Cart = (props) => {
                   </div> 
                 </div>
               </div>
+           
               <Button className="btn btn-danger" style={{"padding":"0px 7px 0px 7px"}} onClick={()=>remove(element._id)}>X</Button>
             </div>
           </DropdownItem>
@@ -55,8 +80,17 @@ const Cart = (props) => {
                       <DropdownItem header>Trees</DropdownItem>
                        {props.userLoading? <div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="light" /></div> :Item}
                       <DropdownItem divider/>
-                      <DropdownItem style={{"display":"flex","justify-content":"space-between","font-size":"12px"}}><span>Total : </span><span>{total}$</span></DropdownItem>
-                      <DropdownItem><Button className="btn btn-primary" style={{"width":"100%"}} >Buy</Button></DropdownItem>
+                      <DropdownItem style={{"display":"flex","justify-content":"space-between","font-size":"12px"}}><span>Total : </span><span>{input}$</span></DropdownItem>
+                     
+                      <DropdownItem>
+                      {toNext ? <Redirect to={{
+                      pathname: '/buy',
+                      state: { input: {input},
+                      name:"Trees"
+
+                   }
+                  }} /> : null}
+                        <Button className="btn btn-primary" style={{"width":"100%"}} onClick={handleSubmit}>Buy</Button></DropdownItem>
                     </DropdownMenu>
 
                   </Dropdown>

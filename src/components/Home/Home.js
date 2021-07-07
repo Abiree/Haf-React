@@ -17,10 +17,10 @@ const Home = (props) => {
     <div className="Home" data-testid="Home">
       <Intro/>
       <Numbers/>
-      <TodaysProject project={todayProject} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>
-      <OtherProjects projects={otherProjects} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed}/>
+      <TodaysProject project={todayProject} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed} user={props.user}/>
+      <OtherProjects projects={otherProjects} projectsLoading={props.projectsLoading} projectsFailed={props.projectsFailed} user={props.user}/>
       <Achievements/>
-      <Carbon/>
+      <Carbon user={props.user}/>
       <Tree />
     </div>
   );

@@ -82,7 +82,7 @@ export const Login = (Email,Password) => (dispatch)=> {
 
 export const fetchUser = () => (dispatch) =>{
     dispatch(loadingUser(true));
-    axios.get('/jwtid')
+    axios.get('/donor/jwtid')
     .then((res)=>dispatch(getUser(res.data)))
     .catch((err)=>dispatch(failedUser(err)));
 }

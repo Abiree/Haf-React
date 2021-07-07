@@ -29,7 +29,11 @@ export const AddDonation = (projectId,donorId,amount) => (dispatch)=> {
       headers:{
           'Content-Type': 'application/json'
       }
-  });
+  }).then((result)=>{
+    dispatch(fetchUser())
+}).catch((err)=>{
+    alert("an error have occured")
+});
 }
 
 

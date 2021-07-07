@@ -34,7 +34,7 @@ const ProfilDonation = ( props ) => {
             <b>{element.title}</b>
           </h6>
           <p className="contribution">My Contribution : {summingDonations[ id ]}
-            DH</p>
+            $</p>
           <p className="donations">donatedAt : {appearanceTime[ id ]}
             times</p>
         </div>

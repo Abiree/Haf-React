@@ -16,8 +16,8 @@ const Intro = () => (
           at aliquet sem. Nulla facilisi.
         </p>
         <div className="IntroButtons">
-          <Button className="btn">Donate Now</Button>
-          <a href="#">How It Works ?</a>
+          <Button className="btn" href='./project'>Donate Now</Button>
+          <a href="./ContactUs">How It Works ?</a>
         </div>
       </div>
     </div>
