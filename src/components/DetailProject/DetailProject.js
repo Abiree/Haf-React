@@ -68,8 +68,8 @@ const DetailProject = ( props ) => {
             </div>
             <div className="projectDonation">
               <h5 id="font">{data[ 0 ][ 0 ].totalDons}
-                DH raised of {data[ 0 ][ 0 ].goal}
-                DH goal</h5>
+                $ raised of {data[ 0 ][ 0 ].goal}
+                $ goal</h5>
               <div className="slider"></div>
               <div className="range">
                 <Progress value={parseInt( ( data[ 0 ][ 0 ].totalDons / data[ 0 ][ 0 ].goal ) * 100 )}/>
@@ -81,14 +81,14 @@ const DetailProject = ( props ) => {
                 </p>
                 <p className="price">
                   <b>{parseInt( data[ 0 ][ 0 ].goal - data[ 0 ][ 0 ].totalDons )}
-                    DH to go</b>
+                    $ to go</b>
                 </p>
               </div>
               <div className="priceInput">
                 <div className="input-group mb-3">
                   <input className="form-control" type="text" aria-label="Amount (to the nearest dirham)" placeholder="Price ..." value={input} onInput={e => setInput(e.target.value)}/>
                   <span className="input-group-text">
-                    <b>DH</b>
+                    <b>$</b>
                   </span>
                   {toNext ? <Redirect to={{
                       pathname: '/donate',
