@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useState} from 'react';
 import './Market.scss';
-import Filltrage from './Filltrage/Filltrage';
 import MarketList from './MarketList/MarketList';
 import CarbonCredit from './CarbonCredit/CarbonCredit';
 
@@ -15,7 +14,6 @@ const Market = (props) =>{
   };
   const toggle = (Event) =>{
     
-   
       switch (Event.target.id) {
           case "trees":
               setnavItems({"tree":true,"carbon":false});
@@ -43,7 +41,7 @@ const Market = (props) =>{
         </ul>
             </div>
             <div>
-                {navItems.tree ? <div> <Filltrage/><h2>Market</h2><MarketList addToCart={props.addToCart} trees={props.trees} treesLoading={props.treesLoading} treesFailed={props.treesFailed} user={props.user}/></div> :null}
+                {navItems.tree ? <div><MarketList addToCart={props.addToCart} trees={props.trees} treesLoading={props.treesLoading} treesFailed={props.treesFailed} user={props.user} fetchTreePagination={props.fetchTreePagination} pagination={props.pagination} query = {props.query}/></div> :null}
                 {navItems.carbon ? <CarbonCredit profile={props.profile}/>:null}
             </div>
    

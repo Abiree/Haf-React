@@ -1,6 +1,7 @@
 import * as projectActions from "../actions/projectActions";
 import axios from 'axios';
 import { fetchUser } from "./LoginRegisterCreator";
+
 export const fetchProjects = () => ( dispatch ) => {
   dispatch( projectsLoading( true ) );
   axios.get( '/api/projects?limit=8' ).then( ( result ) => {
@@ -43,6 +44,7 @@ export const projectsLoading = () => ( { type: projectActions.LOADING_PORJECTS }
 export const addProjects = ( projects, number , query) => {
   return ( { type: projectActions.ADD_PROJECTS, payload: projects, pagination: number , query: query} )
 }
+
 export const addAllProjects = ( result ) => {
   return ( { type: projectActions.ADD_ALL_PROJECTS, payload: result } )
 }

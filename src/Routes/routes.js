@@ -18,7 +18,7 @@ import Buy from '../components/Buy/Buy';
 /* -----------------import actions--------------------- */
 import { addQuestion, fetchQuestions } from '../redux/actionCreators/questionCreator';
 import { fetchProjects, fetchPagination, fetchAllProjects,AddDonation } from '../redux/actionCreators/projectCreator';
-import { fetchTrees,removeFromCart, addToCart } from '../redux/actionCreators/treesCreator';
+import { fetchTrees,fetchAllTrees,removeFromCart, fetchTreePagination , addToCart } from '../redux/actionCreators/treesCreator';
 import { fetchUser, Login, logout, IndividuRegister, OrganisationRegister,getUser } from '../redux/actionCreators/LoginRegisterCreator';
 
 const mapStateToProps = state => {
@@ -42,6 +42,12 @@ const mapDispatchToProps = dispatch => ( {
   },
   fetchTrees: () => {
     dispatch( fetchTrees() )
+  },
+  fetchAllTrees: () => {
+    dispatch( fetchAllTrees() )
+  },
+  fetchTreePagination : (Number , query) => {
+    dispatch( fetchTreePagination(Number , query))
   },
   addToCart:(id, quantity,userId) =>{
     dispatch(addToCart(id,quantity,userId))
@@ -82,6 +88,7 @@ class Routes extends PureComponent {
     this.props.fetchTrees();
     this.props.fetchQuestions();
     this.props.fetchAllProjects();
+    this.props.fetchAllTrees();
   }
 
   render() {
@@ -93,7 +100,7 @@ class Routes extends PureComponent {
       return ( <Projects user={this.props.User} projects={this.props.Projects.projectsList} projectsLoading={this.props.Projects.isLoading} projectsFailed={this.props.Projects.errMess} fetchPagination={this.props.fetchPagination} pagination={this.props.Projects.pagination} query = {this.props.Projects.query}/> );
     };
     const marketComponent = () => {
-      return ( <Market trees={this.props.Trees.treesList} treesLoading={this.props.Trees.isLoading} treesFailed={this.props.Trees.errMess} addToCart={this.props.addToCart} user={this.props.User} profile={this.props.User.userDetail}/> );
+      return ( <Market trees={this.props.Trees.treesList} treesLoading={this.props.Trees.isLoading} treesFailed={this.props.Trees.errMess} addToCart={this.props.addToCart} user={this.props.User} profile={this.props.User.userDetail} fetchTreePagination={this.props.fetchTreePagination} pagination={this.props.Trees.pagination} query = {this.props.Trees.query} /> );
     };
     const contactComponent = () => {
       return ( <ContactUs questions={this.props.Questions.questions} addQuestion={this.props.addQuestion}/> );
