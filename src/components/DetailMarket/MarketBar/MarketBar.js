@@ -28,7 +28,7 @@ const MarketBar = (props) =>{
   }
   return(
     <div className="Bar" data-testid="Bar">
-    <div className="navigation">
+    <div className="navigation" style={{ "padding-top": "0vh"}}>
       <ul id="navs">
         <li>
           <a className={"link "+activeClass.Detail} id="Details" onClick={toggle}>Detail</a>
@@ -40,9 +40,9 @@ const MarketBar = (props) =>{
           </div>
           <div>
               {navItems.Detail ? <div><Table trees={props.trees} idtree={props.idtree}/></div> :null}
-              {navItems.Photo ? <Album trees={props.trees}/>:null}
+              {navItems.Photo ? <Album trees={props.trees} idtree={props.idtree}/>:null}
           </div>
-          <div className="navigation">
+          <div className="navigation" style={{ "padding-top": "0vh"}}>
       <ul id="navs">
         <li>
           <a className={"linkactive"} id="related" ><b>Related Products</b></a>

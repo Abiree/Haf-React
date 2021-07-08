@@ -3,9 +3,9 @@
 import React from 'react';
 import { Button, Modal, ModalBody } from 'reactstrap';
 import {Control , LocalForm , Errors} from 'react-redux-form';
-import FacebookLogin from 'react-facebook-login';
+//import FacebookLogin from 'react-facebook-login';
 import './Login.scss';
-import { getUser } from '../../../redux/actionCreators/LoginRegisterCreator';
+//import { getUser } from '../../../redux/actionCreators/LoginRegisterCreator';
 
 const Login = (props) => {
   const {modal,toggle,toggleRegister,unmountOnClose} = props;
@@ -58,6 +58,7 @@ const Login = (props) => {
     
      
   }
+
   const responseFacebook = (response) => {
     console.log(response);
     console.log(response.picture.data.url);
@@ -75,15 +76,7 @@ const Login = (props) => {
       <ModalBody>
         <h5 style={hpStyle}><b>HAF</b></h5>
         <p style={hpStyle}>By registering you agree to receive emails with our latest news, you can unsubscribe at any time.</p>
-        <FacebookLogin
-
-          appId="352508136238884"
-          autoLoad={false}
-          fields="name,email,picture"
-          callback={responseFacebook}
-          icon="fa-facebook"
-          textButton=" Login By Facebook"
-        />
+        <Button style={fbBtnStyle}><i style={iStyle} className="fa fa-facebook"></i>Login By Facebook</Button>
         <Button style={googleBtnStyle}><i style={iStyle} className="fa fa-google"></i>Login By Gmail</Button>
         <Button style={ButtonStyle} onClick={toggleToRegister}><i style={iStyle} className="fa fa-envelope"></i>Register By Mail</Button>
         <h6><b>Sign In By mail :</b></h6>

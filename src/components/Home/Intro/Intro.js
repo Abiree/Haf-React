@@ -7,13 +7,10 @@ const Intro = () => (
   <div className="Intro" style={{backgroundImage : "url(./assets/intro.jpg)",backgroundSize: "cover"}} data-testid="Intro">
     <div className="IntroText">
       <div className="elements">
-        <h1>A Big Title</h1>
+        <h1>About Us</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Curabitur vel tortor purus. Donec in tincidunt du Sed congue 
-          ut purus vel molestie. Phasellus eu malesuada lacus. Intel lacinia 
-          at lectus sit amet fermentum. Curabitur sit amet laoreet ligula,
-          at aliquet sem. Nulla facilisi.
+        The High Atlas Foundation is a Moroccan association and a U.S. 501(c)(3) nonprofit organization founded in 2000 by former Peace Corps Volunteers committed to furthering sustainable development. HAF supports Moroccan communities to take action in implementing human development initiatives. HAF promotes organic agriculture, women’s empowerment, youth development, education, and health. Since 2011, HAF has Consultancy Status at the United Nations Economic and Social Council.
+
         </p>
         <div className="IntroButtons">
           <Button className="btn" href='./project'>Donate Now</Button>

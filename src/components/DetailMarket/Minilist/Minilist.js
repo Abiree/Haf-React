@@ -13,8 +13,18 @@ import{
   Button
 } from 'reactstrap';
 
-
-const Minilist = (props) =>{ 
+import Treepop from '../../Market/Treepop/Treepop';
+const Minilist = (props) =>{
+  console.log(props)
+  const [idProject, setIdProject] = useState("");
+   /*----------------------------tree---------------------------------*/
+   const [treemodal, settreeModal] = useState(false);
+   const [treeunmountOnClose] = useState(false);
+   const toggleTreeModal = (id) => {
+     settreeModal(!treemodal);
+     setIdProject(id);
+     console.log(id)
+   }; 
   //console.log(props)
   const [data] = useState(props.trees.slice(0,3));
   //console.log([data]);
@@ -33,7 +43,8 @@ const Minilist = (props) =>{
               <a href={element._id} className="blue">view more</a>
             </CardText>
             
-            <Button className="btn">Add to cart</Button>
+            <Button className="btn" onClick={()=>toggleTreeModal(element._id)}>Add to cart</Button>
+            <Treepop addToCart={props.addToCart} modal={treemodal} toggle={toggleTreeModal}  user={props.user}  unmountOnClose={treeunmountOnClose} Tree={props.Tree} treeId={idProject} />
           </CardBody>
         </Card>
       </Col>

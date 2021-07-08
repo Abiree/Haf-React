@@ -42,7 +42,7 @@ const TodaysProject = ( props ) => {
     <section data-aos="fade-left" className="todayProject">
       <div className="projectImage">
         {
-          project.image == null
+          project === null
             ? null
             : <img className="img-fluid" src={"/api/images/" + project.image} alt="projectimg"/>
         }

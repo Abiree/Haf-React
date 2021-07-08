@@ -6,7 +6,15 @@ import { Progress, Spinner } from 'reactstrap';
 import {
   Redirect
 } from "react-router-dom";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  TwitterShareButton,
+ 
+} from "react-share";
 const DetailProject = ( props ) => {
+  console.log(window.location.href)
   //console.log("chouaib"+props);
   //console.log(props)
   const id = useState( props.idproject );
@@ -134,12 +142,31 @@ const DetailProject = ( props ) => {
             </div>
             <div className="share">
               <div className="projectShare">
-                <button className="btn">
-                  <i className="fa fa-facebook-square" id="white">Share this On facebook</i>
-                </button>
-                <button className="btn">
-                  <i className="fa fa-twitter-square" id="white">Share this On facebook</i>
-                </button>
+               
+                  <FacebookShareButton
+                  
+                  
+                  url={window.location.href}
+                  quote={data[ 0 ][ 0 ].title}
+                  hashtag={"#HighAtlasFondation"}
+                  description={data[ 0 ][ 0 ].description}
+                  className="Demo_some-network_share-button "
+                >
+                  <FacebookIcon size={32} round /> Share this On facebook
+                </FacebookShareButton>
+               
+              
+                <TwitterShareButton
+                  
+                  
+                  url={window.location.href}
+                  quote={data[ 0 ][ 0 ].title}
+                  hashtag={"#HighAtlasFondation"}
+                  description={data[ 0 ][ 0 ].description}
+                  className="Demo_some-network_share-button "
+                >
+                  <TwitterIcon size={32} round /> Share this On Twitter
+                </TwitterShareButton>
               </div>
             </div>
           </div>

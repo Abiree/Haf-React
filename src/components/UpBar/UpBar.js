@@ -13,7 +13,7 @@ import Login from './Login/Login';
 import Register from './Register/Register';
 import Cart from './cart';
 
-/************************NavProfil*******************/
+/*********NavProfil******/
 const NavProfil = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen(prevState => !prevState);
@@ -51,7 +51,7 @@ return(
     </div>
   );
 }
-/********************Navbar***************************/
+/*******Navbar**********/
 const HeaderWithRouter = (props) => {
   const {location} = props;
   const [isOpen , setIsOpen] = useState(false);
@@ -70,7 +70,7 @@ const HeaderWithRouter = (props) => {
   return(
     <div>
     <Navbar id="nav" light expand="md">
-      <NavbarBrand id="brand" href="/">HAF</NavbarBrand>
+      <NavbarBrand id="brand" href="/"><img src="/assets/logo.png" width="50px" height="50px"></img></NavbarBrand>
       <NavbarToggler id="toggler" onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav id="navigation" className="justify-content-end" navbar>
@@ -91,7 +91,7 @@ const HeaderWithRouter = (props) => {
           </NavItem>
           <NavItem id="navitem" style={{"display":"flex","justify-content":"center","align-items":"center"}}>
             
-              {props.user==null ? null : <Cart userLoading={props.user.isLoading} removeFromCart={props.removeFromCart} user = {props.user.userDetail} trees={props.trees}   />}
+              {props.user==null ? null : <Cart userLoading={props.user.isLoading} removeFromCart={props.removeFromCart} user = {props.user.userDetail} trees={props.trees} allTrees={props.allTrees}  />}
             
           </NavItem>
         </Nav>

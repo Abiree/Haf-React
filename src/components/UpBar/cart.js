@@ -33,7 +33,7 @@ const Cart = (props) => {
 
       let input = 0;
 
-      const itemo = props.trees.filter(( { _id } ) => {
+      const itemo = props.allTrees.filter(( { _id } ) => {
         return props.user==null || props.userLoading ? null:props.user.cart.some( include => include.treeId === _id )
       });
 
@@ -44,8 +44,8 @@ const Cart = (props) => {
       const Item = itemo.map((element,index)=>{
         console.log(props.user.cart[index].quantity)
         console.log(element.price)
-        input = input + (Number(props.user.cart[index].quantity) * Number(element.price.mad))
-
+        input = input + (Number(props.user.cart[index].quantity) * Number(element.price.usd))
+        console.log(props.user.cart.filter(item=>item.treeId==element._id)[0])
         return(
           <DropdownItem key={element._id}>
             <div style={{"display": "flex" , "justify-content" : "space-between", "align-items" : "center" , "padding" : "7px" , "width":"200px"}} >
@@ -54,7 +54,7 @@ const Cart = (props) => {
                 <div>
                   <div style={{"margin":"0px 0px 0px 5px" , "font-size":"12px" ,"white-space": "pre-wrap" }}>
                   {element.name} <br/>
-                  <span style={{"font-size":"10px"}}>{props.user.cart[index].quantity} trees</span>
+                  <span style={{"font-size":"10px"}}>{props.user.cart.filter(item=>item.treeId==element._id)[0].quantity} trees</span>
                   </div> 
                 </div>
               </div>
@@ -80,7 +80,7 @@ const Cart = (props) => {
                       <DropdownItem header>Trees</DropdownItem>
                        {props.userLoading? <div style={{'width':'100%','display': 'flex', 'justify-content':'center' }}><Spinner color="light" /></div> :Item}
                       <DropdownItem divider/>
-                      <DropdownItem style={{"display":"flex","justify-content":"space-between","font-size":"12px"}}><span>Total : </span><span>{input}$</span></DropdownItem>
+                      <DropdownItem style={{"display":"flex","justify-content":"space-between","font-size":"12px"}}><span>Total : </span><span>{Number.parseFloat(input).toFixed(2)}$</span></DropdownItem>
                      
                       <DropdownItem>
                       {toNext ? <Redirect to={{

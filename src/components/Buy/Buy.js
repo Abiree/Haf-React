@@ -19,7 +19,7 @@ const Buy = (props) => {
       purchase_units: [
         {
           amount: {
-            value: total.toString(),
+            value: Number.parseFloat(total).toFixed(2).toString(),
           },
         },
       ],
@@ -32,20 +32,20 @@ const Buy = (props) => {
     console.log('ORDER', order);
 };
 
-  const [navItems, setnavItems] = useState({"paypal":true,"credit":false});
-  const [activeClass, setactiveClass] = useState({"paypal":"active","credit":""});
+  const [navItems, setnavItems] = useState({"paypal":true,"otheroption":false});
+  const [activeClass, setactiveClass] = useState({"paypal":"-active","otheroption":""});
   const toggle = (Event) =>{
     
     
       switch (Event.target.id) {
           case "paypals":
-              setnavItems({"paypal":true,"credit":false,"otheroption":false});
-              setactiveClass({"paypal":"-active","credit":"","otheroption":""});
+              setnavItems({"paypal":true,"otheroption":false});
+              setactiveClass({"paypal":"-active","otheroption":""});
               break;
          
           case "otheroptions":
-              setnavItems({"paypal":false,"credit":false,"otheroption":true});
-              setactiveClass({"paypal":"","credit":"","otheroption":"-active"});
+              setnavItems({"paypal":false,"otheroption":true});
+              setactiveClass({"paypal":"","otheroption":"-active"});
               break;   
           default:
             break;
@@ -74,7 +74,7 @@ const Buy = (props) => {
         <div className="paragraph"> 
           <p>
             Please click the button below and follow the instructions
-            provided to complete your  {total} $ .
+            provided to complete your  {Number.parseFloat(total).toFixed(2)} $ .
           </p>
         </div>
         <div>
@@ -84,7 +84,7 @@ const Buy = (props) => {
       onApprove={(data, actions) => onApprove(data, actions)}
     />
         </div></div> :null}
-                {navItems.credit ? <div>credit</div>:null}
+                
                 {navItems.otheroption ? <div>otheroption</div>:null}
             </div>
         

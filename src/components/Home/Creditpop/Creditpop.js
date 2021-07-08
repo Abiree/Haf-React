@@ -20,7 +20,7 @@ const Creditpop = (props) => {
     console.log(input)
     if(props.user.userDetail == null || input=="" ){
       console.log(input)
-      
+      setAlert(true);
       console.log(values)
       
     }
@@ -28,7 +28,7 @@ const Creditpop = (props) => {
       console.log(input)
       
       console.log(values)
-      setAlert(true);
+     
       setToNext(true)
     }
     

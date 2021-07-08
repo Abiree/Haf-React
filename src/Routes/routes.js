@@ -118,13 +118,13 @@ class Routes extends PureComponent {
       //console.log("hehe")
       //console.log(props)
       //console.log(props.location.pathname.slice(8))
-      return ( <DetailMarket trees={this.props.Trees.treesList} treesLoading={this.props.Trees.isLoading} idtree={this.props.location.pathname.slice( 8 )}/> );
+      return ( <DetailMarket trees={this.props.Trees.treesList} treesLoading={this.props.Trees.isLoading} idtree={this.props.location.pathname.slice( 8 )} profile={this.props.User} addToCart={this.props.addToCart}  user={this.props.User}/> );
     }
     
     
 
     return ( <div>
-      <HeaderWithRouter removeFromCart={this.props.removeFromCart} trees={this.props.Trees.treesList} user={this.props.User} Login={this.props.Login} logout={this.props.logout} IndividuRegister={this.props.IndividuRegister} OrganisationRegister={this.props.OrganisationRegister} getUser={this.props.getUser}/>
+      <HeaderWithRouter removeFromCart={this.props.removeFromCart} trees={this.props.Trees.treesList} allTrees={this.props.Trees.allTrees} user={this.props.User} Login={this.props.Login} logout={this.props.logout} IndividuRegister={this.props.IndividuRegister} OrganisationRegister={this.props.OrganisationRegister} getUser={this.props.getUser}/>
       <TransitionGroup>
         <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
           <Switch>

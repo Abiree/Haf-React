@@ -32,8 +32,8 @@ const Donate = (props) => {
     console.log('ORDER', order);
 };
 
-  const [navItems, setnavItems] = useState({"paypal":true,"credit":false});
-  const [activeClass, setactiveClass] = useState({"paypal":"active","credit":""});
+  const [navItems, setnavItems] = useState({"paypal":true,"otheroption":false});
+  const [activeClass, setactiveClass] = useState({"paypal":"-active","otheroption":""});
   const toggle = (Event) =>{
     
     
